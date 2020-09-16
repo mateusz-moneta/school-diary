@@ -1,0 +1,77 @@
+@import '~@angular/material/theming';
+@import '~material-icons/iconfont/material-icons.css';
+
+@import '../styles/settings/colors';
+@import '../styles/settings/default';
+
+@import '../styles/elements/layout';
+
+@import '../styles/components/mat-button';
+@import '../styles/components/mat-card';
+@import '../styles/components/mat-input';
+
+$school-diary-typography: mat-typography-config(
+  $font-family: $font-family,
+  $display-4: mat-typography-level(24px, 28px, 400),
+  $display-3: mat-typography-level(18px, 18px, 300),
+  $display-2: mat-typography-level(16px, 19px, 500),
+  $display-1: mat-typography-level(14px, 14px, 400),
+  $headline: mat-typography-level(32px, 32px, 300),
+  $title: mat-typography-level(24px, 24px, 400),
+  $subheading-2: mat-typography-level(16px, 16px, 400),
+  $body-2: mat-typography-level(14px, 14px, 400),
+  $body-1: mat-typography-level(14px, 14px, 300),
+  $caption: mat-typography-level(12px, 14px, 300),
+  $button: mat-typography-level(16px, 16px, 700)
+);
+
+@include mat-core($school-diary-typography);
+
+$mat-light-theme-background: (
+  status-bar: map_get($mat-grey, 300),
+  app-bar: map_get($mat-grey, 100),
+  background: map_get($mat-grey, A100),
+  hover: rgba(black, 0.04),
+  card: white,
+  dialog: white,
+  disabled-button: $school-diary-grey-200,
+  raised-button: white,
+  focused-button: $black-6-opacity,
+  selected-button: map_get($mat-grey, 300),
+  selected-disabled-button: map_get($mat-grey, 400),
+  disabled-button-toggle: map_get($mat-grey, 200),
+  unselected-chip: map_get($mat-grey, 300),
+  disabled-list-option: map_get($mat-grey, 200)
+);
+
+$mat-light-theme-foreground: (
+  base: black,
+  divider: $dark-dividers,
+  dividers: $dark-dividers,
+  disabled: $dark-disabled-text,
+  disabled-button: $school-diary-grey-400,
+  disabled-text: $dark-disabled-text,
+  hint-text: $dark-disabled-text,
+  secondary-text: $dark-secondary-text,
+  icon: rgba(black, 0.54),
+  icons: rgba(black, 0.54),
+  text: rgba(black, 0.87),
+  slider-min: rgba(black, 0.87),
+  slider-off: rgba(black, 0.26),
+  slider-off-active: rgba(black, 0.38)
+);
+
+$school-diary-primary: mat-palette($school-diary-orange);
+$school-diary-accent: mat-palette($school-diary-yellow, 700);
+$school-diary-warn: mat-palette($school-diary-red);
+
+$school-diary-theme: mat-light-theme($school-diary-primary, $school-diary-accent, $school-diary-warn);
+@include angular-material-theme($school-diary-theme);
+
+@mixin school-diary-theme($theme) {
+  @include school-diary-mat-button($theme);
+  @include school-diary-mat-card($theme);
+  @include school-diary-mat-input($theme);
+}
+
+@include school-diary-theme($school-diary-theme);

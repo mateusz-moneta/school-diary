@@ -1,0 +1,51 @@
+{
+  "npmScope": "school-diary",
+  "affected": {
+    "defaultBase": "master"
+  },
+  "implicitDependencies": {
+    "angular.json": "*",
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
+    "tsconfig.base.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/workspace/tasks-runners/default",
+      "options": {
+        "cacheableOperations": ["build", "lint", "test", "e2e"]
+      }
+    }
+  },
+  "projects": {
+    "school-diary": {
+      "tags": []
+    },
+    "school-diary-e2e": {
+      "tags": [],
+      "implicitDependencies": ["school-diary"]
+    },
+    "api": {
+      "tags": []
+    },
+    "data-access-login": {
+      "tags": []
+    },
+    "feature-login": {
+      "tags": []
+    },
+    "shared": {
+      "tags": []
+    },
+    "feature-register": {
+      "tags": []
+    },
+    "feature-dashboard": {
+      "tags": []
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "typeRoots": ["node_modules/@types"],
+    "lib": ["es2017", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@school-diary/data-access-login": [
+        "libs/data-access-login/src/index.ts"
+      ],
+      "@school-diary/feature-login": ["libs/feature-login/src/index.ts"],
+      "@school-diary/shared": ["libs/shared/src/index.ts"],
+      "@school-diary/feature-register": ["libs/feature-register/src/index.ts"],
+      "@school-diary/feature-dashboard": ["libs/feature-dashboard/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

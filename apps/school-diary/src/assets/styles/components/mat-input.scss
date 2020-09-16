@@ -1,0 +1,102 @@
+@import '../settings/colors';
+
+@mixin school-diary-mat-input($theme) {
+  $primary: map-get($theme, primary);
+  $accent: mat-palette($school-diary-grey);
+  $warn: mat-palette($school-diary-red);
+
+  .mat-form-field.mat-focused {
+    .mat-form-field-label,
+    .mat-form-field-outline {
+      color: mat-color($accent, text);
+    }
+  }
+
+  .mat-form-field-appearance-outline {
+    font: {
+      family: $font-family-light;
+    }
+
+    .mat-form-field-outline {
+      color: #c0c0c0;
+    }
+
+    .mat-form-field-outline-thick {
+      > * {
+        border-width: 1px !important;
+        border-color: #c0c0c0;
+      }
+    }
+
+    .mat-form-field-infix {
+      border-top: 1.6em solid transparent;
+      padding: 0.3em 0 0.5em 0;
+
+      .mat-select-value {
+        line-height: 1.2;
+      }
+
+      .mat-form-field-label-wrapper {
+        line-height: 1.2;
+      }
+
+      .mat-input-element {
+        color: #333333;
+        line-height: 14px;
+
+        &:disabled {
+          color: rgba(0, 0, 0, 0.38);
+        }
+      }
+    }
+
+    .mat-form-field-label {
+      top: 0.9em;
+      color: #666666;
+    }
+
+    .mat-form-field-flex {
+      padding: 0 1em 0 1em;
+      align-items: center;
+
+      &:hover {
+        .mat-form-field-outline {
+          color: #808080;
+        }
+      }
+    }
+
+    .mat-form-field-suffix {
+      top: 2px !important;
+    }
+
+    .mat-datepicker-toggle-active {
+      .mat-icon {
+        filter: invert(0%) brightness(0%);
+      }
+    }
+
+    &.mat-form-field-can-float.mat-form-field-should-float {
+      .mat-form-field-label {
+        transform: translateY(-0.6em) scale(0.75);
+      }
+
+      .mat-form-field-outline-gap {
+        border-top-color: initial !important;
+      }
+    }
+
+    &.mat-form-field-disabled {
+      .mat-icon,
+      .mat-select-arrow {
+        filter: invert(84%) sepia(0%) saturate(1036%) hue-rotate(205deg) brightness(95%) contrast(80%);
+      }
+
+      &:hover {
+        .mat-form-field-outline {
+          color: rgba(0, 0, 0, 0.06);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+@import '../settings/default';
+
+@mixin school-diary-mat-button($theme) {
+  $school-diary-button-typography: mat-typography-config(
+    $font-family: 'Roboto-Bold, "Helvetica Neue", sans-serif',
+    $button: mat-typography-level($base-font-size, $base-font-size, 500)
+  );
+
+  @include mat-button-typography($school-diary-button-typography);
+
+  .mat-button,
+  .mat-flat-button,
+  .mat-raised-button,
+  .mat-button,
+  .mat-stroked-button {
+    padding: $base-unit-space * 3 $base-unit-space * 5 !important;
+    border-radius: $base-unit-space !important;
+    line-height: 1 !important;
+  }
+
+  .mat-stroked-button {
+    &:not([disabled]) {
+      border-color: initial;
+    }
+  }
+}

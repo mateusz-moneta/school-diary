@@ -1,0 +1,177 @@
+$school-diary-white: #ffffff;
+
+$school-diary-black: #000000;
+$school-diary-black-1: rgba(0, 0, 0, 0.87);
+$school-diary-black-2: rgba(0, 0, 0, 0.54);
+$school-diary-black-3: rgba(0, 0, 0, 0.2);
+$school-diary-black-4: rgba(0, 0, 0, 0.08);
+
+$school-diary-grey-10: #f8f8f8;
+$school-diary-grey-50: #f6f6f6;
+$school-diary-grey-100: #eee;
+$school-diary-grey-200: #e8e8e8;
+$school-diary-grey-300: #e2e2e2;
+$school-diary-grey-400: #c0c0c0;
+$school-diary-grey-500: #808080;
+$school-diary-grey-600: #666666;
+$school-diary-grey-700: #333333;
+$school-diary-grey-800: #2d2d2d;
+$school-diary-grey-900: #222222;
+$school-diary-grey-1000: #979797;
+$school-diary-grey-1100: #9b9b9b;
+
+$school-diary-green-50: #299d8f;
+
+$school-diary-yellow-50: #9a8c78;
+$school-diary-yellow-500: #f3bf26;
+$school-diary-yellow-700: #ef9c34;
+
+$school-diary-red-400: #d0021b;
+$school-diary-red-500: #ad1b02;
+$school-diary-red-700: #640000;
+
+$school-diary-orange-50: #d85603;
+
+$school-diary-yellow: (
+  50: #fef7e5,
+  100: #fbecbe,
+  200: #f9df93,
+  300: #f7d267,
+  400: #f5c947,
+  500: #f3bf26,
+  600: #f1b922,
+  700: #ef9c34,
+  800: #eda917,
+  900: #ea9b0d,
+  A100: #ffffff,
+  A200: #fff4e2,
+  A400: #ffe0af,
+  A700: #ffd696,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000
+  )
+);
+
+$school-diary-orange: (
+  50: #faebe1,
+  100: #f3ccb3,
+  200: #ecab81,
+  300: #e4894f,
+  400: #de6f29,
+  500: #d85603,
+  600: #d44f03,
+  700: #ce4502,
+  800: #c83c02,
+  900: #bf2b01,
+  A100: #ffebe7,
+  A200: #ffc0b4,
+  A400: #ff9581,
+  A700: #ff8068,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000
+  )
+);
+
+$school-diary-red: (
+  50: #f5e4e1,
+  100: #e6bbb3,
+  200: #d68d81,
+  300: #c65f4e,
+  400: #b93d28,
+  500: #ad1b02,
+  600: #a61802,
+  700: #9c1401,
+  800: #931001,
+  900: #640000,
+  A100: #ffb1b0,
+  A200: #ff7f7d,
+  A400: #ff4d4a,
+  A700: #ff3430,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #ffffff,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #ffffff
+  )
+);
+
+$school-diary-grey: (
+  50: #e4e4e4,
+  100: #bdbdbd,
+  200: #919191,
+  300: #646464,
+  400: #434343,
+  500: #222222,
+  600: #1e1e1e,
+  700: #191919,
+  800: #141414,
+  900: #0c0c0c,
+  A100: #e76c6c,
+  A200: #e04040,
+  A400: #ec0000,
+  A700: #d30000,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #ffffff,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #ffffff,
+    A400: #ffffff,
+    A700: #ffffff
+  )
+);
+
+$school-diary-palette: (
+  50: #f5e4e1,
+  100: #222222,
+  200: #000000,
+  300: #9a8c78,
+  400: #f3bf26,
+  500: #ef9c34,
+  600: #d85603,
+  700: #ad1b02,
+  800: #640000
+);

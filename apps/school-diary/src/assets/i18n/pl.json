@@ -1,0 +1,42 @@
+{
+  "LOGIN" : {
+    "TITLE" : "Logowanie",
+    "USERNAME" : "Nazwa użytkownika",
+    "PASSWORD": "Hasło",
+    "REMEMBER": "Zapamiętaj",
+    "SUBMIT": "Zaloguj się!",
+    "MESSAGE": "Jeśli nie masz konta, zarejestruj się!",
+    "ENTER-USERNAME": "Wprowadź nazwę użytkownika",
+    "ENTER-PASSWORD": "Wprowadź hasło",
+    "USER-UNREGISTERED": "Użytkownik nie został zarejestrowany.",
+    "INCORRECT-PASSWORD": "Niepoprawne hasło"
+  },
+  "REGISTER" : {
+    "TITLE" : "Rejestracja",
+    "EMAIL": "E-mail",
+    "USERNAME" : "Nazwa użytkownika",
+    "PASSWORD": "Hasło",
+    "REPEAT-PASSWORD": "Potwierdź hasło",
+    "SUBMIT": "Zarejestruj się!",
+    "MESSAGE": "Jeśli już masz konto, zaloguj się!",
+    "ENTER-USERNAME": "Wprowadź nazwę użytkownika",
+    "ENTER-EMAIL": "Wprowadź e-mail",
+    "ENTER-PASSWORD": "Wprowadź hasło",
+    "ENTER-REPEAT-PASSWORD": "Powtórz hasło",
+    "USERNAME-BUSY": "Nazwa użytkownika jest zajęta.",
+    "EMAIL-BUSY": "E-mail jest zajęty.",
+    "USER-REGISTERED": "Użytkownik został zarejestrowany."
+  },
+  "DASHBOARD" : {
+    "TITLE" : "Ekran główny"
+  },
+  "SETTINGS" : {
+    "LANGUAGE": "Język",
+    "SAVE": "Zapisz"
+  },
+  "VALIDATION": {
+    "ENTER-VALID-EMAIL": "Proszę wprowadź poprawny adres e-mail",
+    "FIELD-REQUIRED": "Pole jest wymagane",
+    "MIN-LENGTH": "Wymagana większa ilość znaków"
+  }
+}
