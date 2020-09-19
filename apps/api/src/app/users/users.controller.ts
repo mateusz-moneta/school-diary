@@ -1,6 +1,7 @@
 import { Body, Controller, Post } from '@nestjs/common';
 
-import { RegisterData, User } from '@school-diary/shared';
+import { RegisterData } from '@school-diary/shared';
+import { User } from './entities/user.entity';
 import { UsersService } from './users.service';
 
 @Controller('users')

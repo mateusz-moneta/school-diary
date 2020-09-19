@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { InjectRepository } from '@nestjs/typeorm';
 
-import { RegisterData, User } from '@school-diary/shared';
+import { RegisterData } from '@school-diary/shared';
+import { User } from './entities/user.entity';
 import { UserRepository } from './repositories/user.repository';
 
 @Injectable()

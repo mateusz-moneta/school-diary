@@ -32,9 +32,6 @@
     "api": {
       "tags": []
     },
-    "data-access-login": {
-      "tags": []
-    },
     "feature-login": {
       "tags": []
     },
@@ -45,6 +42,9 @@
       "tags": []
     },
     "feature-dashboard": {
+      "tags": []
+    },
+    "data-access-settings": {
       "tags": []
     }
   }

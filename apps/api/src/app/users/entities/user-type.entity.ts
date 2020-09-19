@@ -8,5 +8,5 @@ export class UserType {
   id: number;
 
   @Column('enum', { enum: UserTypeDefinition })
-  userType: string;
+  userType: UserTypeDefinition;
 }

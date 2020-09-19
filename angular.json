@@ -184,36 +184,6 @@
         }
       }
     },
-    "data-access-login": {
-      "projectType": "library",
-      "root": "libs/data-access-login",
-      "sourceRoot": "libs/data-access-login/src",
-      "prefix": "school-diary",
-      "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/data-access-login/tsconfig.lib.json",
-              "libs/data-access-login/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/data-access-login/**/*"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/data-access-login/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      },
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
-        }
-      }
-    },
     "feature-login": {
       "projectType": "library",
       "root": "libs/feature-login",
@@ -324,6 +294,36 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/feature-dashboard/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "data-access-settings": {
+      "projectType": "library",
+      "root": "libs/data-access-settings",
+      "sourceRoot": "libs/data-access-settings/src",
+      "prefix": "school-diary",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/data-access-settings/tsconfig.lib.json",
+              "libs/data-access-settings/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/data-access-settings/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/data-access-settings/jest.config.js",
             "passWithNoTests": true
           }
         }

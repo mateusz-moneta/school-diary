@@ -8,9 +8,26 @@
   <mat-card-content>
     <div class="row">
       <school-diary-single-control
-        [control]="registerForm.get('username')"
-        [label]="'REGISTER.USERNAME' | translate"
-        [placeholder]="'REGISTER.ENTER-USERNAME' | translate"
+        [control]="registerForm.get('firstName')"
+        [label]="'REGISTER.FIRST-NAME' | translate"
+        [placeholder]="'REGISTER.ENTER-FIRST-NAME' | translate"
+      ></school-diary-single-control>
+    </div>
+
+    <div class="row">
+      <school-diary-single-control
+        [control]="registerForm.get('lastName')"
+        [label]="'REGISTER.LAST-NAME' | translate"
+        [placeholder]="'REGISTER.ENTER-FIRST-NAME' | translate"
+      ></school-diary-single-control>
+    </div>
+
+    <div class="row">
+      <school-diary-single-control
+        [control]="registerForm.get('userType')"
+        [type]="'select'"
+        [label]="'REGISTER.USER-TYPE' | translate"
+        [options]="userTypeOptions"
       ></school-diary-single-control>
     </div>
 
@@ -43,7 +60,15 @@
 
   <mat-card-footer>
     <div class="text-center">
-      <button (click)="register()" color="primary" type="submit" mat-stroked-button>{{ 'REGISTER.SUBMIT' | translate }}</button>
+      <button
+        (click)="register()"
+        [disabled]="registerForm.invalid"
+        color="primary"
+        type="button"
+        mat-stroked-button
+      >
+        {{ 'REGISTER.SUBMIT' | translate }}
+      </button>
     </div>
 
     <div>

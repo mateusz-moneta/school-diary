@@ -1,4 +1,7 @@
 export enum UserTypeDefinition {
-  ADMIN = 'admin',
-  STANDARD_USER = 'standardUser'
+  SYSTEM_ADMINISTRATOR = 'system administrator',
+  EDUCATOR = 'educator',
+  TEACHER = 'teacher',
+  LEGAL_GUARDIAN = 'legal guardian',
+  STUDENT = 'student'
 }

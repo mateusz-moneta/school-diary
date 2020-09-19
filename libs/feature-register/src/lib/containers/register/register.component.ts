@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-import { LanguageService } from '@school-diary/shared';
+import { LanguageService, UserTypeDefinition } from '@school-diary/shared';
 import { RegisterApiService } from '../../services/register-api.service';
 
 @Component({
@@ -11,6 +11,14 @@ import { RegisterApiService } from '../../services/register-api.service';
 export class RegisterComponent implements OnInit {
   error: string;
   registerForm: FormGroup;
+
+  readonly userTypeOptions = [
+    { translationKey: 'SHARED.SYSTEM-ADMINISTRATOR', value: UserTypeDefinition.SYSTEM_ADMINISTRATOR },
+    { translationKey: 'SHARED.EDUCATOR', value: UserTypeDefinition.EDUCATOR },
+    { translationKey: 'SHARED.TEACHER', value: UserTypeDefinition.TEACHER },
+    { translationKey: 'SHARED.LEGAL-GUARDIAN', value: UserTypeDefinition.LEGAL_GUARDIAN },
+    { translationKey: 'SHARED.STUDENT', value: UserTypeDefinition.STUDENT }
+  ];
 
   constructor(
     private formBuilder: FormBuilder,
@@ -25,17 +33,21 @@ export class RegisterComponent implements OnInit {
   register(): void {
     if (this.registerForm.valid) {
       this.registerApiService.register({
+        firstName: this.registerForm.get('firstName').value,
+        lastName: this.registerForm.get('lastName').value,
+        userType: this.registerForm.get('userType').value,
         email: this.registerForm.get('email').value,
-        username: this.registerForm.get('username').value,
-        password: this.registerForm.get('password').value,
+        password: this.registerForm.get('password').value
       }).subscribe();
     }
   }
 
   private initRegisterForm(): void {
     this.registerForm = this.formBuilder.group({
+      firstName: ['', [Validators.required, Validators.minLength(3)]],
+      lastName: ['', [Validators.required, Validators.minLength(6)]],
+      userType: [UserTypeDefinition.LEGAL_GUARDIAN],
       email: ['', [Validators.required, Validators.email]],
-      username: ['', [Validators.required, Validators.minLength(6)]],
       password: ['', [Validators.required, Validators.minLength(8)]],
       repeatPassword: ['', [Validators.required, Validators.minLength(8)]],
     });

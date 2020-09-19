@@ -1,12 +1,28 @@
 <mat-form-field appearance="outline">
   <mat-label>{{ label }}</mat-label>
-  <input
-    [formControl]="control"
-    [placeholder]="placeholder"
-    [type]="type"
-    spellcheck="false"
-    matInput
-  >
+
+  <ng-container [ngSwitch]="type">
+    <ng-container *ngSwitchCase="'select'">
+      <mat-select [formControl]="control">
+        <mat-option
+          *ngFor="let option of options"
+          [value]="option.value"
+        >
+          {{ option.translationKey | translate }}
+        </mat-option>
+      </mat-select>
+    </ng-container>
+
+    <ng-container *ngSwitchDefault>
+      <input
+        [formControl]="control"
+        [placeholder]="placeholder"
+        [type]="type"
+        spellcheck="false"
+        matInput
+      >
+    </ng-container>
+  </ng-container>
 
   <mat-error *ngIf="control.hasError('email') && !control.hasError('required')">
     {{ 'VALIDATION.ENTER-VALID-EMAIL' | translate }}

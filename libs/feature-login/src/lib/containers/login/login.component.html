@@ -17,8 +17,8 @@
     <div class="row">
       <school-diary-single-control
         [control]="loginForm.controls.password"
-        [type]="'password'"
         [label]="'LOGIN.PASSWORD' | translate"
+        [type]="'password'"
         [placeholder]="'LOGIN.ENTER-PASSWORD' | translate"
       ></school-diary-single-control>
     </div>
@@ -26,7 +26,15 @@
 
   <mat-card-footer>
     <div class="text-center">
-      <button (click)="login()" color="primary" type="submit" mat-stroked-button>{{ 'LOGIN.SUBMIT' | translate }}</button>
+      <button
+        (click)="login()"
+        [disabled]="loginForm.invalid"
+        color="primary"
+        type="button"
+        mat-stroked-button
+      >
+        {{ 'LOGIN.SUBMIT' | translate }}
+      </button>
     </div>
 
     <div>

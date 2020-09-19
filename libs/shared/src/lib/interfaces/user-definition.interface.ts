@@ -1,5 +1,5 @@
 import { RegisterData } from './register-data.interface';
 
-export interface User extends RegisterData {
+export interface UserDefinition extends RegisterData {
   isActive: boolean;
 }

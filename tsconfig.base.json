@@ -16,13 +16,15 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@school-diary/data-access-login": [
-        "libs/data-access-login/src/index.ts"
-      ],
       "@school-diary/feature-login": ["libs/feature-login/src/index.ts"],
       "@school-diary/shared": ["libs/shared/src/index.ts"],
       "@school-diary/feature-register": ["libs/feature-register/src/index.ts"],
-      "@school-diary/feature-dashboard": ["libs/feature-dashboard/src/index.ts"]
+      "@school-diary/feature-dashboard": [
+        "libs/feature-dashboard/src/index.ts"
+      ],
+      "@school-diary/data-access-settings": [
+        "libs/data-access-settings/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]

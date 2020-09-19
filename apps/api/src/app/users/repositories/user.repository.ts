@@ -1,20 +1,21 @@
 import { EntityRepository, Repository } from 'typeorm';
 
-import { RegisterData, UserTypeDefinition } from '@school-diary/shared';
+import { RegisterData } from '@school-diary/shared';
 import { User } from '../entities/user.entity';
 
 @EntityRepository(User)
 export class UserRepository extends Repository<User> {
-  async createUser(registerData: RegisterData) {
+  async createUser(registerData: RegisterData): Promise<User> {
     const user = new User();
 
+    user.firstName = registerData.firstName;
+    user.lastName = registerData.lastName;
     user.email = registerData.email;
-    user.username = registerData.username;
     user.password = registerData.password;
-    user.userType.userType = UserTypeDefinition.STANDARD_USER;
+    user.userType.userType = registerData.userType;
     user.isActive = true;
 
-    return await this.save(user);
+    return await this.manager.save(user);
   };
 }
 

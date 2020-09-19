@@ -1,0 +1,9 @@
+@import '../settings/colors';
+
+@mixin school-diary-mat-toolbar($theme) {
+  $primary: map-get($theme, primary);
+  $accent: mat-palette($school-diary-grey);
+  $warn: mat-palette($school-diary-red);
+
+
+}
