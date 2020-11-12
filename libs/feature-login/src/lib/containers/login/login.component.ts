@@ -21,8 +21,8 @@ export class LoginComponent implements OnInit {
   login(): void {
     if (this.loginForm.valid) {
       const loginRequestPayload = {
-        email: this.registerForm.get('email').value,
-        password: this.registerForm.get('password').value
+        email: this.loginForm.get('email').value,
+        password: this.loginForm.get('password').value
       };
 
       this.loginApiService.register(loginRequestPayload).subscribe((user: User) => {
