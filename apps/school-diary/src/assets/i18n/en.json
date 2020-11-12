@@ -1,7 +1,7 @@
 {
   "LOGIN":{
     "TITLE":"Log in",
-    "USERNAME":"Username",
+    "EMAIL":"E-mail",
     "PASSWORD":"Password",
     "REMEMBER":"Remember!",
     "SUBMIT":"Log in!",

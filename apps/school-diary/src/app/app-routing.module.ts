@@ -10,17 +10,17 @@ const routes: Routes = [
     children: [
       {
         path: 'dashboard',
-        loadChildren: () => import('@school-diary/feature-dashboard').then(m => m.FeatureDashboardModule)
+        loadChildren: () => import('@school-diary/school-diary/feature-dashboard').then(m => m.FeatureDashboardModule)
       }
     ]
   },
   {
     path: 'login',
-    loadChildren: () => import('@school-diary/feature-login').then(m => m.FeatureLoginModule)
+    loadChildren: () => import('@school-diary/school-diary/feature-login').then(m => m.FeatureLoginModule)
   },
   {
     path: 'register',
-    loadChildren: () => import('@school-diary/feature-register').then(m => m.FeatureRegisterModule)
+    loadChildren: () => import('@school-diary/school-diary/feature-register').then(m => m.FeatureRegisterModule)
   },
   {
     path: '**',

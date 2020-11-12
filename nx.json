@@ -23,25 +23,40 @@
   },
   "projects": {
     "school-diary": {
-      "tags": []
+      "tags": ["platform:web", "type:application"]
     },
     "school-diary-e2e": {
-      "tags": [],
+      "tags": ["platform:web", "type:application"],
       "implicitDependencies": ["school-diary"]
     },
-    "feature-login": {
-      "tags": []
+    "school-diary-feature-login": {
+      "tags": ["platform:web", "scope:school-diary", "type:feature"]
     },
-    "shared": {
-      "tags": []
+    "school-diary-feature-register": {
+      "tags": ["platform:web", "scope:school-diary", "type:feature"]
     },
-    "feature-register": {
-      "tags": []
+    "school-diary-feature-dashboard": {
+      "tags": ["platform:web", "scope:school-diary", "type:feature"]
     },
-    "feature-dashboard": {
-      "tags": []
+    "school-diary-shared": {
+      "tags": ["platform:web", "scope:school-diary", "type:shared"]
     },
-    "data-access-settings": {
+    "school-diary-data-access-settings": {
+      "tags": ["platform:web", "scope:school-diary", "type:data-access"]
+    },
+    "school-diary-data-access-user": {
+      "tags": ["platform:web", "scope:school-diary", "type:data-access"]
+    },
+    "school-diary-ui-single-control": {
+      "tags": ["platform:web", "scope:school-diary", "type:ui"]
+    },
+    "school-diary-domain": {
+      "tags": ["platform:web", "scope:school-diary", "type:domain"]
+    },
+    "school-diary-util-http-loader-factory": {
+      "tags": ["platform:web", "scope:school-diary", "type:util"]
+    },
+    "school-diary-core": {
       "tags": []
     }
   }
