@@ -7,8 +7,6 @@ import { ToastrModule } from 'ngx-toastr';
     CommonModule,
     ToastrModule.forRoot()
   ],
-  exports: [
-    ToastrModule
-  ]
+  exports: [ToastrModule]
 })
 export class SharedModule {}

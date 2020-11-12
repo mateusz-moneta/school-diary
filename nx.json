@@ -57,7 +57,7 @@
       "tags": ["platform:web", "scope:school-diary", "type:util"]
     },
     "school-diary-core": {
-      "tags": []
+      "tags": ["platform:web", "scope:school-diary", "type:core"]
     }
   }
 }

@@ -1,3 +1,4 @@
+export * from './lib/enums/http-status-code.enum';
 export * from './lib/enums/language.enum';
 export * from './lib/enums/user-type.enum';
 

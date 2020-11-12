@@ -15,6 +15,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { environment } from '../environments/environment';
 import { httpLoaderFactory } from '@school-diary/school-diary/util-http-loader-factory';
 import { MainLayoutComponent } from './containers/main-layout/main-layout.component';
+import { SchoolDiaryCoreModule } from '@school-diary/school-diary/core';
 import { SharedModule } from '@school-diary/school-diary/shared';
 
 @NgModule({
@@ -46,6 +47,7 @@ import { SharedModule } from '@school-diary/school-diary/shared';
     }),
     EffectsModule.forRoot([]),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
+    SchoolDiaryCoreModule,
     SharedModule
   ],
   bootstrap: [AppComponent]
