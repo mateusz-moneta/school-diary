@@ -6,7 +6,7 @@
     "REMEMBER":"Remember!",
     "SUBMIT":"Log in!",
     "MESSAGE":"If you do not have an account, register!",
-    "ENTER-USERNAME":"Enter username",
+    "ENTER-EMAIL":"Enter email",
     "ENTER-PASSWORD":"Enter password",
     "USER-UNREGISTERED":"User has not been registered.",
     "INCORRECT-PASSWORD":"Incorrect password"

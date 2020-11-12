@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-import { LanguageService } from '@school-diary/shared';
+import { LoginApiService } from '../../services/login-api.service';
+import { User } from '@school-diary/shared';
 
 @Component({
   selector: 'school-diary-login',
@@ -9,20 +10,30 @@ import { LanguageService } from '@school-diary/shared';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  error: string;
   loginForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private language: LanguageService) { }
+  constructor(private formBuilder: FormBuilder, private loginApiService: LoginApiService) { }
 
   ngOnInit(): void {
     this.initLoginForm();
   }
 
-  login(): void {}
+  login(): void {
+    if (this.loginForm.valid) {
+      const loginRequestPayload = {
+        email: this.registerForm.get('email').value,
+        password: this.registerForm.get('password').value
+      };
+
+      this.loginApiService.register(loginRequestPayload).subscribe((user: User) => {
+        this.loginForm.reset();
+      });
+    }
+  }
 
   private initLoginForm(): void {
     this.loginForm = this.formBuilder.group({
-      username: ['', [Validators.required, Validators.minLength(6)]],
+      email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(8)]]
     });
   }
