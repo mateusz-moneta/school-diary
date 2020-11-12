@@ -29,9 +29,6 @@
       "tags": [],
       "implicitDependencies": ["school-diary"]
     },
-    "api": {
-      "tags": []
-    },
     "feature-login": {
       "tags": []
     },
