@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-import { LanguageService, UserTypeDefinition } from '@school-diary/shared';
+import { LanguageService, User, UserType } from '@school-diary/shared';
 import { RegisterApiService } from '../../services/register-api.service';
 
 @Component({
@@ -9,15 +9,14 @@ import { RegisterApiService } from '../../services/register-api.service';
   templateUrl: './register.component.html'
 })
 export class RegisterComponent implements OnInit {
-  error: string;
   registerForm: FormGroup;
 
   readonly userTypeOptions = [
-    { translationKey: 'SHARED.SYSTEM-ADMINISTRATOR', value: UserTypeDefinition.SYSTEM_ADMINISTRATOR },
-    { translationKey: 'SHARED.EDUCATOR', value: UserTypeDefinition.EDUCATOR },
-    { translationKey: 'SHARED.TEACHER', value: UserTypeDefinition.TEACHER },
-    { translationKey: 'SHARED.LEGAL-GUARDIAN', value: UserTypeDefinition.LEGAL_GUARDIAN },
-    { translationKey: 'SHARED.STUDENT', value: UserTypeDefinition.STUDENT }
+    { translationKey: 'SHARED.SYSTEM-ADMINISTRATOR', value: UserType.SYSTEM_ADMINISTRATOR },
+    { translationKey: 'SHARED.EDUCATOR', value: UserType.EDUCATOR },
+    { translationKey: 'SHARED.TEACHER', value: UserType.TEACHER },
+    { translationKey: 'SHARED.LEGAL-GUARDIAN', value: UserType.LEGAL_GUARDIAN },
+    { translationKey: 'SHARED.STUDENT', value: UserType.STUDENT }
   ];
 
   constructor(
@@ -32,13 +31,17 @@ export class RegisterComponent implements OnInit {
 
   register(): void {
     if (this.registerForm.valid) {
-      this.registerApiService.register({
-        firstName: this.registerForm.get('firstName').value,
-        lastName: this.registerForm.get('lastName').value,
-        userType: this.registerForm.get('userType').value,
+      const registerRequestPayload = {
+        first_name: this.registerForm.get('firstName').value,
+        last_name: this.registerForm.get('lastName').value,
+        user_type: this.registerForm.get('userType').value,
         email: this.registerForm.get('email').value,
         password: this.registerForm.get('password').value
-      }).subscribe();
+      };
+
+      this.registerApiService.register(registerRequestPayload).subscribe((user: User) => {
+        this.registerForm.reset();
+      });
     }
   }
 
@@ -46,7 +49,7 @@ export class RegisterComponent implements OnInit {
     this.registerForm = this.formBuilder.group({
       firstName: ['', [Validators.required, Validators.minLength(3)]],
       lastName: ['', [Validators.required, Validators.minLength(6)]],
-      userType: [UserTypeDefinition.LEGAL_GUARDIAN],
+      userType: [UserType.LEGAL_GUARDIAN],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(8)]],
       repeatPassword: ['', [Validators.required, Validators.minLength(8)]],

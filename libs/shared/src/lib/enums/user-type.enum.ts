@@ -1,4 +1,4 @@
-export enum UserTypeDefinition {
+export enum UserType {
   SYSTEM_ADMINISTRATOR = 'system administrator',
   EDUCATOR = 'educator',
   TEACHER = 'teacher',

@@ -2,17 +2,18 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-import { RegisterData } from '@school-diary/shared';
+import { RegisterRequestPayload } from '../interfaces/register-request.payload';
+import { User } from '@school-diary/shared';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RegisterApiService {
-  readonly apiPath = 'api/users/register';
+  readonly apiPath = '/api/user/register';
 
   constructor(private httpClient: HttpClient) {}
 
-  register(registerData: RegisterData): Observable<void> {
-    return this.httpClient.post<void>(this.apiPath, registerData);
+  register(registerRequestPayload: RegisterRequestPayload): Observable<User> {
+    return this.httpClient.post<User>(this.apiPath, registerRequestPayload);
   }
 }
