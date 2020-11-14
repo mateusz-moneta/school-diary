@@ -1,19 +1,27 @@
 import { Injectable } from '@angular/core';
+import { select, Store } from '@ngrx/store';
 
-import { select, Store, Action } from '@ngrx/store';
-
-import * as fromUser from './user.reducer';
-import * as UserSelectors from './user.selectors';
+import { fromUserActions } from './user.actions';
+import { LoginUserRequestPayload } from '../payloads/login-user.request-payload';
+import { RegisterUserRequestPayload } from '../payloads/register-user.request-payload';
+import { UserPartialState } from './user.reducer';
+import { userQuery } from './user.selectors';
 
 @Injectable()
 export class UserFacade {
-  loaded$ = this.store.pipe(select(UserSelectors.getUserLoaded));
-  allUser$ = this.store.pipe(select(UserSelectors.getAllUser));
-  selectedUser$ = this.store.pipe(select(UserSelectors.getSelected));
+  getLoginUser$ = this.store.pipe(select(userQuery.getLoginUser));
+  getLoginUserInProgress$ = this.store.pipe(select(userQuery.getLoginUserInProgress));
+  isLogoutUser$ = this.store.pipe(select(userQuery.isLogoutUser));
+  getRegisterUser$ = this.store.pipe(select(userQuery.getRegisterUser));
+  getRegisterUserInProgress$ = this.store.pipe(select(userQuery.getRegisterUserInProgress));
 
-  constructor(private store: Store<fromUser.UserPartialState>) {}
+  constructor(private store: Store<UserPartialState>) {}
 
-  dispatch(action: Action) {
-    this.store.dispatch(action);
+  loginUser(loginUserRequestPayload: LoginUserRequestPayload): void {
+    this.store.dispatch(new fromUserActions.LoginUser(loginUserRequestPayload));
+  }
+
+  registerUser(registerUserRequestPayload: RegisterUserRequestPayload): void {
+    this.store.dispatch(new fromUserActions.RegisterUser(registerUserRequestPayload));
   }
 }

@@ -1,28 +1,54 @@
 import { Injectable } from '@angular/core';
-import { createEffect, Actions, ofType } from '@ngrx/effects';
-import { fetch } from '@nrwl/angular';
+import { Router } from '@angular/router';
+import { Actions, createEffect, ofType } from '@ngrx/effects';
+import { pessimisticUpdate } from '@nrwl/angular';
+import { map, tap } from 'rxjs/operators';
 
-import * as fromUser from './user.reducer';
-import * as UserActions from './user.actions';
+import { fromUserActions } from './user.actions';
+import { LoginApiService } from '../services/login-api.service';
+import { LoginUserFailPayload } from '../payloads/login-user-fail.payload';
+import { LoginUserSuccessPayload } from '../payloads/login-user-success.payload';
+import { RegisterApiService } from '../services/register-api.service';
+import { RegisterUserFailPayload } from '../payloads/register-user-fail.payload';
+import { RegisterUserSuccessPayload } from '../payloads/register-user-success.payload';
 
 @Injectable()
 export class UserEffects {
   loginUser$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(UserActions.loadUser),
-      fetch({
-        run: (action) => {
-          // Your custom service 'login' logic goes here. For now just return a success action...
-          return UserActions.loginUserSuccess({ user: [] });
-        },
-
-        onError: (action, error) => {
-          console.error('Error', error);
-          return UserActions.loginUserFailure({ error });
-        },
+      ofType(fromUserActions.Types.LoginUser),
+      pessimisticUpdate({
+        run: (action: fromUserActions.LoginUser) => this.loginApiService.login(action.payload)
+          .pipe(
+            map((payload: LoginUserSuccessPayload) => new fromUserActions.LoginUserSuccess(payload)),
+            tap(() => {
+              this.router.navigate(['/dashboard'])
+            })
+          ),
+        onError: (action: fromUserActions.LoginUser, payload: LoginUserFailPayload) =>
+          new fromUserActions.LoginUserFail(payload)
       })
     )
   );
 
-  constructor(private actions$: Actions) {}
+  registerUser$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(fromUserActions.Types.RegisterUser),
+      pessimisticUpdate({
+        run: (action: fromUserActions.RegisterUser) => this.registerApiService.register(action.payload)
+          .pipe(
+            map((payload: RegisterUserSuccessPayload) => new fromUserActions.RegisterUserSuccess(payload))
+          ),
+        onError: (action: fromUserActions.RegisterUser, payload: RegisterUserFailPayload) =>
+          new fromUserActions.RegisterUserFail(payload)
+      })
+    )
+  );
+
+  constructor(
+    private actions$: Actions,
+    private loginApiService: LoginApiService,
+    private registerApiService: RegisterApiService,
+    private router: Router
+  ) {}
 }

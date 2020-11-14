@@ -1,28 +1,28 @@
-import { UserEntity } from './user.models';
-import * as UserActions from './user.actions';
-import { State, initialState, reducer } from './user.reducer';
+import { User, UserType } from '@school-diary/school-diary/domain';
+import { fromUserActions } from './user.actions';
+import { initialState, userReducer, UserState } from './user.reducer';
 
 describe('User Reducer', () => {
-  const createUserEntity = (id: string, name = '') =>
+  const createUserEntity = (id: number, first_name = '', last_name = '', type = UserType.STUDENT) =>
     ({
       id,
-      name: name || `name-${id}`,
-    } as UserEntity);
+      first_name,
+      last_name,
+      type
+    } as User);
 
   beforeEach(() => {});
 
   describe('valid User actions', () => {
-    it('loadUserSuccess should return set the list of known User', () => {
-      const user = [
-        createUserEntity('PRODUCT-AAA'),
-        createUserEntity('PRODUCT-zzz'),
-      ];
-      const action = UserActions.loadUserSuccess({ user });
+    it('loginUserSuccess should return set the list of known User', () => {
+      const action = new fromUserActions.LoginUserSuccess({
+        user: createUserEntity(1, 'Mateusz', 'Moneta', UserType.SYSTEM_ADMINISTRATOR),
+        token: 'eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.JC6qKuH9SG0SIiYSfhZUFTtirxN9Q47buLk0DPFFFzE'
+      });
 
-      const result: State = reducer(initialState, action);
+      const result: UserState = userReducer(initialState, action);
 
-      expect(result.loaded).toBe(true);
-      expect(result.ids.length).toBe(2);
+      expect(result.loginUserInProgress).toBe(false);
     });
   });
 
@@ -30,7 +30,7 @@ describe('User Reducer', () => {
     it('should return the previous state', () => {
       const action = {} as any;
 
-      const result = reducer(initialState, action);
+      const result = userReducer(initialState, action);
 
       expect(result).toBe(initialState);
     });

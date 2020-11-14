@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { LanguageService } from '@school-diary/school-diary/shared';
-import { LoginApiService } from '../../services/login-api.service';
-import { User } from '@school-diary/school-diary/domain';
+import { UserFacade } from '@school-diary/school-diary/data-access-user';
 
 @Component({
   selector: 'school-diary-login',
@@ -13,7 +12,7 @@ import { User } from '@school-diary/school-diary/domain';
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private language: LanguageService, private loginApiService: LoginApiService) { }
+  constructor(private formBuilder: FormBuilder, private language: LanguageService, private userFacade: UserFacade) { }
 
   ngOnInit(): void {
     this.initLoginForm();
@@ -26,9 +25,7 @@ export class LoginComponent implements OnInit {
         password: this.loginForm.get('password').value
       };
 
-      this.loginApiService.login(loginRequestPayload).subscribe((user: User) => {
-        this.loginForm.reset();
-      });
+      this.userFacade.loginUser(loginRequestPayload);
     }
   }
 

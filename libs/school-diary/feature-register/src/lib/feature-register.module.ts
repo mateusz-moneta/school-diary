@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 
+import { DataAccessUserModule } from '@school-diary/school-diary/data-access-user';
 import { FeatureRegisterRoutingModule } from './feature-register-routing.module';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -13,6 +14,7 @@ import { UiSingleControlModule } from '@school-diary/school-diary/ui-single-cont
 @NgModule({
   imports: [
     CommonModule,
+    DataAccessUserModule,
     FeatureRegisterRoutingModule,
     FormsModule,
     MatButtonModule,

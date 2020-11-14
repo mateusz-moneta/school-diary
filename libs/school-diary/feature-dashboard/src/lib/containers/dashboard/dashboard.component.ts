@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { panelCardsConfig } from '../../configs/panel-cards.config';
 import { SettingsFacade } from '@school-diary/school-diary/data-access-settings';
 import { Language } from '@school-diary/school-diary/domain';
+import { LanguageService } from '@school-diary/school-diary/shared';
 
 @Component({
   selector: 'school-diary-dashboard',
@@ -12,7 +13,7 @@ import { Language } from '@school-diary/school-diary/domain';
 export class DashboardComponent implements OnInit {
   readonly panelCardsConfig = panelCardsConfig;
 
-  constructor(private settingsFacade: SettingsFacade) {}
+  constructor(private settingsFacade: SettingsFacade, private language: LanguageService) {}
 
   ngOnInit(): void {
     this.settingsFacade.changeLanguage(Language.PL);

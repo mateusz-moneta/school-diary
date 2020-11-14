@@ -39,7 +39,9 @@
     "SYSTEM-ADMINISTRATOR":"Administrator systemowy",
     "STUDENT":"Student",
     "TEACHER":"Nauczyciel",
-    "UNEXPECTED_ERROR_OCCURRED":"Nieznany problem"
+    "UNEXPECTED_ERROR_OCCURRED":"Nieznany problem",
+    "USER_HAS_NOT_EXIST":"Użytkownik nie został stworzony",
+    "USER_ALREADY_EXIST":"Użytkownik już istnieje"
   },
   "SETTINGS":{
     "LANGUAGE": "Język",

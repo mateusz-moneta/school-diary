@@ -1,7 +1,7 @@
 export enum UserType {
-  SYSTEM_ADMINISTRATOR = 'system administrator',
+  SYSTEM_ADMINISTRATOR = 'systemAdministrator',
   EDUCATOR = 'educator',
   TEACHER = 'teacher',
-  LEGAL_GUARDIAN = 'legal guardian',
+  LEGAL_GUARDIAN = 'legalGuardian',
   STUDENT = 'student'
 }

@@ -39,7 +39,9 @@
     "SYSTEM-ADMINISTRATOR":"System administrator",
     "STUDENT":"Student",
     "TEACHER":"Teacher",
-    "UNEXPECTED_ERROR_OCCURRED":"Unexpected error occured"
+    "UNEXPECTED_ERROR_OCCURRED":"Unexpected error occured",
+    "USER_HAS_NOT_EXIST":"User has not exist",
+    "USER_ALREADY_EXIST":"User already exist"
   },
   "SETTINGS":{
     "LANGUAGE":"Language",

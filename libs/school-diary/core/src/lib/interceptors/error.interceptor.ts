@@ -20,7 +20,7 @@ export class ErrorInterceptor implements HttpInterceptor {
             break;
 
           default:
-            this.toastrService.error(this.translateService.instant('SHARED.UNEXPECTED_ERROR_OCCURRED'));
+            this.toastrService.error(this.translateService.instant(`SHARED.${response.error.errorKey}` || 'SHARED.UNEXPECTED_ERROR_OCCURRED'));
             break;
         }
 

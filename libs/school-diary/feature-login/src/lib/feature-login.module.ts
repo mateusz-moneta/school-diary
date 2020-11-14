@@ -5,8 +5,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { TranslateModule } from '@ngx-translate/core';
 
+import { DataAccessUserModule } from '@school-diary/school-diary/data-access-user';
 import { FeatureLoginRoutingModule } from './feature-login-routing.module';
 import { LoginComponent } from './containers/login/login.component';
+import { LoginGuard } from './guards/login.guard';
 import { SharedModule } from '@school-diary/school-diary/shared';
 import { UiSingleControlModule } from '@school-diary/school-diary/ui-single-control';
 
@@ -14,6 +16,7 @@ import { UiSingleControlModule } from '@school-diary/school-diary/ui-single-cont
   declarations: [LoginComponent],
   imports: [
     CommonModule,
+    DataAccessUserModule,
     FeatureLoginRoutingModule,
     FormsModule,
     MatButtonModule,
@@ -21,6 +24,7 @@ import { UiSingleControlModule } from '@school-diary/school-diary/ui-single-cont
     SharedModule,
     TranslateModule.forChild(),
     UiSingleControlModule
-  ]
+  ],
+  providers: [LoginGuard]
 })
 export class FeatureLoginModule {}

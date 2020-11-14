@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { LanguageService } from '@school-diary/school-diary/shared';
-import { RegisterApiService } from '../../services/register-api.service';
-import { User, UserType } from '@school-diary/school-diary/domain';
+import { UserFacade } from '@school-diary/school-diary/data-access-user';
+import { UserType } from '@school-diary/school-diary/domain';
 
 @Component({
   selector: 'school-diary-register',
@@ -23,7 +23,7 @@ export class RegisterComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private language: LanguageService,
-    private registerApiService: RegisterApiService
+    private userFacade: UserFacade
   ) {}
 
   ngOnInit(): void {
@@ -35,14 +35,13 @@ export class RegisterComponent implements OnInit {
       const registerRequestPayload = {
         first_name: this.registerForm.get('firstName').value,
         last_name: this.registerForm.get('lastName').value,
-        user_type: this.registerForm.get('userType').value,
+        type: this.registerForm.get('userType').value,
         email: this.registerForm.get('email').value,
         password: this.registerForm.get('password').value
       };
 
-      this.registerApiService.register(registerRequestPayload).subscribe((user: User) => {
-        this.registerForm.reset();
-      });
+      this.userFacade.registerUser(registerRequestPayload);
+      this.registerForm.reset();
     }
   }
 

@@ -1,9 +1,9 @@
 import { UserType } from '@school-diary/school-diary/domain';
 
-export interface RegisterRequestPayload {
+export interface RegisterUserRequestPayload {
   first_name: string;
   last_name: string;
-  user_type: UserType;
+  type: UserType;
   email: string;
   password: string;
 }
