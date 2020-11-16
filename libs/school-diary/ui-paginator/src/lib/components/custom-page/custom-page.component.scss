@@ -1,0 +1,24 @@
+:host {
+  margin: 1%;
+}
+
+button {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid #f0f0f0;
+  border-radius: 5px;
+  box-sizing: border-box;
+  outline: none;
+  background: transparent;
+  color: #4a4a4a;
+  min-width: 32px;
+  height: 32px;
+}
+
+.selected {
+  color: #d85603;
+  border-color: #d85603;
+}

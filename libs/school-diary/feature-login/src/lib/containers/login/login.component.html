@@ -1,46 +1,46 @@
-<mat-card class="school-diary-mat-card">
-  <mat-card-header>
-    <mat-card-title>
-      {{ 'LOGIN.TITLE' | translate }}
-    </mat-card-title>
-  </mat-card-header>
+<div class="school-diary-mat-card-container container">
+  <mat-card class="school-diary-mat-card">
+    <mat-card-header>
+      <mat-card-title>
+        {{ 'LOGIN.TITLE' | translate }}
+      </mat-card-title>
+    </mat-card-header>
 
-  <mat-card-content>
-    <div class="row">
-      <school-diary-single-control
-        [control]="loginForm.controls.email"
-        [label]="'SHARED.EMAIL' | translate"
-        [placeholder]="'SHARED.ENTER-EMAIL' | translate"
-      ></school-diary-single-control>
-    </div>
+    <mat-card-content>
+      <div class="row">
+        <school-diary-single-control
+          [control]="loginForm.controls.email"
+          [label]="'SHARED.EMAIL' | translate"
+          [placeholder]="'SHARED.ENTER-EMAIL' | translate"
+        ></school-diary-single-control>
+      </div>
 
-    <div class="row">
-      <school-diary-single-control
-        [control]="loginForm.controls.password"
-        [label]="'SHARED.PASSWORD' | translate"
-        [type]="'password'"
-        [placeholder]="'SHARED.ENTER-PASSWORD' | translate"
-      ></school-diary-single-control>
-    </div>
-  </mat-card-content>
+      <div class="row">
+        <school-diary-single-control
+          [control]="loginForm.controls.password"
+          [label]="'SHARED.PASSWORD' | translate"
+          [type]="'password'"
+          [placeholder]="'SHARED.ENTER-PASSWORD' | translate"
+        ></school-diary-single-control>
+      </div>
+    </mat-card-content>
 
-  <mat-card-footer>
-    <div class="text-center">
-      <button
-        (click)="login()"
-        [disabled]="loginForm.invalid"
-        color="primary"
-        type="button"
-        mat-stroked-button
-      >
-        {{ 'LOGIN.SUBMIT' | translate }}
-      </button>
-    </div>
+    <mat-card-footer>
+      <div class="text-center">
+        <button
+          (click)="login()"
+          [disabled]="loginForm.invalid"
+          color="primary"
+          type="button"
+          mat-stroked-button
+        >
+          {{ 'LOGIN.SUBMIT' | translate }}
+        </button>
+      </div>
 
-    <div>
-      <a [routerLink]="'/register'" class="d-block text-center">{{ 'LOGIN.MESSAGE' | translate }}</a>
-    </div>
-  </mat-card-footer>
-</mat-card>
-
-
+      <div>
+        <a [routerLink]="'/register'" class="d-block text-center">{{ 'LOGIN.MESSAGE' | translate }}</a>
+      </div>
+    </mat-card-footer>
+  </mat-card>
+</div>

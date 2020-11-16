@@ -1,1 +1,1 @@
-export * from './lib/ui-single-control.module';
+export * from './lib/school-diary-ui-single-control.module';

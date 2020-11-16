@@ -29,17 +29,28 @@
     "PRAISE-AND-ATTENTION":"Praise and attention",
     "EXCUSES":"Excuses"
   },
+  "CONFIGURATION-SUBJECTS":{
+    "TITLE":"Subjects",
+    "CREATOR-TITLE":"Create a new subject"
+  },
   "SHARED":{
+    "CREATED-AT":"Created at",
     "EDUCATOR":"Educator",
     "EMAIL":"E-mail",
     "ENTER-EMAIL":"Enter e-mail",
     "ENTER-PASSWORD":"Enter password",
+    "ITEMS-PER-PAGE":"Items per page",
     "LEGAL-GUARDIAN":"Legal guardian",
+    "NAME":"Name",
+    "OF":"Of",
+    "PAGE":"Page",
     "PASSWORD":"Password",
+    "SHORT-NAME":"Short name",
     "SYSTEM-ADMINISTRATOR":"System administrator",
     "STUDENT":"Student",
     "TEACHER":"Teacher",
     "UNEXPECTED_ERROR_OCCURRED":"Unexpected error occured",
+    "UPDATED-AT":"Updated at",
     "USER_HAS_NOT_EXIST":"User has not exist",
     "USER_ALREADY_EXIST":"User already exist"
   },

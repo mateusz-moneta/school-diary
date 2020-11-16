@@ -1,0 +1,54 @@
+<div class="sidenav-wrapper">
+  <div class="nav__menu">
+    <ng-container *ngFor="let item of navigation">
+      <ng-container *ngIf="item.children && item.children.length > 0">
+        <div
+          [ngClass]="'nav__item-color-' + item?.colorSaturation"
+          class="nav__collapse-wrapper"
+          routerLinkActive="active"
+        >
+          <a
+            (click)="item.expanded = !item.expanded"
+            [class.collapsed]="item.expanded"
+            class="nav__item nav__collapse-item"
+          >
+            <div class="nav__item-content" mat-ripple>
+              <span matLine>{{ item.title | translate }}</span>
+            </div>
+          </a>
+
+          <div [class.collapsed]="item.expanded" class="nav__sub-category">
+            <ng-container *ngFor="let subItem of item.children">
+              <div class="nav__sub-item-wrapper">
+                <a [routerLink]="subItem.path" class="nav__sub-item" routerLinkActive="active">
+                  <div class="nav__item-content" mat-ripple>
+                    <mat-icon class="nav__menu-icon" matListIcon>{{ subItem.icon }}</mat-icon>
+                    <span matLine>{{ subItem.title | translate }}</span>
+                  </div>
+                </a>
+              </div>
+            </ng-container>
+
+            <mat-divider></mat-divider>
+          </div>
+        </div>
+      </ng-container>
+
+      <ng-container *ngIf="!item.children && !item.divider">
+        <a
+          [ngClass]="'nav__item-color-' + item?.colorSaturation"
+          [routerLink]="item.path"
+          class="nav__item"
+          routerLinkActive="active"
+        >
+          <div mat-ripple class="nav__item-content">
+            <mat-icon matListIcon class="nav__menu-icon">{{ item.icon }}</mat-icon>
+            <span matLine>{{ item.title | translate }}</span>
+          </div>
+        </a>
+      </ng-container>
+
+      <mat-divider *ngIf="item.divider"></mat-divider>
+    </ng-container>
+  </div>
+</div>

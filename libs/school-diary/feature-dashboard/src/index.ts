@@ -1,1 +1,1 @@
-export * from './lib/feature-dashboard.module';
+export * from './lib/school-diary-feature-dashboard.module';

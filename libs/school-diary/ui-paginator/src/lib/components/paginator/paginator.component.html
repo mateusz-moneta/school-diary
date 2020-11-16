@@ -1,0 +1,32 @@
+<div [hidden]="!length" class="paginator-settings-container">
+  <p class="items-per-page">{{ 'SHARED.ITEMS-PER-PAGE' | translate }}</p>
+  <mat-select [formControl]="pageSizeOption">
+    <mat-option *ngFor="let pageSizeOption of pageSizeOptions" [value]="pageSizeOption">
+      {{ pageSizeOption }}
+    </mat-option>
+  </mat-select>
+  <p class="range">{{ 'SHARED.OF' | translate }} {{ length }}</p>
+</div>
+
+<div [hidden]="!length" class="paginator-container">
+  <p class="page">{{ 'SHARED.PAGE' | translate }}</p>
+  <div>
+    <button (click)="firstPage()" [disabled]="currentPage === 0" type="button">
+      <mat-icon>first_page</mat-icon>
+    </button>
+    <button (click)="switchPage(currentPage - 1)" [disabled]="currentPage === 0" type="button">
+      <mat-icon>keyboard_arrow_left</mat-icon>
+    </button>
+  </div>
+  <div class="custom-pages-container">
+    <template #customPagesContainer></template>
+  </div>
+  <div>
+    <button (click)="switchPage(currentPage + 1)" [disabled]="currentPage >= lastIndex" type="button">
+      <mat-icon>keyboard_arrow_right</mat-icon>
+    </button>
+    <button (click)="lastPage()" [disabled]="currentPage >= lastIndex" type="button">
+      <mat-icon>last_page</mat-icon>
+    </button>
+  </div>
+</div>

@@ -29,6 +29,9 @@
     "PRAISE-AND-ATTENTION":"Pochwały i uwagi",
     "EXCUSES":"Usprawiedliwienia"
   },
+  "CONFIGURATION-SUBJECTS":{
+    "TITLE":"Przedmioty"
+  },
   "SHARED":{
     "EDUCATOR":"Wychowawca",
     "EMAIL":"E-mail",

@@ -1,78 +1,80 @@
-<mat-card class="school-diary-mat-card">
-  <mat-card-header>
-    <mat-card-title>
-      {{ 'REGISTER.TITLE' | translate }}
-    </mat-card-title>
-  </mat-card-header>
+<div class="school-diary-mat-card-container container">
+  <mat-card class="school-diary-mat-card">
+    <mat-card-header>
+      <mat-card-title>
+        {{ 'REGISTER.TITLE' | translate }}
+      </mat-card-title>
+    </mat-card-header>
 
-  <mat-card-content>
-    <div class="row">
-      <school-diary-single-control
-        [control]="registerForm.get('firstName')"
-        [label]="'REGISTER.FIRST-NAME' | translate"
-        [placeholder]="'REGISTER.ENTER-FIRST-NAME' | translate"
-      ></school-diary-single-control>
-    </div>
+    <mat-card-content>
+      <div class="row">
+        <school-diary-single-control
+          [control]="registerForm.get('firstName')"
+          [label]="'REGISTER.FIRST-NAME' | translate"
+          [placeholder]="'REGISTER.ENTER-FIRST-NAME' | translate"
+        ></school-diary-single-control>
+      </div>
 
-    <div class="row">
-      <school-diary-single-control
-        [control]="registerForm.get('lastName')"
-        [label]="'REGISTER.LAST-NAME' | translate"
-        [placeholder]="'REGISTER.ENTER-FIRST-NAME' | translate"
-      ></school-diary-single-control>
-    </div>
+      <div class="row">
+        <school-diary-single-control
+          [control]="registerForm.get('lastName')"
+          [label]="'REGISTER.LAST-NAME' | translate"
+          [placeholder]="'REGISTER.ENTER-FIRST-NAME' | translate"
+        ></school-diary-single-control>
+      </div>
 
-    <div class="row">
-      <school-diary-single-control
-        [control]="registerForm.get('userType')"
-        [type]="'select'"
-        [label]="'REGISTER.USER-TYPE' | translate"
-        [options]="userTypeOptions"
-      ></school-diary-single-control>
-    </div>
+      <div class="row">
+        <school-diary-single-control
+          [control]="registerForm.get('userType')"
+          [type]="'select'"
+          [label]="'REGISTER.USER-TYPE' | translate"
+          [options]="userTypeOptions"
+        ></school-diary-single-control>
+      </div>
 
-    <div class="row">
-      <school-diary-single-control
-        [control]="registerForm.get('email')"
-        [label]="'SHARED.EMAIL' | translate"
-        [placeholder]="'SHARED.ENTER-EMAIL' | translate"
-      ></school-diary-single-control>
-    </div>
+      <div class="row">
+        <school-diary-single-control
+          [control]="registerForm.get('email')"
+          [label]="'SHARED.EMAIL' | translate"
+          [placeholder]="'SHARED.ENTER-EMAIL' | translate"
+        ></school-diary-single-control>
+      </div>
 
-    <div class="row">
-      <school-diary-single-control
-        [control]="registerForm.get('password')"
-        [type]="'password'"
-        [label]="'SHARED.PASSWORD' | translate"
-        [placeholder]="'SHARED.ENTER-PASSWORD' | translate"
-      ></school-diary-single-control>
-    </div>
+      <div class="row">
+        <school-diary-single-control
+          [control]="registerForm.get('password')"
+          [type]="'password'"
+          [label]="'SHARED.PASSWORD' | translate"
+          [placeholder]="'SHARED.ENTER-PASSWORD' | translate"
+        ></school-diary-single-control>
+      </div>
 
-    <div class="row">
-      <school-diary-single-control
-        [control]="registerForm.get('repeatPassword')"
-        [type]="'password'"
-        [label]="'REGISTER.REPEAT-PASSWORD' | translate"
-        [placeholder]="'REGISTER.ENTER-REPEAT-PASSWORD' | translate"
-      ></school-diary-single-control>
-    </div>
-  </mat-card-content>
+      <div class="row">
+        <school-diary-single-control
+          [control]="registerForm.get('repeatPassword')"
+          [type]="'password'"
+          [label]="'REGISTER.REPEAT-PASSWORD' | translate"
+          [placeholder]="'REGISTER.ENTER-REPEAT-PASSWORD' | translate"
+        ></school-diary-single-control>
+      </div>
+    </mat-card-content>
 
-  <mat-card-footer>
-    <div class="text-center">
-      <button
-        (click)="register()"
-        [disabled]="registerForm.invalid"
-        color="primary"
-        type="button"
-        mat-stroked-button
-      >
-        {{ 'REGISTER.SUBMIT' | translate }}
-      </button>
-    </div>
+    <mat-card-footer>
+      <div class="text-center">
+        <button
+          (click)="register()"
+          [disabled]="registerForm.invalid"
+          color="primary"
+          type="button"
+          mat-stroked-button
+        >
+          {{ 'REGISTER.SUBMIT' | translate }}
+        </button>
+      </div>
 
-    <div>
-      <a [routerLink]="'/login'" class="d-block text-center">{{ 'REGISTER.MESSAGE' | translate }}</a>
-    </div>
-  </mat-card-footer>
-</mat-card>
+      <div>
+        <a [routerLink]="'/login'" class="d-block text-center">{{ 'REGISTER.MESSAGE' | translate }}</a>
+      </div>
+    </mat-card-footer>
+  </mat-card>
+</div>

@@ -1,1 +1,1 @@
-export * from './lib/feature-register.module';
+export * from './lib/school-diary-feature-register.module';

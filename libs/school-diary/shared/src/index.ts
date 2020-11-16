@@ -1,3 +1,3 @@
 export * from './lib/services/language.service';
 
-export * from './lib/shared.module';
+export * from './lib/school-diary-shared.module';

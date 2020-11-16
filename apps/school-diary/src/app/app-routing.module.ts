@@ -1,30 +1,36 @@
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 
-import { MainLayoutComponent } from './containers/main-layout/main-layout.component';
-
 const routes: Routes = [
   {
-    path: '',
-    component: MainLayoutComponent,
-    children: [
-      {
-        path: 'dashboard',
-        loadChildren: () => import('@school-diary/school-diary/feature-dashboard').then(m => m.FeatureDashboardModule)
-      }
-    ]
-  },
-  {
     path: 'login',
-    loadChildren: () => import('@school-diary/school-diary/feature-login').then(m => m.FeatureLoginModule)
+    loadChildren: () => import('@school-diary/school-diary/feature-login').then(m => m.SchoolDiaryFeatureLoginModule)
   },
   {
     path: 'register',
-    loadChildren: () => import('@school-diary/school-diary/feature-register').then(m => m.FeatureRegisterModule)
+    loadChildren: () => import('@school-diary/school-diary/feature-register').then(m => m.SchoolDiaryFeatureRegisterModule)
   },
   {
-    path: '**',
-    redirectTo: '/dashboard'
+    path: '',
+    children: [
+      {
+        path: 'dashboard',
+        loadChildren: () => import('@school-diary/school-diary/feature-dashboard').then(m => m.SchoolDiaryFeatureDashboardModule)
+      },
+      {
+        path: 'configuration',
+        children: [
+          {
+            path: 'subjects',
+            loadChildren: () => import('@school-diary/school-diary/feature-configuration-subjects').then(m => m.SchoolDiaryFeatureConfigurationSubjectsModule)
+          }
+        ]
+      },
+      {
+        path: '**',
+        redirectTo: '/dashboard'
+      }
+    ]
   }
 ];
 

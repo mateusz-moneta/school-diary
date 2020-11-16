@@ -1,2 +1,2 @@
 export * from './lib/+state/user.facade';
-export * from './lib/data-access-user.module';
+export * from './lib/school-diary-data-access-user.module';
