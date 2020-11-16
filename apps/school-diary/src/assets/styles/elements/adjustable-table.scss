@@ -1,0 +1,76 @@
+.adjustable-table {
+  width: 100%;
+  border-collapse: collapse;
+  overflow-x: auto;
+
+  .adjustable-table-row {
+    display: table-row;
+
+    &:hover {
+      background-color: #e8e8e8;
+    }
+  }
+
+  .adjustable-table-header-row {
+    display: table-header-group;
+  }
+
+  .adjustable-table-cell,
+  .adjustable-table-header-cell {
+    display: table-cell;
+    vertical-align: middle;
+    width: 100%;
+    word-wrap: initial;
+    line-break: unset;
+    white-space: nowrap;
+    flex: initial;
+    padding-top: 1.1rem;
+    padding-bottom: 1rem;
+    padding-left: 1.4rem;
+    border-bottom: 2px solid #dee2e6;
+
+    > * {
+      vertical-align: middle;
+    }
+
+    .inline-block {
+      display: inline-block;
+    }
+  }
+
+  .adjustable-table-cell {
+    width: 1%;
+    white-space: nowrap;
+
+    &.mat-header-cell {
+      white-space: normal;
+    }
+
+    &.mat-column-select {
+      padding: 0 8px !important;
+    }
+  }
+
+  .adjustable-table-cell-center {
+    text-align: center;
+
+    @extend .adjustable-table-cell;
+    .mat-sort-header-container {
+      justify-content: center;
+    }
+  }
+
+  .adjustable-table-cell-small {
+    padding: 0 8px !important;
+
+    @extend .adjustable-table-cell;
+
+    .mat-sort-header-container {
+      justify-content: center;
+    }
+  }
+
+  .adjustable-table-cell-wrap {
+    white-space: normal;
+  }
+}

@@ -1,0 +1,20 @@
+<div [class.is-mobile]="mobileQuery.matches">
+  <school-diary-toolbar (open)="onOpen()" [title]="'DASHBOARD.TITLE' | translate"></school-diary-toolbar>
+
+  <mat-sidenav-container>
+    <mat-sidenav
+      [mode]="mobileQuery.matches ? 'over' : 'side'"
+      [opened]="isOpen"
+      [fixedTopGap]="64"
+      fixedInViewport
+    >
+      <mat-nav-list>
+        <school-diary-sidenav></school-diary-sidenav>
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

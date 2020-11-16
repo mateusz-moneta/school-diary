@@ -1,0 +1,74 @@
+:host {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 25px 0 0 0;
+  width: 100%;
+}
+
+.paginator-settings-container {
+  display: flex;
+  align-items: center;
+  min-width: 240px;
+  margin-right: 25px;
+}
+
+.items-per-page,
+.page {
+  color: #4a4a4a;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 16px;
+}
+
+.page {
+  padding: 8px 12px 0 0;
+}
+
+.items-per-page {
+  padding: 10px 10px 0 0;
+}
+
+.range {
+  padding: 10px 0 0 10px;
+  text-align: right;
+}
+
+mat-select {
+  box-sizing: border-box;
+  width: 70px;
+  padding: 5px 5px 5px 12px;
+  border: 1px solid #c0c0c0;
+  border-radius: 5px;
+  background-color: #ffffff;
+}
+
+.custom-pages-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.paginator-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-width: 375px;
+
+  > div {
+    display: flex;
+    margin: 8px;
+
+    > button {
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 0;
+      background: none;
+      outline: none;
+      margin: 0;
+      padding: 0;
+    }
+  }
+}

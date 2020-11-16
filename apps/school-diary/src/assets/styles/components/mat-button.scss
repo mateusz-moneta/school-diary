@@ -8,6 +8,16 @@
 
   @include mat-button-typography($school-diary-button-typography);
 
+  .school-diary-mat-card {
+    .mat-button,
+    .mat-flat-button,
+    .mat-raised-button,
+    .mat-button,
+    .mat-stroked-button {
+      min-width: 130px;
+    }
+  }
+
   .mat-button,
   .mat-flat-button,
   .mat-raised-button,

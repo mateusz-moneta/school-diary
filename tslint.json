@@ -56,12 +56,89 @@
     "nx-enforce-module-boundaries": [
       true,
       {
-        "enforceBuildableLibDependency": true,
         "allow": [],
         "depConstraints": [
           {
-            "sourceTag": "*",
+            "sourceTag": "platform:server",
+            "onlyDependOnLibsWithTags": ["platform:any", "platform:server"]
+          },
+          {
+            "sourceTag": "platform:web",
+            "onlyDependOnLibsWithTags": ["platform:any", "platform:web"]
+          },
+          {
+            "sourceTag": "scope:school-diary",
+            "onlyDependOnLibsWithTags": [
+              "scope:school-diary",
+              "scope:shared"
+            ]
+          },
+          {
+            "sourceTag": "scope:shared",
+            "onlyDependOnLibsWithTags": ["scope:shared"]
+          },
+          {
+            "sourceTag": "type:application",
+            "onlyDependOnLibsWithTags": ["type:api", "type:core", "type:config", "type:shell"]
+          },
+          {
+            "sourceTag": "type:application-services",
+            "onlyDependOnLibsWithTags": [
+              "type:domain",
+              "type:domain-services",
+              "type:port",
+              "type:public",
+              "type:util"
+            ]
+          },
+          {
+            "sourceTag": "type:config",
+            "onlyDependOnLibsWithTags": ["type:util", "type:domain"]
+          },
+          {
+            "sourceTag": "type:core",
+            "onlyDependOnLibsWithTags": ["type:config", "type:domain"]
+          },
+          {
+            "sourceTag": "type:data-access",
+            "onlyDependOnLibsWithTags": [
+              "type:data-access",
+              "type:util",
+              "type:domain",
+              "type:config"
+            ]
+          },
+          {
+            "sourceTag": "type:domain",
+            "onlyDependOnLibsWithTags": ["type:domain"]
+          },
+          {
+            "sourceTag": "type:domain-services",
+            "onlyDependOnLibsWithTags": ["type:domain"]
+          },
+          {
+            "sourceTag": "type:feature",
             "onlyDependOnLibsWithTags": ["*"]
+          },
+          {
+            "sourceTag": "type:infrastructure",
+            "onlyDependOnLibsWithTags": ["*"]
+          },
+          {
+            "sourceTag": "type:shell",
+            "onlyDependOnLibsWithTags": ["*"]
+          },
+          {
+            "sourceTag": "type:ui",
+            "onlyDependOnLibsWithTags": ["type:ui", "type:config", "type:util", "type:domain"]
+          },
+          {
+            "sourceTag": "type:util",
+            "onlyDependOnLibsWithTags": ["type:util", "type:config", "type:domain"]
+          },
+          {
+            "sourceTag": "type:styles",
+            "onlyDependOnLibsWithTags": ["type:styles"]
           }
         ]
       }

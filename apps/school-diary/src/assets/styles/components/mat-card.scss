@@ -1,16 +1,46 @@
 @import '../settings/colors';
 
 @mixin school-diary-mat-card($theme) {
+  .school-diary-mat-card-container {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+
+    mat-card {
+      width: 100%;
+    }
+
+    .button-action {
+      position: absolute;
+      right: 100px;
+      top: 38px;
+    }
+  }
+
   mat-card {
-    position: relative;
-    padding: 40px 70px 50px !important;
     box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.25) !important;
     transition: none !important;
     border-radius: 5px !important;
     color: $school-diary-grey-700;
     background: #fff;
-    margin: 5vh 5vw;
-    height: 85vh;
+
+    &.school-diary-mat-card {
+      position: relative;
+      padding: 40px 70px 50px !important;
+      height: 90vh;
+
+      mat-card-footer {
+        position: absolute;
+        bottom: 70px;
+        left: 15px;
+      }
+
+      mat-card-content {
+        margin: 15px 0;
+        overflow: auto;
+        max-height: 85%;
+      }
+    }
   }
 
   mat-card-header,
@@ -35,10 +65,5 @@
   mat-card-title {
     font-size: 30px;
     margin: 0;
-  }
-
-  mat-card-footer {
-    position: absolute;
-    bottom: 70px;
   }
 }

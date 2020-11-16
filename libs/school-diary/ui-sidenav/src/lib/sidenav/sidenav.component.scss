@@ -1,0 +1,146 @@
+.mat-icon {
+  &.mat-primary {
+    color: #c0c0c0;
+  }
+
+  &.nav__menu-icon {
+    display: none;
+  }
+
+  &.nav__menu-bullet {
+    display: inline-block;
+    position: relative;
+
+    img {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  transform: scale(0.5);
+}
+
+.nav__collapse-item {
+  .mat-icon {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+
+    img {
+      filter: invert(97%) sepia(0%) saturate(12%) hue-rotate(323deg) brightness(85%) contrast(79%);
+    }
+  }
+
+  &.collapsed {
+    .mat-icon {
+      -webkit-transform: rotate(180deg);
+      transform: rotate(180deg);
+
+      img {
+        filter: invert(41%) sepia(0%) saturate(0%) hue-rotate(196deg) brightness(93%) contrast(84%);
+      }
+    }
+  }
+}
+
+.sidenav-wrapper:after {
+  background: #d85603;
+  content: ' ';
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 4px;
+}
+
+.nav__menu {
+  &:before {
+    background: #e8e8e8;
+    content: ' ';
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 1px;
+  }
+
+  .nav__item-content {
+    padding: 20px;
+  }
+
+  .active > .nav__collapse-item {
+    @extend .menu-item-active;
+  }
+
+  & > * {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+    position: relative;
+
+    &:after {
+      content: ' ';
+      position: absolute;
+      z-index: 10;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: -1px;
+      width: 10px;
+      border-bottom: solid 1px rgba(0, 0, 0, 0.08);
+    }
+
+    &:first-child > .nav-item-content {
+      padding-top: 18px;
+    }
+
+    &:last-child {
+      border-bottom: 0;
+
+      &:after {
+        border-bottom: 0;
+      }
+    }
+  }
+
+  .nav__item,
+  .nav__sub-item {
+    &.active {
+      @extend .menu-item-active;
+
+      .nav__item-content {
+        background: none;
+      }
+    }
+  }
+
+  .nav__sub-item {
+    .nav__item-content {
+      padding: 7px 30px 7px 45px;
+    }
+  }
+
+  .mat-divider {
+    display: none;
+  }
+}
+
+.menu-item-active {
+  .mat-icon {
+    color: #666666;
+
+    img {
+      filter: invert(41%) sepia(0%) saturate(0%) hue-rotate(196deg) brightness(93%) contrast(84%);
+    }
+  }
+
+  > * {
+    font-weight: 700;
+    color: #333333;
+  }
+}

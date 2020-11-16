@@ -4,11 +4,13 @@
 @import '../styles/settings/colors';
 @import '../styles/settings/default';
 
+@import '../styles/elements/adjustable-table';
 @import '../styles/elements/layout';
 
 @import '../styles/components/mat-button';
 @import '../styles/components/mat-card';
 @import '../styles/components/mat-input';
+@import '../styles/components/mat-toolbar';
 
 $school-diary-typography: mat-typography-config(
   $font-family: $font-family,
@@ -72,6 +74,7 @@ $school-diary-theme: mat-light-theme($school-diary-primary, $school-diary-accent
   @include school-diary-mat-button($theme);
   @include school-diary-mat-card($theme);
   @include school-diary-mat-input($theme);
+  @include school-diary-mat-toolbar($theme);
 }
 
 @include school-diary-theme($school-diary-theme);

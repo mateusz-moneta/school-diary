@@ -16,13 +16,54 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@school-diary/data-access-login": [
-        "libs/data-access-login/src/index.ts"
+      "@school-diary/school-diary/feature-login": [
+        "libs/school-diary/feature-login/src/index.ts"
       ],
-      "@school-diary/feature-login": ["libs/feature-login/src/index.ts"],
-      "@school-diary/shared": ["libs/shared/src/index.ts"],
-      "@school-diary/feature-register": ["libs/feature-register/src/index.ts"],
-      "@school-diary/feature-dashboard": ["libs/feature-dashboard/src/index.ts"]
+      "@school-diary/school-diary/feature-register": [
+        "libs/school-diary/feature-register/src/index.ts"
+      ],
+      "@school-diary/school-diary/feature-dashboard": [
+        "libs/school-diary/feature-dashboard/src/index.ts"
+      ],
+      "@school-diary/school-diary/feature-configuration-subjects": [
+        "libs/school-diary/feature-configuration-subjects/src/index.ts"
+      ],
+      "@school-diary/school-diary/shared": [
+        "libs/school-diary/shared/src/index.ts"
+      ],
+      "@school-diary/school-diary/data-access-configuration-subjects": [
+        "libs/school-diary/data-access-configuration-subjects/src/index.ts"
+      ]
+      "@school-diary/school-diary/data-access-settings": [
+        "libs/school-diary/data-access-settings/src/index.ts"
+      ],
+      "@school-diary/school-diary/data-access-user": [
+        "libs/school-diary/data-access-user/src/index.ts"
+      ],
+      "@school-diary/school-diary/ui-paginator": [
+        "libs/school-diary/ui-paginator/src/index.ts"
+      ]
+      "@school-diary/school-diary/ui-sidenav": [
+        "libs/school-diary/ui-sidenav/src/index.ts"
+      ],
+      "@school-diary/school-diary/ui-single-control": [
+        "libs/school-diary/ui-single-control/src/index.ts"
+      ],
+      "@school-diary/school-diary/ui-toolbar": [
+        "libs/school-diary/ui-toolbar/src/index.ts"
+      ],
+      "@school-diary/school-diary/domain": [
+        "libs/school-diary/domain/src/index.ts"
+      ],
+      "@school-diary/school-diary/util-http-loader-factory": [
+        "libs/school-diary/util-http-loader-factory/src/index.ts"
+      ],
+      "@school-diary/school-diary/core": [
+        "libs/school-diary/core/src/index.ts"
+      ],
+      "@school-diary/school-diary/config": [
+        "libs/school-diary/config/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]
