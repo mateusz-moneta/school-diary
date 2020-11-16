@@ -33,7 +33,7 @@
       ],
       "@school-diary/school-diary/data-access-configuration-subjects": [
         "libs/school-diary/data-access-configuration-subjects/src/index.ts"
-      ]
+      ],
       "@school-diary/school-diary/data-access-settings": [
         "libs/school-diary/data-access-settings/src/index.ts"
       ],
@@ -42,7 +42,7 @@
       ],
       "@school-diary/school-diary/ui-paginator": [
         "libs/school-diary/ui-paginator/src/index.ts"
-      ]
+      ],
       "@school-diary/school-diary/ui-sidenav": [
         "libs/school-diary/ui-sidenav/src/index.ts"
       ],
