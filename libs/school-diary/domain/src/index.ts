@@ -8,6 +8,7 @@ export * from './lib/enums/user-type.enum';
 export * from './lib/interfaces/class-room.interface';
 export * from './lib/interfaces/items-pagination.interface';
 export * from './lib/interfaces/language-item.interface';
+export * from './lib/interfaces/lesson-hour.interface';
 export * from './lib/interfaces/page-event.interface';
 export * from './lib/interfaces/select-option.interface';
 export * from './lib/interfaces/sidenav-item.interface';

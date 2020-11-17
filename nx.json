@@ -82,6 +82,12 @@
     },
     "school-diary-data-access-configuration-class-rooms": {
       "tags": ["platform:web", "scope:school-diary", "type:data-access"]
+    },
+    "school-diary-feature-configuration-lesson-hours": {
+      "tags": ["platform:web", "scope:school-diary", "type:feature"]
+    },,
+    "school-diary-data-access-configuration-lesson-hours": {
+      "tags": ["platform:web", "scope:school-diary", "type:data-access"]
     }
   }
 }
