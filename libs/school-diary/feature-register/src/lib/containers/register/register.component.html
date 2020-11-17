@@ -7,56 +7,44 @@
     </mat-card-header>
 
     <mat-card-content>
-      <div class="row">
-        <school-diary-single-control
-          [control]="registerForm.get('firstName')"
-          [label]="'REGISTER.FIRST-NAME' | translate"
-          [placeholder]="'REGISTER.ENTER-FIRST-NAME' | translate"
-        ></school-diary-single-control>
-      </div>
+      <school-diary-single-control
+        [control]="registerForm.get('firstName')"
+        [label]="'REGISTER.FIRST-NAME' | translate"
+        [placeholder]="'REGISTER.ENTER-FIRST-NAME' | translate"
+      ></school-diary-single-control>
 
-      <div class="row">
-        <school-diary-single-control
-          [control]="registerForm.get('lastName')"
-          [label]="'REGISTER.LAST-NAME' | translate"
-          [placeholder]="'REGISTER.ENTER-FIRST-NAME' | translate"
-        ></school-diary-single-control>
-      </div>
+      <school-diary-single-control
+        [control]="registerForm.get('lastName')"
+        [label]="'REGISTER.LAST-NAME' | translate"
+        [placeholder]="'REGISTER.ENTER-FIRST-NAME' | translate"
+      ></school-diary-single-control>
 
-      <div class="row">
-        <school-diary-single-control
-          [control]="registerForm.get('userType')"
-          [type]="'select'"
-          [label]="'REGISTER.USER-TYPE' | translate"
-          [options]="userTypeOptions"
-        ></school-diary-single-control>
-      </div>
+      <school-diary-single-control
+        [control]="registerForm.get('userType')"
+        [type]="'select'"
+        [label]="'REGISTER.USER-TYPE' | translate"
+        [options]="userTypeOptions"
+      ></school-diary-single-control>
 
-      <div class="row">
-        <school-diary-single-control
-          [control]="registerForm.get('email')"
-          [label]="'SHARED.EMAIL' | translate"
-          [placeholder]="'SHARED.ENTER-EMAIL' | translate"
-        ></school-diary-single-control>
-      </div>
+      <school-diary-single-control
+        [control]="registerForm.get('email')"
+        [label]="'SHARED.EMAIL' | translate"
+        [placeholder]="'SHARED.ENTER-EMAIL' | translate"
+      ></school-diary-single-control>
 
-      <div class="row">
-        <school-diary-single-control
-          [control]="registerForm.get('password')"
-          [type]="'password'"
-          [label]="'SHARED.PASSWORD' | translate"
-          [placeholder]="'SHARED.ENTER-PASSWORD' | translate"
-        ></school-diary-single-control>
-      </div>
+      <school-diary-single-control
+        [control]="registerForm.get('password')"
+        [type]="'password'"
+        [label]="'SHARED.PASSWORD' | translate"
+        [placeholder]="'SHARED.ENTER-PASSWORD' | translate"
+      ></school-diary-single-control>
 
-      <div class="row">
-        <school-diary-single-control
-          [control]="registerForm.get('repeatPassword')"
-          [type]="'password'"
-          [label]="'REGISTER.REPEAT-PASSWORD' | translate"
-          [placeholder]="'REGISTER.ENTER-REPEAT-PASSWORD' | translate"
-        ></school-diary-single-control>
-      </div>
+      <school-diary-single-control
+        [control]="registerForm.get('repeatPassword')"
+        [type]="'password'"
+        [label]="'REGISTER.REPEAT-PASSWORD' | translate"
+        [placeholder]="'REGISTER.ENTER-REPEAT-PASSWORD' | translate"
+      ></school-diary-single-control>
     </mat-card-content>
 
     <mat-card-footer>

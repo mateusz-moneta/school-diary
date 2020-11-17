@@ -1,3 +1,6 @@
 import { SubjectSuccessPayload } from './subject-success.payload';
 
-export type GetSubjectsSuccessPayload = SubjectSuccessPayload;
+export interface GetSubjectsSuccessPayload {
+  data: SubjectSuccessPayload[];
+  records_count: number;
+}

@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 import { LanguageService } from '@school-diary/school-diary/shared';
-import { Subject as SubjectItem } from '@school-diary/school-diary/domain';
+import { PageEvent, Subject } from '@school-diary/school-diary/domain';
 import { SubjectsFacade } from '@school-diary/school-diary/data-access-configuration-subjects';
 import { tableConfig } from '@school-diary/school-diary/config';
 
@@ -13,23 +12,27 @@ import { tableConfig } from '@school-diary/school-diary/config';
   styleUrls: ['./subject-list.component.scss']
 })
 export class SubjectListComponent implements OnInit {
-  displayedColumns: string[] = ['name', 'shortName', 'createdAt', 'updatedAt'];
-  subjects: SubjectItem[] = [];
+  displayedColumns: string[] = ['name', 'shortName', 'createdAt', 'updatedAt', 'actions'];
+  subjects$ = this.subjectsFacade.subjects$;
 
   readonly paginationConfig = tableConfig.pagination;
 
-  private unsubscribe$ = new Subject<void>();
+  constructor(private languageService: LanguageService, private router: Router, private subjectsFacade: SubjectsFacade) {}
 
-  constructor(private languageService: LanguageService, private subjectsFacade: SubjectsFacade) {}
+  changePagination(event: PageEvent): void {
+    this.subjectsFacade.getSubjects({ page: event.pageIndex, limit: event.pageSize });
+  }
+
+  deleteSubject(id: number): void {
+    this.subjectsFacade.deleteSubject({ id });
+  }
+
+  selectSubject(selectedSubject: Subject) {
+    this.subjectsFacade.selectSubject(selectedSubject);
+    this.router.navigate(['/configuration/subjects/edit']);
+  }
 
   ngOnInit(): void {
     this.subjectsFacade.getSubjects();
-    this.initDataSource();
-  }
-
-  private initDataSource(): void {
-    this.subjectsFacade.subjects$
-      .pipe(takeUntil(this.unsubscribe$))
-      .subscribe((subjects: SubjectItem[]) => (this.subjects = subjects));
   }
 }

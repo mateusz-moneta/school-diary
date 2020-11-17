@@ -7,22 +7,18 @@
     </mat-card-header>
 
     <mat-card-content>
-      <div class="row">
-        <school-diary-single-control
-          [control]="loginForm.controls.email"
-          [label]="'SHARED.EMAIL' | translate"
-          [placeholder]="'SHARED.ENTER-EMAIL' | translate"
-        ></school-diary-single-control>
-      </div>
+      <school-diary-single-control
+        [control]="loginForm.controls.email"
+        [label]="'SHARED.EMAIL' | translate"
+        [placeholder]="'SHARED.ENTER-EMAIL' | translate"
+      ></school-diary-single-control>
 
-      <div class="row">
-        <school-diary-single-control
-          [control]="loginForm.controls.password"
-          [label]="'SHARED.PASSWORD' | translate"
-          [type]="'password'"
-          [placeholder]="'SHARED.ENTER-PASSWORD' | translate"
-        ></school-diary-single-control>
-      </div>
+      <school-diary-single-control
+        [control]="loginForm.controls.password"
+        [label]="'SHARED.PASSWORD' | translate"
+        [type]="'password'"
+        [placeholder]="'SHARED.ENTER-PASSWORD' | translate"
+      ></school-diary-single-control>
     </mat-card-content>
 
     <mat-card-footer>

@@ -10,10 +10,18 @@
       width: 100%;
     }
 
-    .button-action {
+    .button-action,
+    .button-back {
       position: absolute;
-      right: 100px;
-      top: 38px;
+      top: 35px;
+    }
+
+    .button-action {
+      right: 60px;
+    }
+
+    .button-back {
+      left: 60px;
     }
   }
 
@@ -31,14 +39,21 @@
 
       mat-card-footer {
         position: absolute;
-        bottom: 70px;
+        bottom: 5%;
         left: 15px;
       }
 
       mat-card-content {
-        margin: 15px 0;
+        display: flex;
+        height: 85%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
         overflow: auto;
-        max-height: 85%;
+
+        table {
+          max-height: 100%;
+        }
       }
     }
   }

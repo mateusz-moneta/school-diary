@@ -31,7 +31,7 @@ describe('SubjectsEffects', () => {
 
   describe('loadSubjects$', () => {
     it('should work', () => {
-      actions = hot('-a-|', { a: new fromSubjectsActions.GetSubjects });
+      actions = hot('-a-|', { a: new fromSubjectsActions.GetSubjects({ page: 1, limit: 10 }) });
 
       const expected = hot('-a-|', {
         a: new fromSubjectsActions.GetSubjectsSuccess([]),

@@ -2,16 +2,24 @@ import { HttpErrorResponse } from '@angular/common/http';
 
 import { fromSubjectsActions } from './subjects.actions';
 import { Subject } from '@school-diary/school-diary/domain';
+import { SubjectsCollection } from '../interfaces/subjects-collection.interface';
 
 export const SUBJECTS_FEATURE_KEY = 'subjects';
 
 export interface SubjectsState {
-  subjects: Subject[];
+  subjects: SubjectsCollection;
   subjectsLoadError: HttpErrorResponse;
   subjectsLoadInProgress: boolean;
-  createSubject: Subject;
+  createdSubject: Subject;
   createSubjectError: HttpErrorResponse;
   createSubjectInProgress: boolean;
+  deletedSubjectId: number;
+  deleteSubjectError: HttpErrorResponse;
+  deleteSubjectInProgress: boolean;
+  selectedSubject: Subject;
+  updatedSubject: Subject;
+  updateSubjectError: HttpErrorResponse;
+  updateSubjectInProgress: boolean;
 }
 
 export interface SubjectsPartialState {
@@ -22,9 +30,16 @@ export const initialState: SubjectsState = {
   subjects: null,
   subjectsLoadError: null,
   subjectsLoadInProgress: false,
-  createSubject: null,
+  createdSubject: null,
   createSubjectError: null,
-  createSubjectInProgress: false
+  createSubjectInProgress: false,
+  deletedSubjectId: null,
+  deleteSubjectError: null,
+  deleteSubjectInProgress: false,
+  selectedSubject: null,
+  updatedSubject: null,
+  updateSubjectError: null,
+  updateSubjectInProgress: false
 };
 
 export function subjectsReducer(
@@ -52,8 +67,38 @@ export function subjectsReducer(
     case fromSubjectsActions.Types.CreateSubjectSuccess: {
       state = {
         ...state,
-        createSubject: action.payload,
+        createdSubject: action.payload,
         createSubjectInProgress: false
+      };
+      break;
+    }
+
+    case fromSubjectsActions.Types.DeleteSubject: {
+      state = {
+        ...state,
+        deleteSubjectInProgress: true
+      };
+      break;
+    }
+
+    case fromSubjectsActions.Types.DeleteSubjectFail: {
+      state = {
+        ...state,
+        deleteSubjectError: action.payload.error,
+        deleteSubjectInProgress: false
+      };
+      break;
+    }
+
+    case fromSubjectsActions.Types.DeleteSubjectSuccess: {
+      state = {
+        ...state,
+        subjects: {
+          data: state.subjects.data.filter(subject => subject.id !== parseInt(action.payload.id, 10)),
+          recordsCount: state.subjects.recordsCount - 1
+        },
+        deletedSubjectId: parseInt(action.payload.id, 10),
+        deleteSubjectInProgress: false
       };
       break;
     }
@@ -78,8 +123,56 @@ export function subjectsReducer(
     case fromSubjectsActions.Types.GetSubjectsSuccess: {
       state = {
         ...state,
-        subjects: action.payload,
-        subjectsLoadInProgress: false
+        subjects: {
+          data: action.payload.data,
+          recordsCount: action.payload.records_count
+        }
+      };
+      break;
+    }
+
+    case fromSubjectsActions.Types.SelectSubject: {
+      state = {
+        ...state,
+        selectedSubject: action.payload
+      };
+      break;
+    }
+
+    case fromSubjectsActions.Types.UnselectSubject: {
+      state = {
+        ...state,
+        selectedSubject: null
+      };
+      break;
+    }
+
+    case fromSubjectsActions.Types.UpdateSubject: {
+      state = {
+        ...state,
+        updateSubjectInProgress: true
+      };
+      break;
+    }
+
+    case fromSubjectsActions.Types.UpdateSubjectFail: {
+      state = {
+        ...state,
+        updateSubjectError: action.payload.error,
+        updateSubjectInProgress: false
+      };
+      break;
+    }
+
+    case fromSubjectsActions.Types.UpdateSubjectSuccess: {
+      state = {
+        ...state,
+        subjects: {
+          ...state.subjects,
+          data: state.subjects.data.map(subject => subject.id === action.payload.id ? action.payload : subject)
+        },
+        updatedSubject: action.payload,
+        updateSubjectInProgress: false
       };
       break;
     }

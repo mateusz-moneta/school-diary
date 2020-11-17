@@ -1,7 +1,7 @@
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 
-import { NewSubjectComponent } from './containers/new-subject/new-subject.component';
+import { ActionSubjectComponent } from './containers/action-subject/action-subject.component';
 import { SubjectListComponent } from './containers/subject-list/subject-list.component';
 
 const routes: Routes = [
@@ -10,8 +10,12 @@ const routes: Routes = [
     component: SubjectListComponent
   },
   {
+    path: 'edit',
+    component: ActionSubjectComponent
+  },
+  {
     path: 'new',
-    component: NewSubjectComponent
+    component: ActionSubjectComponent
   },
   {
     path: '',
