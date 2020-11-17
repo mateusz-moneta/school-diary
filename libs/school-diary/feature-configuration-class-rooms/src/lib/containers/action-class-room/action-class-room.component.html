@@ -24,7 +24,10 @@
       <school-diary-single-control
         [control]="classRoomForm.controls.floor"
         [label]="'CONFIGURATION-CLASS-ROOMS.FLOOR' | translate"
+        [min]="0"
+        [max]="3"
         [placeholder]="'CONFIGURATION-CLASS-ROOMS.ENTER-FLOOR' | translate"
+        [type]="'number'"
       ></school-diary-single-control>
 
       <school-diary-single-control

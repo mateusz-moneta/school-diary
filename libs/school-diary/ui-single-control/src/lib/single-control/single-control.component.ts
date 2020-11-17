@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { AbstractControl } from '@angular/forms';
 
-import { SelectOption } from '../../../../domain/src/lib/interfaces/select-option.interface';
+import { SelectOption } from '@school-diary/school-diary/domain';
 
 @Component({
   selector: 'school-diary-single-control',
@@ -15,6 +15,12 @@ export class SingleControlComponent {
 
   @Input()
   label: string;
+
+  @Input()
+  max: number;
+
+  @Input()
+  min: number;
 
   @Input()
   options: SelectOption[] = [];
