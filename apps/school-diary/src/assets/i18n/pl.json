@@ -30,9 +30,11 @@
     "EXCUSES":"Usprawiedliwienia"
   },
   "CONFIGURATION-SUBJECTS":{
-    "TITLE":"Przedmioty"
+    "TITLE":"Przedmioty",
+    "CREATOR-TITLE":"Utwórz nowy przedmiot"
   },
   "SHARED":{
+    "EDIT":"Edytuj",
     "EDUCATOR":"Wychowawca",
     "EMAIL":"E-mail",
     "ENTER-EMAIL":"Wprowadź e-mail",

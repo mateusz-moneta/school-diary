@@ -4,7 +4,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreModule, Store } from '@ngrx/store';
 import { NxModule } from '@nrwl/angular';
 
-import { Subject } from '../interfaces/subject.interface';
+import { Subject } from '@school-diary/school-diary/domain';
 import { SubjectsEffects } from './subjects.effects';
 import { SubjectsFacade } from './subjects.facade';
 import {

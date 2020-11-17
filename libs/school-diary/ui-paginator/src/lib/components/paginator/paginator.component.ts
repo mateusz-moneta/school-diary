@@ -32,10 +32,10 @@ export class PaginatorComponent implements OnChanges, OnInit, OnDestroy {
   length = 0;
 
   @Input()
-  pageIndex: number;
+  pageIndex = 0;
 
   @Input()
-  pageSize: number;
+  pageSize = 10;
 
   @Input()
   pageSizeOptions: number[];
@@ -91,7 +91,7 @@ export class PaginatorComponent implements OnChanges, OnInit, OnDestroy {
   switchPage(currentPage: number): void {
     this.currentPage = currentPage;
     this.pageIndex = currentPage;
-    this.page.emit({ pageIndex: this.pageIndex, pageSize: this.pageSizeOption.value, length: this.length });
+    this.page.emit({ pageIndex: this.pageIndex + 1, pageSize: this.pageSizeOption.value, length: this.length });
     this.initPageRange();
   }
 

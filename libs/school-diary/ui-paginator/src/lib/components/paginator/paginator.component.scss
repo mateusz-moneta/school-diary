@@ -2,8 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 25px 0 0 0;
-  width: 100%;
+  margin: 0 70px;
 }
 
 .paginator-settings-container {
@@ -14,24 +13,22 @@
 }
 
 .items-per-page,
-.page {
+.page,
+.range {
   color: #4a4a4a;
   font-size: 14px;
   font-weight: bold;
   letter-spacing: 0;
   line-height: 16px;
-}
-
-.page {
-  padding: 8px 12px 0 0;
+  margin-bottom: 0;
 }
 
 .items-per-page {
-  padding: 10px 10px 0 0;
+  margin-right: 12px;
 }
 
 .range {
-  padding: 10px 0 0 10px;
+  margin-left: 12px;
   text-align: right;
 }
 

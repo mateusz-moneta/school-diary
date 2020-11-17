@@ -30,15 +30,21 @@
     "EXCUSES":"Excuses"
   },
   "CONFIGURATION-SUBJECTS":{
-    "TITLE":"Subjects",
-    "CREATOR-TITLE":"Create a new subject"
+    "CREATOR-TITLE":"Create a new subject",
+    "EDITOR-TITLE":"Edit a subject",
+    "TITLE":"Subjects"
   },
   "SHARED":{
+    "ACTIONS":"Actions",
+    "CREATE":"Create",
     "CREATED-AT":"Created at",
+    "EDIT":"Edit",
     "EDUCATOR":"Educator",
     "EMAIL":"E-mail",
     "ENTER-EMAIL":"Enter e-mail",
+    "ENTER-NAME":"Enter name",
     "ENTER-PASSWORD":"Enter password",
+    "ENTER-SHORT-NAME":"Enter short name",
     "ITEMS-PER-PAGE":"Items per page",
     "LEGAL-GUARDIAN":"Legal guardian",
     "NAME":"Name",

@@ -1,0 +1,45 @@
+<div class="school-diary-mat-card-container container">
+  <mat-card class="school-diary-mat-card">
+    <mat-card-header>
+      <button
+        [routerLink]="'/configuration/subjects/list'"
+        class="button-back"
+        mat-icon-button
+      >
+        <mat-icon color="primary">arrow_back</mat-icon>
+      </button>
+
+      <mat-card-title>
+        {{ titleTranslationKey | translate }}
+      </mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <school-diary-single-control
+        [control]="subjectForm.controls.name"
+        [label]="'SHARED.NAME' | translate"
+        [placeholder]="'SHARED.ENTER-NAME' | translate"
+      ></school-diary-single-control>
+
+      <school-diary-single-control
+        [control]="subjectForm.controls.shortName"
+        [label]="'SHARED.SHORT-NAME' | translate"
+        [placeholder]="'SHARED.ENTER-SHORT-NAME' | translate"
+      ></school-diary-single-control>
+    </mat-card-content>
+
+    <mat-card-footer>
+      <div class="text-center">
+        <button
+          (click)="executeAction()"
+          [disabled]="subjectForm.invalid"
+          color="primary"
+          type="button"
+          mat-stroked-button
+        >
+          {{ action | actionTranslationKey | translate }}
+        </button>
+      </div>
+    </mat-card-footer>
+  </mat-card>
+</div>
