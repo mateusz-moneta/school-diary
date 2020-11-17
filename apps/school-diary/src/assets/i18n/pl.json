@@ -29,11 +29,32 @@
     "PRAISE-AND-ATTENTION":"Pochwały i uwagi",
     "EXCUSES":"Usprawiedliwienia"
   },
+  "CONFIGURATION":{
+    "TITLE":"Konfiguracja",
+    "CLASS-ROOMS":"Sale edukacyjne",
+    "SUBJECTS":"Przedmioty"
+  },
+  "CONFIGURATION-CLASS-ROOMS":{
+    "CREATOR-TITLE":"Utwórz nowy pokój edukacyjny",
+    "DESIGNATION":"Przeznaczenie",
+    "EDITOR-TITLE":"Edytuj pokój edukacyjny",
+    "ENTER-DESIGNATION":"Wprowadź przeznaczenie",
+    "ENTER-FLOOR":"Wprowadź piętro",
+    "ENTER-LOCATION":"Wprowadź lokalizację",
+    "FLOOR":"Piętro",
+    "LOCATION":"Lokalizacja",
+    "TITLE":"Pokoje edukacyjne"
+  },
   "CONFIGURATION-SUBJECTS":{
-    "TITLE":"Przedmioty",
-    "CREATOR-TITLE":"Utwórz nowy przedmiot"
+    "EDITOR-TITLE":"Edytuj przedmiot",
+    "CREATOR-TITLE":"Utwórz nowy przedmiot",
+    "TITLE":"Przedmioty"
   },
   "SHARED":{
+    "ACTIONS":"Akcje",
+    "CONNECTION-ERROR":"Problem z połączeniem z API, proszę o kontakt...",
+    "CREATE":"Utwórz",
+    "CREATED-AT":"Data utworzenia",
     "EDIT":"Edytuj",
     "EDUCATOR":"Wychowawca",
     "EMAIL":"E-mail",

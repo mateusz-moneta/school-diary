@@ -8,8 +8,7 @@ import { tableConfig } from '@school-diary/school-diary/config';
 
 @Component({
   selector: 'school-diary-subject-list',
-  templateUrl: './subject-list.component.html',
-  styleUrls: ['./subject-list.component.scss']
+  templateUrl: './subject-list.component.html'
 })
 export class SubjectListComponent implements OnInit {
   displayedColumns: string[] = ['name', 'shortName', 'createdAt', 'updatedAt', 'actions'];
@@ -18,6 +17,10 @@ export class SubjectListComponent implements OnInit {
   readonly paginationConfig = tableConfig.pagination;
 
   constructor(private languageService: LanguageService, private router: Router, private subjectsFacade: SubjectsFacade) {}
+
+  ngOnInit(): void {
+    this.subjectsFacade.getSubjects();
+  }
 
   changePagination(event: PageEvent): void {
     this.subjectsFacade.getSubjects({ page: event.pageIndex, limit: event.pageSize });
@@ -30,9 +33,5 @@ export class SubjectListComponent implements OnInit {
   selectSubject(selectedSubject: Subject) {
     this.subjectsFacade.selectSubject(selectedSubject);
     this.router.navigate(['/configuration/subjects/edit']);
-  }
-
-  ngOnInit(): void {
-    this.subjectsFacade.getSubjects();
   }
 }

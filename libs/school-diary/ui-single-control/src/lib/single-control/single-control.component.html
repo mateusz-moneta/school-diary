@@ -13,6 +13,17 @@
       </mat-select>
     </ng-container>
 
+    <ng-container *ngSwitchCase="'number'">
+      <input
+        [formControl]="control"
+        [max]="max"
+        [min]="min"
+        [placeholder]="placeholder"
+        [type]="type"
+        matInput
+      >
+    </ng-container>
+
     <ng-container *ngSwitchDefault>
       <input
         [formControl]="control"

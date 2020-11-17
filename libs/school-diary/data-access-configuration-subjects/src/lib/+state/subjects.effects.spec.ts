@@ -34,7 +34,10 @@ describe('SubjectsEffects', () => {
       actions = hot('-a-|', { a: new fromSubjectsActions.GetSubjects({ page: 1, limit: 10 }) });
 
       const expected = hot('-a-|', {
-        a: new fromSubjectsActions.GetSubjectsSuccess([]),
+        a: new fromSubjectsActions.GetSubjectsSuccess({
+          data: [],
+          records_count: 0
+        }),
       });
 
       expect(effects.getSubjects$).toBeObservable(expected);

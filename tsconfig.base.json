@@ -63,6 +63,12 @@
       ],
       "@school-diary/school-diary/config": [
         "libs/school-diary/config/src/index.ts"
+      ],
+      "@school-diary/school-diary/feature-configuration-class-rooms": [
+        "libs/school-diary/feature-configuration-class-rooms/src/index.ts"
+      ],
+      "@school-diary/school-diary/data-access-configuration-class-rooms": [
+        "libs/school-diary/data-access-configuration-class-rooms/src/index.ts"
       ]
     }
   },

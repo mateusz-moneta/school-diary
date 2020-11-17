@@ -1,7 +1,3 @@
-export interface SubjectSuccessPayload {
-  id: number;
-  name: string;
-  short_name: string;
-  created_at: string;
-  updated_at: string;
-}
+import { Subject } from '@school-diary/school-diary/domain';
+
+export type SubjectSuccessPayload = Subject;

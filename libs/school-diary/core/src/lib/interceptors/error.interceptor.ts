@@ -19,6 +19,10 @@ export class ErrorInterceptor implements HttpInterceptor {
           case HttpStatusCode.INTERNAL_SERVER_ERROR:
             break;
 
+          case HttpStatusCode.GATEWAY_TIMEOUT:
+            this.toastrService.error(this.translateService.instant('SHARED.CONNECTION-ERROR'));
+            break;
+
           default:
             this.toastrService.error(this.translateService.instant(`SHARED.${response.error.errorKey}` || 'SHARED.UNEXPECTED_ERROR_OCCURRED'));
             break;

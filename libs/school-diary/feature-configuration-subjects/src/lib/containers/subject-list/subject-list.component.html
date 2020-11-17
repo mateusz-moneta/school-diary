@@ -36,7 +36,7 @@
 
         <ng-container matColumnDef="createdAt">
           <th *matHeaderCellDef class="adjustable-table-cell" mat-header-cell>{{ 'SHARED.CREATED-AT' | translate }}</th>
-          <td *matCellDef="let element" class="adjustable-table-cell" mat-cell>{{ element.created_at | date: 'fullDate' }}</td>
+          <td *matCellDef="let element" class="adjustable-table-cell" mat-cell>{{ element.created_at | date: 'mediumDate' }}</td>
         </ng-container>
 
         <ng-container matColumnDef="updatedAt">
