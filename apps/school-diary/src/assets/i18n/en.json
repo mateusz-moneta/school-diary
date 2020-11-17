@@ -52,6 +52,7 @@
   },
   "SHARED":{
     "ACTIONS":"Actions",
+    "CONNECTION-ERROR":"Backend API connection issue, please contact...",
     "CREATE":"Create",
     "CREATED-AT":"Created at",
     "EDIT":"Edit",

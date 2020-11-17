@@ -51,6 +51,10 @@
     "TITLE":"Przedmioty"
   },
   "SHARED":{
+    "ACTIONS":"Akcje",
+    "CONNECTION-ERROR":"Problem z połączeniem z API, proszę o kontakt...",
+    "CREATE":"Utwórz",
+    "CREATED-AT":"Data utworzenia",
     "EDIT":"Edytuj",
     "EDUCATOR":"Wychowawca",
     "EMAIL":"E-mail",
