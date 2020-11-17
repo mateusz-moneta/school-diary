@@ -20,6 +20,7 @@ import { SubjectListComponent } from './containers/subject-list/subject-list.com
     CommonModule,
     MatButtonModule,
     MatCardModule,
+    MatIconModule,
     MatTableModule,
     SchoolDiaryDataAccessConfigurationSubjectsModule,
     SchoolDiaryDomainModule,
@@ -27,8 +28,7 @@ import { SubjectListComponent } from './containers/subject-list/subject-list.com
     SchoolDiaryUiSingleControlModule,
     SchoolDiaryUiSingleControlModule,
     SchoolDiaryUiPaginatorModule,
-    TranslateModule.forChild(),
-    MatIconModule
+    TranslateModule.forChild()
   ]
 })
 export class SchoolDiaryFeatureConfigurationSubjectsModule {}
