@@ -1,28 +1,31 @@
-import * as SubjectsActions from './subjects.actions';
+import { fromSubjectsActions } from './subjects.actions';
+import { Subject } from '@school-diary/school-diary/domain';
 import { SubjectsState, initialState, subjectsReducer } from './subjects.reducer';
 
 describe('Subjects Reducer', () => {
-  const createSubjectsEntity = (id: string, name = '', short_name = '', created_at = '', updated_at = '') =>
+  const createSubjectsEntity = (id: number, name = '', short_name = '', created_at = '', updated_at = '') =>
     ({
       id,
       name,
       short_name
-    } as SubjectsEntity);
+    } as Subject);
 
   beforeEach(() => {});
 
   describe('valid Subjects actions', () => {
     it('getSubjectsSuccess should return set the list of known Subjects', () => {
       const subjects = [
-        createSubjectsEntity('PRODUCT-AAA'),
-        createSubjectsEntity('PRODUCT-zzz'),
+        createSubjectsEntity(1, 'Art', 'ART'),
+        createSubjectsEntity(2, 'Information Technology', 'IT'),
       ];
-      const action = SubjectsActions.loadSubjectsSuccess({ subjects });
+      const action = new fromSubjectsActions.GetSubjectsSuccess({
+        data: subjects,
+        records_count: 2
+      });
 
-      const result: State = reducer(initialState, action);
+      const result: SubjectsState = subjectsReducer(initialState, action);
 
-      expect(result.loaded).toBe(true);
-      expect(result.ids.length).toBe(2);
+      expect(result.subjects.data.length).toBe(2);
     });
   });
 
@@ -30,7 +33,7 @@ describe('Subjects Reducer', () => {
     it('should return the previous state', () => {
       const action = {} as any;
 
-      const result = reducer(initialState, action);
+      const result = subjectsReducer(initialState, action);
 
       expect(result).toBe(initialState);
     });
