@@ -8,39 +8,39 @@ import { provideMockStore } from '@ngrx/store/testing';
 import { NxModule, DataPersistence } from '@nrwl/angular';
 import { hot } from '@nrwl/angular/testing';
 
-import { SubjectsEffects } from './subjects.effects';
-import { fromSubjectsActions } from './subjects.actions';
+import { ClassRoomsEffects } from './class-rooms.effects';
+import { fromClassRoomsActions } from './class-rooms.actions';
 
-describe('SubjectsEffects', () => {
+describe('ClassRoomsEffects', () => {
   let actions: Observable<any>;
-  let effects: SubjectsEffects;
+  let effects: ClassRoomsEffects;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [NxModule.forRoot()],
       providers: [
-        SubjectsEffects,
+        ClassRoomsEffects,
         DataPersistence,
         provideMockActions(() => actions),
         provideMockStore(),
       ],
     });
 
-    effects = TestBed.get(SubjectsEffects);
+    effects = TestBed.get(ClassRoomsEffects);
   });
 
-  describe('loadSubjects$', () => {
+  describe('loadClassRooms$', () => {
     it('should work', () => {
-      actions = hot('-a-|', { a: new fromSubjectsActions.GetSubjects({ page: 1, limit: 10 }) });
+      actions = hot('-a-|', { a: new fromClassRoomsActions.GetClassRooms({ page: 1, limit: 10 }) });
 
       const expected = hot('-a-|', {
-        a: new fromSubjectsActions.GetSubjectsSuccess({
+        a: new fromClassRoomsActions.GetClassRoomsSuccess({
           data: [],
           records_count: 0
         }),
       });
 
-      expect(effects.getSubjects$).toBeObservable(expected);
+      expect(effects.getClassRooms$).toBeObservable(expected);
     });
   });
 });

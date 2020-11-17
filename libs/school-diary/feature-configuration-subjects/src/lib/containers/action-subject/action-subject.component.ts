@@ -10,8 +10,7 @@ import { SubjectsFacade } from '@school-diary/school-diary/data-access-configura
 
 @Component({
   selector: 'school-diary-action-subject',
-  templateUrl: './action-subject.component.html',
-  styleUrls: ['./action-subject.component.scss']
+  templateUrl: './action-subject.component.html'
 })
 export class ActionSubjectComponent implements OnInit, OnDestroy {
   action = Action.CREATE;

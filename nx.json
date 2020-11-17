@@ -76,6 +76,12 @@
     },
     "school-diary-config": {
       "tags": ["platform:web", "scope:school-diary", "type:config"]
+    },
+    "school-diary-feature-configuration-class-rooms": {
+      "tags": ["platform:web", "scope:school-diary", "type:feature"]
+    },
+    "school-diary-data-access-configuration-class-rooms": {
+      "tags": ["platform:web", "scope:school-diary", "type:data-access"]
     }
   }
 }

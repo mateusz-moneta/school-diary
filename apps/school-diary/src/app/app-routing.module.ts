@@ -21,6 +21,10 @@ const routes: Routes = [
         path: 'configuration',
         children: [
           {
+            path: 'class-rooms',
+            loadChildren: () => import('@school-diary/school-diary/feature-configuration-class-rooms').then(m => m.SchoolDiaryFeatureConfigurationClassRoomsModule)
+          },
+          {
             path: 'subjects',
             loadChildren: () => import('@school-diary/school-diary/feature-configuration-subjects').then(m => m.SchoolDiaryFeatureConfigurationSubjectsModule)
           }

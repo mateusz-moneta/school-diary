@@ -10,11 +10,11 @@
       </button>
 
       <mat-card-title>
-        {{ 'CONFIGURATION-SUBJECTS.TITLE' | translate }}
+        {{ 'CONFIGURATION-CLASS-ROOMS.TITLE' | translate }}
       </mat-card-title>
 
       <button
-        [routerLink]="'/configuration/subjects/new'"
+        [routerLink]="'/configuration/class-rooms/new'"
         class="button-action"
         mat-icon-button
       >
@@ -23,15 +23,20 @@
     </mat-card-header>
 
     <mat-card-content>
-      <table *ngIf="(subjects$ | async)?.data.length" [dataSource]="(subjects$ | async).data" class="adjustable-table" mat-table>
-        <ng-container matColumnDef="name">
-          <th *matHeaderCellDef class="adjustable-table-cell" mat-header-cell>{{ 'SHARED.NAME' | translate }}</th>
-          <td *matCellDef="let element" (click)="selectSubject(element)" class="adjustable-table-cell" mat-cell>{{ element.name }}</td>
+      <table *ngIf="(classRooms$ | async)?.data.length" [dataSource]="(classRooms$ | async).data" class="adjustable-table" mat-table>
+        <ng-container matColumnDef="designation">
+          <th *matHeaderCellDef class="adjustable-table-cell" mat-header-cell>{{ 'CONFIGURATION-CLASS-ROOMS.DESIGNATION' | translate }}</th>
+          <td *matCellDef="let element" (click)="selectSubject(element)" class="adjustable-table-cell" mat-cell>{{ element.designation }}</td>
         </ng-container>
 
-        <ng-container matColumnDef="shortName">
-          <th *matHeaderCellDef class="adjustable-table-cell" mat-header-cell>{{ 'SHARED.SHORT-NAME' | translate }}</th>
-          <td *matCellDef="let element" (click)="selectSubject(element)" class="adjustable-table-cell" mat-cell>{{ element.short_name }}</td>
+        <ng-container matColumnDef="location">
+          <th *matHeaderCellDef class="adjustable-table-cell" mat-header-cell>{{ 'CONFIGURATION-CLASS-ROOMS.LOCATION' | translate }}</th>
+          <td *matCellDef="let element" (click)="selectSubject(element)" class="adjustable-table-cell" mat-cell>{{ element.location }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="floor">
+          <th *matHeaderCellDef class="adjustable-table-cell" mat-header-cell>{{ 'CONFIGURATION-CLASS-ROOMS.FLOOR' | translate }}</th>
+          <td *matCellDef="let element" (click)="selectSubject(element)" class="adjustable-table-cell" mat-cell>{{ element.floor }}</td>
         </ng-container>
 
         <ng-container matColumnDef="createdAt">
@@ -60,9 +65,9 @@
 
     <mat-card-footer>
       <school-diary-paginator
-        *ngIf="(subjects$ | async)?.data.length"
+        *ngIf="(classRooms$ | async)?.data.length"
         (page)="changePagination($event)"
-        [length]="(subjects$ | async).recordsCount"
+        [length]="(classRooms$ | async).recordsCount"
         [pageSize]="paginationConfig.pageSize"
         [pageSizeOptions]="paginationConfig.pageSizeOptions"
       >
