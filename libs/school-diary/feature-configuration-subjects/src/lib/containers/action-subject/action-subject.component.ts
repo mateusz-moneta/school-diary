@@ -1,6 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
 import { Subject } from 'rxjs';
 import { filter, takeUntil } from 'rxjs/operators';
 
@@ -23,7 +22,6 @@ export class ActionSubjectComponent implements OnInit, OnDestroy {
   constructor(
     private formBuilder: FormBuilder,
     private languageService: LanguageService,
-    private route: ActivatedRoute,
     private subjectsFacade: SubjectsFacade
   ) {}
 

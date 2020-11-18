@@ -32,7 +32,9 @@
   "CONFIGURATION":{
     "TITLE":"Configuration",
     "CLASS-ROOMS":"Class rooms",
+    "CLASS-UNITS":"Class units",
     "LESSON-HOURS":"Lesson hours",
+    "LESSON-PLANS":"Lesson plans",
     "SUBJECTS":"Subjects"
   },
   "CONFIGURATION-CLASS-ROOMS":{
@@ -45,6 +47,12 @@
     "FLOOR":"Floor",
     "LOCATION":"Location",
     "TITLE":"Class rooms"
+  },
+  "CONFIGURATION-CLASS-UNITS":{
+    "CREATOR-TITLE":"Create a new class unit",
+    "CLASS-TEACHER":"Class teacher",
+    "EDITOR-TITLE":"Edit a class unit",
+    "TITLE":"Class units"
   },
   "CONFIGURATION-LESSON-HOURS":{
     "CREATOR-TITLE":"Create a new lesson hour",
@@ -66,7 +74,6 @@
     "CREATE":"Create",
     "CREATED-AT":"Created at",
     "EDIT":"Edit",
-    "EDUCATOR":"Educator",
     "EMAIL":"E-mail",
     "ENTER-EMAIL":"Enter e-mail",
     "ENTER-NAME":"Enter name",

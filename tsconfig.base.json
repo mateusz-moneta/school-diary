@@ -78,6 +78,18 @@
       ],
       "@school-diary/school-diary/config": [
         "libs/school-diary/config/src/index.ts"
+      ],
+      "@school-diary/school-diary/feature-configuration-lesson-plans": [
+        "libs/school-diary/feature-configuration-lesson-plans/src/index.ts"
+      ],
+      "@school-diary/school-diary/data-access-configuration-lesson-plans": [
+        "libs/school-diary/data-access-configuration-lesson-plans/src/index.ts"
+      ],
+      "@school-diary/school-diary/feature-configuration-class-units": [
+        "libs/school-diary/feature-configuration-class-units/src/index.ts"
+      ],
+      "@school-diary/school-diary/data-access-configuration-class-units": [
+        "libs/school-diary/data-access-configuration-class-units/src/index.ts"
       ]
     }
   },

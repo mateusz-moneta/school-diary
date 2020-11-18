@@ -10,8 +10,16 @@ export const sidenavConfig: SidenavItem[] = [
         path: '/configuration/class-rooms'
       },
       {
+        title: 'CONFIGURATION.CLASS-UNITS',
+        path: '/configuration/class-units'
+      },
+      {
         title: 'CONFIGURATION.LESSON-HOURS',
         path: '/configuration/lesson-hours'
+      },
+      {
+        title: 'CONFIGURATION.LESSON-PLANS',
+        path: '/configuration/lesson-plans'
       },
       {
         title: 'CONFIGURATION.SUBJECTS',

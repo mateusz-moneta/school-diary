@@ -1,7 +1,6 @@
-export interface Subject {
-  id: number;
+import { BaseItem } from './base-item.interface';
+
+export interface Subject extends BaseItem {
   name: string;
   short_name: string;
-  created_at: string;
-  updated_at: string;
 }

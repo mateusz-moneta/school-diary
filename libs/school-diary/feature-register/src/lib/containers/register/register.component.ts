@@ -14,7 +14,6 @@ export class RegisterComponent implements OnInit {
 
   readonly userTypeOptions = [
     { translationKey: 'SHARED.SYSTEM-ADMINISTRATOR', value: UserType.SYSTEM_ADMINISTRATOR },
-    { translationKey: 'SHARED.EDUCATOR', value: UserType.EDUCATOR },
     { translationKey: 'SHARED.TEACHER', value: UserType.TEACHER },
     { translationKey: 'SHARED.LEGAL-GUARDIAN', value: UserType.LEGAL_GUARDIAN },
     { translationKey: 'SHARED.STUDENT', value: UserType.STUDENT }

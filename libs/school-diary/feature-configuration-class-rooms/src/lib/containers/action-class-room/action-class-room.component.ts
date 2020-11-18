@@ -1,6 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
 import { Subject } from 'rxjs';
 import { filter, takeUntil } from 'rxjs/operators';
 
@@ -21,10 +20,9 @@ export class ActionClassRoomComponent implements OnInit, OnDestroy {
   private unsubscribe$ = new Subject<void>();
 
   constructor(
+    private classRoomsFacade: ClassRoomsFacade,
     private formBuilder: FormBuilder,
-    private languageService: LanguageService,
-    private route: ActivatedRoute,
-    private classRoomsFacade: ClassRoomsFacade
+    private languageService: LanguageService
   ) {}
 
   ngOnInit(): void {
