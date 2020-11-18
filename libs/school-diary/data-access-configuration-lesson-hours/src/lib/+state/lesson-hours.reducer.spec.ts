@@ -1,32 +1,34 @@
-import { ClassRoom } from '@school-diary/school-diary/domain';
-import { lessonHoursReducer, ClassRoomsState, initialState } from './class-rooms.reducer';
-import { fromClassRoomsActions } from './class-rooms.actions';
+import { fromLessonHoursActions } from './lesson-hours.actions';
+import { LessonHour } from '@school-diary/school-diary/domain';
+import { initialState, lessonHoursReducer, LessonHoursState } from './lesson-hours.reducer';
 
-describe('ClassRooms Reducer', () => {
-  const createClassRoomEntity = (id: number, designation = '', floor = 0, location = '') =>
+describe('LessonHours Reducer', () => {
+  const createLessonHourEntity = (id: number, hour_from = '00', minute_from = '00', hour_to = '00', minute_to = '00') =>
     ({
       id,
-      designation,
-      floor,
-      location
-    } as ClassRoom);
+      hour_from,
+      minute_from,
+      hour_to,
+      minute_to
+    } as LessonHour);
 
   beforeEach(() => {});
 
-  describe('valid ClassRooms actions', () => {
-    it('getClassRoomsSuccess should return set the list of known ClassRooms', () => {
-      const classRooms = [
-        createClassRoomEntity(1, 'Main', 0, 'Main Location'),
-        createClassRoomEntity(2, 'Main', 1, 'Main Location'),
+  describe('valid LessonHours actions', () => {
+    it('getLessonHoursSuccess should return set the list of known LessonHours', () => {
+      const lessonHours = [
+        createLessonHourEntity(1, '08', '00', '08', '45'),
+        createLessonHourEntity(2, '09', '00', '09', '45'),
       ];
-      const action = new fromClassRoomsActions.GetClassRoomsSuccess({
-        data: classRooms,
+
+      const action = new fromLessonHoursActions.GetLessonHoursSuccess({
+        data: lessonHours,
         records_count: 2
       });
 
-      const result: ClassRoomsState = lessonHoursReducer(initialState, action);
+      const result: LessonHoursState = lessonHoursReducer(initialState, action);
 
-      expect(result.classRooms.recordsCount).toBe(2);
+      expect(result.lessonHours.recordsCount).toBe(2);
     });
   });
 

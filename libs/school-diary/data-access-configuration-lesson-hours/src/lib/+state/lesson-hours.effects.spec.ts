@@ -11,7 +11,7 @@ import { hot } from '@nrwl/angular/testing';
 import { fromLessonHoursActions } from './lesson-hours.actions';
 import { LessonHoursEffects } from './lesson-hours.effects';
 
-describe('ClassRoomsEffects', () => {
+describe('LessonHoursEffects', () => {
   let actions: Observable<any>;
   let effects: LessonHoursEffects;
 

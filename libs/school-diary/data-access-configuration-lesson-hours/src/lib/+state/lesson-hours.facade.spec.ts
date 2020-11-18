@@ -4,25 +4,26 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreModule, Store } from '@ngrx/store';
 import { NxModule } from '@nrwl/angular';
 
-import { CLASS_ROOMS_FEATURE_KEY, lessonHoursReducer, ClassRoomsState } from './class-rooms.reducer';
-import { ClassRoom } from '@school-diary/school-diary/domain';
-import { LessonHoursEffects } from './class-rooms.effects';
-import { ClassRoomsFacade } from '@school-diary/school-diary/data-access-configuration-class-rooms';
+import { LESSON_HOURS_FEATURE_KEY, lessonHoursReducer, LessonHoursState } from './lesson-hours.reducer';
+import { LessonHour } from '@school-diary/school-diary/domain';
+import { LessonHoursEffects } from './lesson-hours.effects';
+import { LessonHoursFacade } from '@school-diary/school-diary/data-access-configuration-lesson-hours';
 
 interface TestSchema {
-  classRooms: ClassRoomsState;
+  lessonHours: LessonHoursState;
 }
 
 describe('LessonHoursFacade', () => {
-  let facade: ClassRoomsFacade;
+  let facade: LessonHoursFacade;
   let store: Store<TestSchema>;
-  const createClassRoomEntity = (id: number, designation = '', floor = 0, location = '') =>
+  const createLessonHourEntity = (id: number, hour_from = '00', minute_from = '00', hour_to = '00', minute_to = '00') =>
     ({
       id,
-      designation,
-      floor,
-      location
-    } as ClassRoom);
+      hour_from,
+      minute_from,
+      hour_to,
+      minute_to
+    } as LessonHour);
 
   beforeEach(() => {});
 
@@ -30,10 +31,10 @@ describe('LessonHoursFacade', () => {
     beforeEach(() => {
       @NgModule({
         imports: [
-          StoreModule.forFeature(CLASS_ROOMS_FEATURE_KEY, lessonHoursReducer),
+          StoreModule.forFeature(LESSON_HOURS_FEATURE_KEY, lessonHoursReducer),
           EffectsModule.forFeature([LessonHoursEffects]),
         ],
-        providers: [ClassRoomsFacade],
+        providers: [LessonHoursFacade],
       })
       class CustomFeatureModule {}
 
@@ -49,7 +50,7 @@ describe('LessonHoursFacade', () => {
       TestBed.configureTestingModule({ imports: [RootModule] });
 
       store = TestBed.get(Store);
-      facade = TestBed.get(ClassRoomsFacade);
+      facade = TestBed.get(LessonHoursFacade);
     });
   });
 });
