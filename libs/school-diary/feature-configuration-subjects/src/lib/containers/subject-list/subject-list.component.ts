@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { LanguageService } from '@school-diary/school-diary/shared';
@@ -10,17 +10,13 @@ import { tableConfig } from '@school-diary/school-diary/config';
   selector: 'school-diary-subject-list',
   templateUrl: './subject-list.component.html'
 })
-export class SubjectListComponent implements OnInit {
+export class SubjectListComponent {
   displayedColumns: string[] = ['name', 'shortName', 'createdAt', 'updatedAt', 'actions'];
   subjects$ = this.subjectsFacade.subjects$;
 
   readonly paginationConfig = tableConfig.pagination;
 
   constructor(private languageService: LanguageService, private router: Router, private subjectsFacade: SubjectsFacade) {}
-
-  ngOnInit(): void {
-    this.subjectsFacade.getSubjects();
-  }
 
   changePagination(event: PageEvent): void {
     this.subjectsFacade.getSubjects({ page: event.pageIndex, limit: event.pageSize });

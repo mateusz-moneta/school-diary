@@ -67,6 +67,13 @@ export function classRoomsReducer(
     case fromClassRoomsActions.Types.CreateClassRoomSuccess: {
       state = {
         ...state,
+        classRooms: {
+          data: [
+            ...state.classRooms.data,
+            action.payload
+          ],
+          recordsCount: state.classRooms.recordsCount + 1
+        },
         createdClassRoom: action.payload,
         createClassRoomInProgress: false
       };

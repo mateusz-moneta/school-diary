@@ -32,8 +32,8 @@
   "CONFIGURATION":{
     "TITLE":"Configuration",
     "CLASS-ROOMS":"Class rooms",
-    "SUBJECTS":"Subjects",
-    "LESSON-HOURS":"Lesson hours"
+    "LESSON-HOURS":"Lesson hours",
+    "SUBJECTS":"Subjects"
   },
   "CONFIGURATION-CLASS-ROOMS":{
     "CREATOR-TITLE":"Create a new class room",
