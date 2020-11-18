@@ -7,6 +7,7 @@ import { MatTableModule } from '@angular/material/table';
 import { TranslateModule } from '@ngx-translate/core';
 
 import { ActionClassRoomComponent } from './containers/action-class-room/action-class-room.component';
+import { ClassRoomsGuard } from './guards/class-rooms.guard';
 import { ClassRoomsListComponent } from './containers/class-rooms-list/class-rooms-list.component';
 import { SchoolDiaryDataAccessConfigurationClassRoomsModule } from '@school-diary/school-diary/data-access-configuration-class-rooms';
 import { SchoolDiaryDomainModule } from '@school-diary/school-diary/domain';
@@ -28,6 +29,7 @@ import { SchoolDiaryUiSingleControlModule } from '@school-diary/school-diary/ui-
     SchoolDiaryUiPaginatorModule,
     SchoolDiaryUiSingleControlModule,
     TranslateModule.forChild()
-  ]
+  ],
+  providers: [ClassRoomsGuard]
 })
 export class SchoolDiaryFeatureConfigurationClassRoomsModule {}

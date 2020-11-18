@@ -67,6 +67,13 @@ export function lessonHoursReducer(
     case fromLessonHoursActions.Types.CreateLessonHourSuccess: {
       state = {
         ...state,
+        lessonHours: {
+          data: [
+            ...state.lessonHours.data,
+            action.payload
+          ],
+          recordsCount: state.lessonHours.recordsCount + 1
+        },
         createdLessonHour: action.payload,
         createLessonHourInProgress: false
       };

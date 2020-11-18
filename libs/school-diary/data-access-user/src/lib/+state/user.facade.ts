@@ -11,6 +11,7 @@ import { userQuery } from './user.selectors';
 export class UserFacade {
   getLoginUser$ = this.store.pipe(select(userQuery.getLoginUser));
   getLoginUserInProgress$ = this.store.pipe(select(userQuery.getLoginUserInProgress));
+  isLoginUser$ = this.store.pipe(select(userQuery.isLoginUser));
   isLogoutUser$ = this.store.pipe(select(userQuery.isLogoutUser));
   getRegisterUser$ = this.store.pipe(select(userQuery.getRegisterUser));
   getRegisterUserInProgress$ = this.store.pipe(select(userQuery.getRegisterUserInProgress));
