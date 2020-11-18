@@ -45,6 +45,15 @@
     "LOCATION":"Lokalizacja",
     "TITLE":"Pokoje edukacyjne"
   },
+  "CONFIGURATION-LESSON-HOURS":{
+    "CREATOR-TITLE":"Utwórz nową godzinę lekcyjną",
+    "EDITOR-TITLE":"Edytuj godzinę lekcyjną",
+    "SET-TIME-FROM":"Ustaw godzinę od",
+    "SET-TIME-TO":"Ustaw godzinę do",
+    "TIME-FROM":"Od godziny",
+    "TIME-TO":"Do godziny",
+    "TITLE":"Godziny lekcyjne"
+  },
   "CONFIGURATION-SUBJECTS":{
     "EDITOR-TITLE":"Edytuj przedmiot",
     "CREATOR-TITLE":"Utwórz nowy przedmiot",

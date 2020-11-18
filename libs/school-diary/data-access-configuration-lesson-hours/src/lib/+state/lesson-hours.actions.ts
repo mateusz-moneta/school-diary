@@ -16,20 +16,20 @@ import { UpdateLessonHourSuccessPayload } from '../payloads/update-lesson-hour-s
 
 export namespace fromLessonHoursActions {
   export enum Types {
-    CreateLessonHour = '[Class Rooms] Create Lesson Hour',
-    CreateLessonHourFail = '[Class Rooms] Create Lesson Hour Fail',
-    CreateLessonHourSuccess = '[Class Rooms] Create Lesson Hour Success',
-    DeleteLessonHour = '[Class Rooms] Delete Lesson Hour',
-    DeleteLessonHourFail = '[Class Rooms] Delete Lesson Hour Fail',
-    DeleteLessonHourSuccess = '[Class Rooms] Delete Lesson Hour Success',
-    GetLessonHours = '[Class Rooms] Get Lesson Hours',
-    GetLessonHoursFail = '[Class Rooms] Get Lesson Hours Fail',
-    GetLessonHoursSuccess = '[Class Rooms] Get Lesson Hours Success',
-    SelectLessonHour = '[Class Rooms] Select Lesson Hour',
-    UnselectLessonHour = '[Class Rooms] Unselect Lesson Hour',
-    UpdateLessonHour = '[Class Rooms] Update Lesson Hour',
-    UpdateLessonHourFail = '[Class Rooms] Update Lesson Hour Fail',
-    UpdateLessonHourSuccess = '[Class Rooms] Update Lesson Hour Success'
+    CreateLessonHour = '[Lesson Hours] Create Lesson Hour',
+    CreateLessonHourFail = '[Lesson Hours] Create Lesson Hour Fail',
+    CreateLessonHourSuccess = '[Lesson Hours] Create Lesson Hour Success',
+    DeleteLessonHour = '[Lesson Hours] Delete Lesson Hour',
+    DeleteLessonHourFail = '[Lesson Hours] Delete Lesson Hour Fail',
+    DeleteLessonHourSuccess = '[Lesson Hours] Delete Lesson Hour Success',
+    GetLessonHours = '[Lesson Hours] Get Lesson Hours',
+    GetLessonHoursFail = '[Lesson Hours] Get Lesson Hours Fail',
+    GetLessonHoursSuccess = '[Lesson Hours] Get Lesson Hours Success',
+    SelectLessonHour = '[Lesson Hours] Select Lesson Hour',
+    UnselectLessonHour = '[Lesson Hours] Unselect Lesson Hour',
+    UpdateLessonHour = '[Lesson Hours] Update Lesson Hour',
+    UpdateLessonHourFail = '[Lesson Hours] Update Lesson Hour Fail',
+    UpdateLessonHourSuccess = '[Lesson Hours] Update Lesson Hour Success'
   }
 
   export class CreateLessonHour implements Action {

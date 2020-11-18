@@ -26,12 +26,12 @@
       <table *ngIf="(lessonHours$ | async)?.data.length" [dataSource]="(lessonHours$ | async).data" class="adjustable-table" mat-table>
         <ng-container matColumnDef="timeFrom">
           <th *matHeaderCellDef class="adjustable-table-cell" mat-header-cell>{{ 'CONFIGURATION-LESSON-HOURS.TIME-FROM' | translate }}</th>
-          <td *matCellDef="let element" (click)="selectLessonHour(element)" class="adjustable-table-cell" mat-cell></td>
+          <td *matCellDef="let element" (click)="selectLessonHour(element)" class="adjustable-table-cell" mat-cell>{{ element.hour_from }}:{{ element.minute_from }}</td>
         </ng-container>
 
         <ng-container matColumnDef="timeTo">
-          <th *matHeaderCellDef class="adjustable-table-cell" mat-header-cell>{{ 'CONFIGURATION-LESSON_HOURS.TIME-TO' | translate }}</th>
-          <td *matCellDef="let element" (click)="selectLessonHour(element)" class="adjustable-table-cell" mat-cell></td>
+          <th *matHeaderCellDef class="adjustable-table-cell" mat-header-cell>{{ 'CONFIGURATION-LESSON-HOURS.TIME-TO' | translate }}</th>
+          <td *matCellDef="let element" (click)="selectLessonHour(element)" class="adjustable-table-cell" mat-cell>{{ element.hour_to }}:{{ element.minute_to }}</td>
         </ng-container>
 
         <ng-container matColumnDef="createdAt">
