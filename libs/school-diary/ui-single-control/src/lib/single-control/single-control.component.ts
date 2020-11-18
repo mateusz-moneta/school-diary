@@ -17,10 +17,10 @@ export class SingleControlComponent {
   label: string;
 
   @Input()
-  max: number;
+  max: number | string;
 
   @Input()
-  min: number;
+  min: number | string;
 
   @Input()
   options: SelectOption[] = [];

@@ -25,6 +25,10 @@ const routes: Routes = [
             loadChildren: () => import('@school-diary/school-diary/feature-configuration-class-rooms').then(m => m.SchoolDiaryFeatureConfigurationClassRoomsModule)
           },
           {
+            path: 'lesson-hours',
+            loadChildren: () => import('@school-diary/school-diary/feature-configuration-lesson-hours').then(m => m.SchoolDiaryFeatureConfigurationLessonHoursModule)
+          },
+          {
             path: 'subjects',
             loadChildren: () => import('@school-diary/school-diary/feature-configuration-subjects').then(m => m.SchoolDiaryFeatureConfigurationSubjectsModule)
           }

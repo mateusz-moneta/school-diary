@@ -712,6 +712,72 @@
           "style": "scss"
         }
       }
+    },
+    "school-diary-feature-configuration-lesson-hours": {
+      "projectType": "library",
+      "root": "libs/school-diary/feature-configuration-lesson-hours",
+      "sourceRoot": "libs/school-diary/feature-configuration-lesson-hours/src",
+      "prefix": "school-diary",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/school-diary/feature-configuration-lesson-hours/tsconfig.lib.json",
+              "libs/school-diary/feature-configuration-lesson-hours/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/school-diary/feature-configuration-lesson-hours/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/school-diary/feature-configuration-lesson-hours/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "school-diary-data-access-configuration-lesson-hours": {
+      "projectType": "library",
+      "root": "libs/school-diary/data-access-configuration-lesson-hours",
+      "sourceRoot": "libs/school-diary/data-access-configuration-lesson-hours/src",
+      "prefix": "school-diary",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/school-diary/data-access-configuration-lesson-hours/tsconfig.lib.json",
+              "libs/school-diary/data-access-configuration-lesson-hours/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/school-diary/data-access-configuration-lesson-hours/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/school-diary/data-access-configuration-lesson-hours/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
     }
   },
   "cli": {

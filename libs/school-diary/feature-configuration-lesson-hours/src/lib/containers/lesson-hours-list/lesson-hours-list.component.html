@@ -1,0 +1,72 @@
+<div class="school-diary-mat-card-container container">
+  <mat-card class="school-diary-mat-card">
+    <mat-card-header>
+      <button
+        [routerLink]="'/dashboard'"
+        class="button-back"
+        mat-icon-button
+      >
+        <mat-icon color="primary">arrow_back</mat-icon>
+      </button>
+
+      <mat-card-title>
+        {{ 'CONFIGURATION-LESSON-HOURS.TITLE' | translate }}
+      </mat-card-title>
+
+      <button
+        [routerLink]="'/configuration/lesson-hours/new'"
+        class="button-action"
+        mat-icon-button
+      >
+        <mat-icon color="primary">add</mat-icon>
+      </button>
+    </mat-card-header>
+
+    <mat-card-content>
+      <table *ngIf="(lessonHours$ | async)?.data.length" [dataSource]="(lessonHours$ | async).data" class="adjustable-table" mat-table>
+        <ng-container matColumnDef="timeFrom">
+          <th *matHeaderCellDef class="adjustable-table-cell" mat-header-cell>{{ 'CONFIGURATION-LESSON-HOURS.TIME-FROM' | translate }}</th>
+          <td *matCellDef="let element" (click)="selectLessonHour(element)" class="adjustable-table-cell" mat-cell>{{ element.hour_from }}:{{ element.minute_from }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="timeTo">
+          <th *matHeaderCellDef class="adjustable-table-cell" mat-header-cell>{{ 'CONFIGURATION-LESSON-HOURS.TIME-TO' | translate }}</th>
+          <td *matCellDef="let element" (click)="selectLessonHour(element)" class="adjustable-table-cell" mat-cell>{{ element.hour_to }}:{{ element.minute_to }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="createdAt">
+          <th *matHeaderCellDef class="adjustable-table-cell" mat-header-cell>{{ 'SHARED.CREATED-AT' | translate }}</th>
+          <td *matCellDef="let element" class="adjustable-table-cell" mat-cell>{{ element.created_at | date: 'mediumDate' }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="updatedAt">
+          <th *matHeaderCellDef class="adjustable-table-cell" mat-header-cell>{{ 'SHARED.UPDATED-AT' | translate }}</th>
+          <td *matCellDef="let element" class="adjustable-table-cell" mat-cell>{{ element.updated_at | date: 'mediumDate' }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+          <th *matHeaderCellDef class="adjustable-table-cell text-center" mat-header-cell>{{ 'SHARED.ACTIONS' | translate }}</th>
+          <td *matCellDef="let element" class="adjustable-table-cell text-center" mat-cell>
+            <button (click)="deleteLessonHour(element.id)" mat-icon-button>
+              <mat-icon color="primary">delete_outline</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
+        <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+        <tr *matRowDef="let row; columns: displayedColumns;" class="adjustable-table-row" mat-row></tr>
+      </table>
+    </mat-card-content>
+
+    <mat-card-footer>
+      <school-diary-paginator
+        *ngIf="(lessonHours$ | async)?.data.length"
+        (page)="changePagination($event)"
+        [length]="(lessonHours$ | async).recordsCount"
+        [pageSize]="paginationConfig.pageSize"
+        [pageSizeOptions]="paginationConfig.pageSizeOptions"
+      >
+      </school-diary-paginator>
+    </mat-card-footer>
+  </mat-card>
+</div>

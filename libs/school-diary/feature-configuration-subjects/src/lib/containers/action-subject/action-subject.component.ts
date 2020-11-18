@@ -42,19 +42,19 @@ export class ActionSubjectComponent implements OnInit, OnDestroy {
   }
 
   executeAction(): void {
-    if (this.action === Action.CREATE) {
-      this.subjectsFacade.createSubject({
-        name: this.subjectForm.get('name').value,
-        short_name: this.subjectForm.get('shortName').value
-      });
+    const baseRequestPayload = {
+      name: this.subjectForm.get('name').value,
+      short_name: this.subjectForm.get('shortName').value
+    };
 
+    if (this.action === Action.CREATE) {
+      this.subjectsFacade.createSubject(baseRequestPayload);
       return;
     }
 
     this.subjectsFacade.updateSubject({
       id: this.selectedSubject.id,
-      name: this.subjectForm.get('name').value,
-      short_name: this.subjectForm.get('shortName').value
+      ...baseRequestPayload
     });
   }
 
