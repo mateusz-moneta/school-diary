@@ -67,6 +67,13 @@ export function subjectsReducer(
     case fromSubjectsActions.Types.CreateSubjectSuccess: {
       state = {
         ...state,
+        subjects: {
+          data: [
+            ...state.subjects.data,
+            action.payload
+          ],
+          recordsCount: state.subjects.recordsCount + 1
+        },
         createdSubject: action.payload,
         createSubjectInProgress: false
       };

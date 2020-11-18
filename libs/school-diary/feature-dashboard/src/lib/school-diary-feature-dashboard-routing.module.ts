@@ -2,13 +2,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 
 import { DashboardComponent } from './containers/dashboard/dashboard.component';
-import { FeatureDashboardGuard } from './guards/feature-dashboard.guard';
+import { DashboardGuard } from './guards/dashboard.guard';
 
 const routes: Routes = [
   {
     path: '',
     component: DashboardComponent,
-    canActivate: [FeatureDashboardGuard]
+    canActivate: [DashboardGuard]
   }
 ];
 

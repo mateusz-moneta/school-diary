@@ -25,11 +25,26 @@
       "@school-diary/school-diary/feature-dashboard": [
         "libs/school-diary/feature-dashboard/src/index.ts"
       ],
+      "@school-diary/school-diary/feature-configuration": [
+        "libs/school-diary/feature-configuration/src/index.ts"
+      ],
+      "@school-diary/school-diary/feature-configuration-class-rooms": [
+        "libs/school-diary/feature-configuration-class-rooms/src/index.ts"
+      ],
+      "@school-diary/school-diary/feature-configuration-lesson-hours": [
+        "libs/school-diary/feature-configuration-lesson-hours/src/index.ts"
+      ],
       "@school-diary/school-diary/feature-configuration-subjects": [
         "libs/school-diary/feature-configuration-subjects/src/index.ts"
       ],
       "@school-diary/school-diary/shared": [
         "libs/school-diary/shared/src/index.ts"
+      ],
+      "@school-diary/school-diary/data-access-configuration-class-rooms": [
+        "libs/school-diary/data-access-configuration-class-rooms/src/index.ts"
+      ],
+      "@school-diary/school-diary/data-access-configuration-lesson-hours": [
+        "libs/school-diary/data-access-configuration-lesson-hours/src/index.ts"
       ],
       "@school-diary/school-diary/data-access-configuration-subjects": [
         "libs/school-diary/data-access-configuration-subjects/src/index.ts"

@@ -29,6 +29,32 @@
     "PRAISE-AND-ATTENTION":"Praise and attention",
     "EXCUSES":"Excuses"
   },
+  "CONFIGURATION":{
+    "TITLE":"Configuration",
+    "CLASS-ROOMS":"Class rooms",
+    "LESSON-HOURS":"Lesson hours",
+    "SUBJECTS":"Subjects"
+  },
+  "CONFIGURATION-CLASS-ROOMS":{
+    "CREATOR-TITLE":"Create a new class room",
+    "DESIGNATION":"Designation",
+    "EDITOR-TITLE":"Edit a class room",
+    "ENTER-DESIGNATION":"Enter designation",
+    "ENTER-FLOOR":"Enter floor",
+    "ENTER-LOCATION":"Enter location",
+    "FLOOR":"Floor",
+    "LOCATION":"Location",
+    "TITLE":"Class rooms"
+  },
+  "CONFIGURATION-LESSON-HOURS":{
+    "CREATOR-TITLE":"Create a new lesson hour",
+    "EDITOR-TITLE":"Edit a lesson hour",
+    "SET-TIME-FROM":"Set time from",
+    "SET-TIME-TO":"Set time to",
+    "TIME-FROM":"Time from",
+    "TIME-TO":"Time to",
+    "TITLE":"Lesson hours"
+  },
   "CONFIGURATION-SUBJECTS":{
     "CREATOR-TITLE":"Create a new subject",
     "EDITOR-TITLE":"Edit a subject",
@@ -36,6 +62,7 @@
   },
   "SHARED":{
     "ACTIONS":"Actions",
+    "CONNECTION-ERROR":"Backend API connection issue, please contact...",
     "CREATE":"Create",
     "CREATED-AT":"Created at",
     "EDIT":"Edit",

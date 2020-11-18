@@ -1,0 +1,55 @@
+<div class="school-diary-mat-card-container container">
+  <mat-card class="school-diary-mat-card">
+    <mat-card-header>
+      <button
+        [routerLink]="'/configuration/class-rooms/list'"
+        class="button-back"
+        mat-icon-button
+      >
+        <mat-icon color="primary">arrow_back</mat-icon>
+      </button>
+
+      <mat-card-title>
+        {{ titleTranslationKey | translate }}
+      </mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <school-diary-single-control
+        [control]="classRoomForm.controls.designation"
+        [label]="'CONFIGURATION-CLASS-ROOMS.DESIGNATION' | translate"
+        [placeholder]="'CONFIGURATION-CLASS-ROOMS.ENTER-DESIGNATION' | translate"
+      ></school-diary-single-control>
+
+      <school-diary-single-control
+        [control]="classRoomForm.controls.floor"
+        [label]="'CONFIGURATION-CLASS-ROOMS.FLOOR' | translate"
+        [min]="0"
+        [max]="3"
+        [placeholder]="'CONFIGURATION-CLASS-ROOMS.ENTER-FLOOR' | translate"
+        [type]="'number'"
+      ></school-diary-single-control>
+
+      <school-diary-single-control
+        [control]="classRoomForm.controls.location"
+        [label]="'CONFIGURATION-CLASS-ROOMS.LOCATION' | translate"
+        [placeholder]="'CONFIGURATION-CLASS-ROOMS.ENTER-LOCATION' | translate"
+      ></school-diary-single-control>
+    </mat-card-content>
+
+    <mat-card-footer>
+      <div class="text-center">
+        <button
+          (click)="executeAction()"
+          [disabled]="classRoomForm.invalid"
+          color="primary"
+          type="button"
+          mat-stroked-button
+        >
+          {{ action | actionTranslationKey | translate }}
+        </button>
+      </div>
+    </mat-card-footer>
+  </mat-card>
+</div>
+

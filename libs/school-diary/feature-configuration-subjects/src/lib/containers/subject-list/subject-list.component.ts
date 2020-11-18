@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { LanguageService } from '@school-diary/school-diary/shared';
@@ -8,10 +8,9 @@ import { tableConfig } from '@school-diary/school-diary/config';
 
 @Component({
   selector: 'school-diary-subject-list',
-  templateUrl: './subject-list.component.html',
-  styleUrls: ['./subject-list.component.scss']
+  templateUrl: './subject-list.component.html'
 })
-export class SubjectListComponent implements OnInit {
+export class SubjectListComponent {
   displayedColumns: string[] = ['name', 'shortName', 'createdAt', 'updatedAt', 'actions'];
   subjects$ = this.subjectsFacade.subjects$;
 
@@ -30,9 +29,5 @@ export class SubjectListComponent implements OnInit {
   selectSubject(selectedSubject: Subject) {
     this.subjectsFacade.selectSubject(selectedSubject);
     this.router.navigate(['/configuration/subjects/edit']);
-  }
-
-  ngOnInit(): void {
-    this.subjectsFacade.getSubjects();
   }
 }

@@ -12,6 +12,7 @@ import { SchoolDiaryDomainModule } from '@school-diary/school-diary/domain';
 import { SchoolDiaryFeatureConfigurationSubjectsRoutingModule } from './school-diary-feature-configuration-subjects-routing.module';
 import { SchoolDiaryUiPaginatorModule } from '@school-diary/school-diary/ui-paginator';
 import { SchoolDiaryUiSingleControlModule } from '@school-diary/school-diary/ui-single-control';
+import { SubjectsGuard } from './guards/subjects.guard';
 import { SubjectListComponent } from './containers/subject-list/subject-list.component';
 
 @NgModule({
@@ -20,6 +21,7 @@ import { SubjectListComponent } from './containers/subject-list/subject-list.com
     CommonModule,
     MatButtonModule,
     MatCardModule,
+    MatIconModule,
     MatTableModule,
     SchoolDiaryDataAccessConfigurationSubjectsModule,
     SchoolDiaryDomainModule,
@@ -27,8 +29,8 @@ import { SubjectListComponent } from './containers/subject-list/subject-list.com
     SchoolDiaryUiSingleControlModule,
     SchoolDiaryUiSingleControlModule,
     SchoolDiaryUiPaginatorModule,
-    TranslateModule.forChild(),
-    MatIconModule
-  ]
+    TranslateModule.forChild()
+  ],
+  providers: [SubjectsGuard]
 })
 export class SchoolDiaryFeatureConfigurationSubjectsModule {}

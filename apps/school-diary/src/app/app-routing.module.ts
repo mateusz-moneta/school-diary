@@ -19,16 +19,11 @@ const routes: Routes = [
       },
       {
         path: 'configuration',
-        children: [
-          {
-            path: 'subjects',
-            loadChildren: () => import('@school-diary/school-diary/feature-configuration-subjects').then(m => m.SchoolDiaryFeatureConfigurationSubjectsModule)
-          }
-        ]
+        loadChildren: () => import('@school-diary/school-diary/feature-configuration').then(m => m.SchoolDiaryFeatureConfigurationModule)
       },
       {
         path: '**',
-        redirectTo: '/dashboard'
+        redirectTo: '/login'
       }
     ]
   }

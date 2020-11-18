@@ -4,9 +4,7 @@ import { Observable } from 'rxjs';
 
 import { UserFacade } from '@school-diary/school-diary/data-access-user';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class LoginGuard implements CanActivate {
 
   constructor(private userFacade: UserFacade) {}
