@@ -7,13 +7,15 @@ export const sidenavConfig: SidenavItem[] = [
     children: [
       {
         title: 'CONFIGURATION.CLASS-ROOMS',
-        path: '/configuration/class-rooms',
-        icon: 'attach_money'
+        path: '/configuration/class-rooms'
+      },
+      {
+        title: 'CONFIGURATION.LESSON-HOURS',
+        path: '/configuration/lesson-hours'
       },
       {
         title: 'CONFIGURATION.SUBJECTS',
-        path: '/configuration/subjects',
-        icon: 'attach_money'
+        path: '/configuration/subjects'
       }
     ]
   }

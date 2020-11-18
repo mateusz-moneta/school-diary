@@ -1,6 +1,5 @@
-export interface UpdateClassRoomRequestPayload {
+import { CreateClassRoomRequestPayload } from './create-class-room.request-payload';
+
+export interface UpdateClassRoomRequestPayload extends CreateClassRoomRequestPayload {
   id: number;
-  designation: string;
-  floor: number;
-  location: string;
 }

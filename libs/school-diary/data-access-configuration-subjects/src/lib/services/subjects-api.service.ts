@@ -31,15 +31,15 @@ export class SubjectsApiService {
     return this.httpClient.delete<DeleteSubjectSuccessPayload>(this.endpoints.deleteSubject, { params });
   }
 
-  updateSubject(requestPayload: UpdateSubjectRequestPayload): Observable<UpdateSubjectSuccessPayload> {
-    return this.httpClient.put<UpdateSubjectSuccessPayload>(this.endpoints.updateSubject, requestPayload);
-  }
-
   getSubjects(requestPayload: GetSubjectsRequestPayload): Observable<GetSubjectsSuccessPayload> {
     const params = new HttpParams()
       .set('limit', requestPayload.limit.toString())
       .set('page', requestPayload.page.toString());
 
     return this.httpClient.get<GetSubjectsSuccessPayload>(this.endpoints.getSubjects, { params });
+  }
+
+  updateSubject(requestPayload: UpdateSubjectRequestPayload): Observable<UpdateSubjectSuccessPayload> {
+    return this.httpClient.put<UpdateSubjectSuccessPayload>(this.endpoints.updateSubject, requestPayload);
   }
 }

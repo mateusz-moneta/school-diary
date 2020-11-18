@@ -42,21 +42,20 @@ export class ActionClassRoomComponent implements OnInit, OnDestroy {
   }
 
   executeAction(): void {
-    if (this.action === Action.CREATE) {
-      this.classRoomsFacade.createClassRoom({
-        designation: this.classRoomForm.get('designation').value,
-        floor: this.classRoomForm.get('floor').value,
-        location: this.classRoomForm.get('location').value
-      });
+    const baseRequestPayload = {
+      designation: this.classRoomForm.get('designation').value,
+      floor: this.classRoomForm.get('floor').value,
+      location: this.classRoomForm.get('location').value
+    };
 
+    if (this.action === Action.CREATE) {
+      this.classRoomsFacade.createClassRoom(baseRequestPayload);
       return;
     }
 
     this.classRoomsFacade.updateClassRoom({
       id: this.selectedClassRoom.id,
-      designation: this.classRoomForm.get('designation').value,
-      floor: this.classRoomForm.get('floor').value,
-      location: this.classRoomForm.get('location').value
+      ...baseRequestPayload
     });
   }
 
