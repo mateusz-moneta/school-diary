@@ -32,7 +32,8 @@
   "CONFIGURATION":{
     "TITLE":"Configuration",
     "CLASS-ROOMS":"Class rooms",
-    "SUBJECTS":"Subjects"
+    "SUBJECTS":"Subjects",
+    "LESSON-HOURS":"Lesson hours"
   },
   "CONFIGURATION-CLASS-ROOMS":{
     "CREATOR-TITLE":"Create a new class room",
@@ -44,6 +45,15 @@
     "FLOOR":"Floor",
     "LOCATION":"Location",
     "TITLE":"Class rooms"
+  },
+  "CONFIGURATION-LESSON-HOURS":{
+    "CREATOR-TITLE":"Create a new lesson hour",
+    "EDITOR-TITLE":"Edit a lesson hour",
+    "SET-TIME-FROM":"Set time from",
+    "SET-TIME-TO":"Set time to",
+    "TIME-FROM":"Time from",
+    "TIME-TO":"Time to",
+    "TITLE":"Lesson hours"
   },
   "CONFIGURATION-SUBJECTS":{
     "CREATOR-TITLE":"Create a new subject",

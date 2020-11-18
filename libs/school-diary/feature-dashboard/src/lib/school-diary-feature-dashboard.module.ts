@@ -8,28 +8,32 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { TranslateModule } from '@ngx-translate/core';
 
 import { DashboardComponent } from './containers/dashboard/dashboard.component';
-import { SchoolDiaryDataAccessSettingsModule } from '@school-diary/school-diary/data-access-settings'
-import { SchoolDiaryFeatureDashboardRoutingModule } from './school-diary-feature-dashboard-routing.module';
+import { DashboardGuard } from './guards/dashboard.guard';
 import { PanelCardComponent } from './components/panel-card/panel-card.component';
+import { SchoolDiaryDataAccessSettingsModule } from '@school-diary/school-diary/data-access-settings';
+import { SchoolDiaryDataAccessUserModule } from '@school-diary/school-diary/data-access-user';
+import { SchoolDiaryFeatureDashboardRoutingModule } from './school-diary-feature-dashboard-routing.module';
+import { SchoolDiarySharedModule } from '@school-diary/school-diary/shared';
 import { SchoolDiaryUiSidenavModule } from '@school-diary/school-diary/ui-sidenav';
 import { SchoolDiaryUiToolbarModule } from '@school-diary/school-diary/ui-toolbar';
-import { SchoolDiarySharedModule } from '@school-diary/school-diary/shared';
 
 @NgModule({
+  declarations: [DashboardComponent, PanelCardComponent],
   imports: [
     CommonModule,
     SchoolDiaryDataAccessSettingsModule,
+    SchoolDiaryDataAccessUserModule,
     SchoolDiaryFeatureDashboardRoutingModule,
     MatButtonModule,
     MatCardModule,
     MatIconModule,
     MatListModule,
     MatSidenavModule,
+    SchoolDiarySharedModule,
     SchoolDiaryUiSidenavModule,
     SchoolDiaryUiToolbarModule,
-    SchoolDiarySharedModule,
     TranslateModule.forChild()
   ],
-  declarations: [DashboardComponent, PanelCardComponent]
+  providers: [DashboardGuard]
 })
 export class SchoolDiaryFeatureDashboardModule {}

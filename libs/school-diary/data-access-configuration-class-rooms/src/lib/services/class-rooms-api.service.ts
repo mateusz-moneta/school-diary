@@ -31,15 +31,15 @@ export class ClassRoomsApiService {
     return this.httpClient.delete<DeleteClassRoomSuccessPayload>(this.endpoints.deleteClassRoom, { params });
   }
 
-  updateClassRoom(requestPayload: UpdateClassRoomRequestPayload): Observable<UpdateClassRoomSuccessPayload> {
-    return this.httpClient.put<UpdateClassRoomSuccessPayload>(this.endpoints.updateClassRoom, requestPayload);
-  }
-
   getClassRooms(requestPayload: GetClassRoomsRequestPayload): Observable<GetClassRoomsSuccessPayload> {
     const params = new HttpParams()
       .set('limit', requestPayload.limit.toString())
       .set('page', requestPayload.page.toString());
 
     return this.httpClient.get<GetClassRoomsSuccessPayload>(this.endpoints.getClassRooms, { params });
+  }
+
+  updateClassRoom(requestPayload: UpdateClassRoomRequestPayload): Observable<UpdateClassRoomSuccessPayload> {
+    return this.httpClient.put<UpdateClassRoomSuccessPayload>(this.endpoints.updateClassRoom, requestPayload);
   }
 }

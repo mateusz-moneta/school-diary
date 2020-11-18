@@ -13,7 +13,7 @@
       </mat-select>
     </ng-container>
 
-    <ng-container *ngSwitchCase="'number'">
+    <ng-container *ngSwitchCase="'number' || 'time'">
       <input
         [formControl]="control"
         [max]="max"

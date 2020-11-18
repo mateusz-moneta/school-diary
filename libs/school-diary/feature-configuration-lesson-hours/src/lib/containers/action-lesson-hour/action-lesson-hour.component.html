@@ -1,0 +1,52 @@
+<div class="school-diary-mat-card-container container">
+  <mat-card class="school-diary-mat-card">
+    <mat-card-header>
+      <button
+        [routerLink]="'/configuration/lesson-hours/list'"
+        class="button-back"
+        mat-icon-button
+      >
+        <mat-icon color="primary">arrow_back</mat-icon>
+      </button>
+
+      <mat-card-title>
+        {{ titleTranslationKey | translate }}
+      </mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <school-diary-single-control
+        [control]="lessonHourForm.controls.timeFrom"
+        [label]="'CONFIGURATION-LESSON-HOURS.TIME-FROM' | translate"
+        [placeholder]="'CONFIGURATION-LESSON-HOURS.SET-TIME-FROM' | translate"
+        [type]="'time'"
+        [min]="'07:00'"
+        [max]="'19:00'"
+      ></school-diary-single-control>
+
+      <school-diary-single-control
+        [control]="lessonHourForm.controls.timeTo"
+        [label]="'CONFIGURATION-LESSON-HOURS.TIME-TO' | translate"
+        [placeholder]="'CONFIGURATION-LESSON-HOURS.SET-TIME-TO' | translate"
+        [type]="'time'"
+        [min]="'07:00'"
+        [max]="'19:00'"
+      ></school-diary-single-control>
+    </mat-card-content>
+
+    <mat-card-footer>
+      <div class="text-center">
+        <button
+          (click)="executeAction()"
+          [disabled]="lessonHourForm.invalid"
+          color="primary"
+          type="button"
+          mat-stroked-button
+        >
+          {{ action | actionTranslationKey | translate }}
+        </button>
+      </div>
+    </mat-card-footer>
+  </mat-card>
+</div>
+

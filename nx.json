@@ -38,11 +38,26 @@
     "school-diary-feature-dashboard": {
       "tags": ["platform:web", "scope:school-diary", "type:feature"]
     },
+    "school-diary-feature-configuration": {
+      "tags": ["platform:web", "scope:school-diary", "type:feature"]
+    },
+    "school-diary-feature-configuration-class-rooms": {
+      "tags": ["platform:web", "scope:school-diary", "type:feature"]
+    },
+    "school-diary-feature-configuration-lesson-hours": {
+      "tags": ["platform:web", "scope:school-diary", "type:feature"]
+    },
     "school-diary-feature-configuration-subjects": {
       "tags": ["platform:web", "scope:school-diary", "type:feature"]
     },
     "school-diary-shared": {
       "tags": ["platform:web", "scope:school-diary", "type:shared"]
+    },
+    "school-diary-data-access-configuration-class-rooms": {
+      "tags": ["platform:web", "scope:school-diary", "type:data-access"]
+    },
+    "school-diary-data-access-configuration-lesson-hours": {
+      "tags": ["platform:web", "scope:school-diary", "type:data-access"]
     },
     "school-diary-data-access-configuration-subjects": {
       "tags": ["platform:web", "scope:school-diary", "type:feature"]
@@ -76,12 +91,6 @@
     },
     "school-diary-config": {
       "tags": ["platform:web", "scope:school-diary", "type:config"]
-    },
-    "school-diary-feature-configuration-class-rooms": {
-      "tags": ["platform:web", "scope:school-diary", "type:feature"]
-    },
-    "school-diary-data-access-configuration-class-rooms": {
-      "tags": ["platform:web", "scope:school-diary", "type:data-access"]
     }
   }
 }

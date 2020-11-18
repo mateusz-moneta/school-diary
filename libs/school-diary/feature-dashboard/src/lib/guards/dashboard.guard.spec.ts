@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { FeatureDashboardGuard } from './feature-dashboard.guard';
+import { DashboardGuard } from './dashboard.guard';
 
-describe('FeatureDashboardGuard', () => {
-  let guard: FeatureDashboardGuard;
+describe('DashboardGuard', () => {
+  let guard: DashboardGuard;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    guard = TestBed.inject(FeatureDashboardGuard);
+    guard = TestBed.inject(DashboardGuard);
   });
 
   it('should be created', () => {

@@ -15,6 +15,11 @@ const getLoginUserInProgress = createSelector(
   state => state.loginUserInProgress
 );
 
+const isLoginUser = createSelector(
+  getUserState,
+  state => !!state.loginUser
+);
+
 const isLogoutUser = createSelector(
   getUserState,
   state => !state.loginUser
@@ -33,6 +38,7 @@ const getRegisterUserInProgress = createSelector(
 export const userQuery = {
   getLoginUser,
   getLoginUserInProgress,
+  isLoginUser,
   isLogoutUser,
   getRegisterUser,
   getRegisterUserInProgress
