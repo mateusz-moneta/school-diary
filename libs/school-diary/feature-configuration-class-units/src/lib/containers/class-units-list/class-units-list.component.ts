@@ -12,7 +12,7 @@ import { tableConfig } from '@school-diary/school-diary/config';
 })
 export class ClassUnitsListComponent {
   classUnits$ = this.classUnitsFacade.classUnits$;
-  displayedColumns: string[] = ['name', 'user', 'createdAt', 'updatedAt', 'actions'];
+  displayedColumns: string[] = ['name', 'classTeacher', 'createdAt', 'updatedAt', 'actions'];
 
   readonly paginationConfig = tableConfig.pagination;
 

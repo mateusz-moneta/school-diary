@@ -31,8 +31,14 @@
       "@school-diary/school-diary/feature-configuration-class-rooms": [
         "libs/school-diary/feature-configuration-class-rooms/src/index.ts"
       ],
+      "@school-diary/school-diary/feature-configuration-class-units": [
+        "libs/school-diary/feature-configuration-class-units/src/index.ts"
+      ],
       "@school-diary/school-diary/feature-configuration-lesson-hours": [
         "libs/school-diary/feature-configuration-lesson-hours/src/index.ts"
+      ],
+      "@school-diary/school-diary/feature-configuration-lesson-plans": [
+        "libs/school-diary/feature-configuration-lesson-plans/src/index.ts"
       ],
       "@school-diary/school-diary/feature-configuration-subjects": [
         "libs/school-diary/feature-configuration-subjects/src/index.ts"
@@ -43,6 +49,12 @@
       "@school-diary/school-diary/data-access-configuration-class-rooms": [
         "libs/school-diary/data-access-configuration-class-rooms/src/index.ts"
       ],
+      "@school-diary/school-diary/data-access-configuration-class-units": [
+        "libs/school-diary/data-access-configuration-class-units/src/index.ts"
+      ],
+      "@school-diary/school-diary/data-access-configuration-lesson-plans": [
+        "libs/school-diary/data-access-configuration-lesson-plans/src/index.ts"
+      ],
       "@school-diary/school-diary/data-access-configuration-lesson-hours": [
         "libs/school-diary/data-access-configuration-lesson-hours/src/index.ts"
       ],
@@ -52,8 +64,14 @@
       "@school-diary/school-diary/data-access-settings": [
         "libs/school-diary/data-access-settings/src/index.ts"
       ],
-      "@school-diary/school-diary/data-access-user": [
-        "libs/school-diary/data-access-user/src/index.ts"
+      "@school-diary/school-diary/data-access-users": [
+        "libs/school-diary/data-access-users/src/index.ts"
+      ],
+      "@school-diary/school-diary/data-access-user-registration": [
+        "libs/school-diary/data-access-user-registration/src/index.ts"
+      ],
+      "@school-diary/school-diary/data-access-user-session": [
+        "libs/school-diary/data-access-user-session/src/index.ts"
       ],
       "@school-diary/school-diary/ui-paginator": [
         "libs/school-diary/ui-paginator/src/index.ts"
@@ -73,23 +91,11 @@
       "@school-diary/school-diary/util-http-loader-factory": [
         "libs/school-diary/util-http-loader-factory/src/index.ts"
       ],
-      "@school-diary/school-diary/core": [
-        "libs/school-diary/core/src/index.ts"
-      ],
       "@school-diary/school-diary/config": [
         "libs/school-diary/config/src/index.ts"
       ],
-      "@school-diary/school-diary/feature-configuration-lesson-plans": [
-        "libs/school-diary/feature-configuration-lesson-plans/src/index.ts"
-      ],
-      "@school-diary/school-diary/data-access-configuration-lesson-plans": [
-        "libs/school-diary/data-access-configuration-lesson-plans/src/index.ts"
-      ],
-      "@school-diary/school-diary/feature-configuration-class-units": [
-        "libs/school-diary/feature-configuration-class-units/src/index.ts"
-      ],
-      "@school-diary/school-diary/data-access-configuration-class-units": [
-        "libs/school-diary/data-access-configuration-class-units/src/index.ts"
+      "@school-diary/school-diary/shell": [
+        "libs/school-diary/shell/src/index.ts"
       ]
     }
   },

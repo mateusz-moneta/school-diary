@@ -3,5 +3,6 @@ import { User } from './user.interface';
 
 export interface ClassUnit extends BaseItem {
   name: string;
-  user: User;
+  first_name: string;
+  last_name: string;
 }

@@ -14,10 +14,10 @@ import { UpdateClassUnitSuccessPayload } from '../payloads/update-class-unit-suc
 @Injectable()
 export class ClassUnitsApiService {
   readonly endpoints = {
-    createClassUnit: '/api/class_unit',
-    deleteClassUnit: '/api/class_unit',
-    getClassUnits: '/api/class_unit',
-    updateClassUnit: '/api/class_unit'
+    createClassUnit: '/api/configuration/class_units',
+    deleteClassUnit: '/api/configuration/class_units',
+    getClassUnits: '/api/configuration/class_units',
+    updateClassUnit: '/api/configuration/class_units'
   };
 
   constructor(private httpClient: HttpClient) {}
@@ -27,8 +27,7 @@ export class ClassUnitsApiService {
   }
 
   deleteClassUnit(requestPayload: DeleteClassUnitRequestPayload): Observable<DeleteClassUnitSuccessPayload> {
-    const params = new HttpParams().set('id', requestPayload.id.toString());
-    return this.httpClient.delete<DeleteClassUnitSuccessPayload>(this.endpoints.deleteClassUnit, { params });
+    return this.httpClient.delete<DeleteClassUnitSuccessPayload>(`${this.endpoints.deleteClassUnit}/${requestPayload.id}`);
   }
 
   getClassUnits(requestPayload: GetClassUnitsRequestPayload): Observable<GetClassUnitsSuccessPayload> {
@@ -40,6 +39,6 @@ export class ClassUnitsApiService {
   }
 
   updateClassUnit(requestPayload: UpdateClassUnitRequestPayload): Observable<UpdateClassUnitSuccessPayload> {
-    return this.httpClient.put<UpdateClassUnitSuccessPayload>(this.endpoints.updateClassUnit, requestPayload);
+    return this.httpClient.put<UpdateClassUnitSuccessPayload>(`${this.endpoints.updateClassUnit}/${requestPayload.id}`, requestPayload);
   }
 }

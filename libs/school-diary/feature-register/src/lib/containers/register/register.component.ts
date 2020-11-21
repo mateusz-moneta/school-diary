@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { LanguageService } from '@school-diary/school-diary/shared';
-import { UserFacade } from '@school-diary/school-diary/data-access-user';
+import { UserRegistrationFacade } from '@school-diary/school-diary/data-access-user-registration';
 import { UserType } from '@school-diary/school-diary/domain';
 
 @Component({
@@ -22,7 +22,7 @@ export class RegisterComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private language: LanguageService,
-    private userFacade: UserFacade
+    private userRegistrationFacade: UserRegistrationFacade
   ) {}
 
   ngOnInit(): void {
@@ -39,7 +39,7 @@ export class RegisterComponent implements OnInit {
         password: this.registerForm.get('password').value
       };
 
-      this.userFacade.registerUser(registerRequestPayload);
+      this.userRegistrationFacade.registerUser(registerRequestPayload);
       this.registerForm.reset();
     }
   }
@@ -47,8 +47,8 @@ export class RegisterComponent implements OnInit {
   private initRegisterForm(): void {
     this.registerForm = this.formBuilder.group({
       firstName: ['', [Validators.required, Validators.minLength(3)]],
-      lastName: ['', [Validators.required, Validators.minLength(6)]],
-      userType: [UserType.LEGAL_GUARDIAN],
+      lastName: ['', [Validators.required, Validators.minLength(3)]],
+      userType: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(8)]],
       repeatPassword: ['', [Validators.required, Validators.minLength(8)]],

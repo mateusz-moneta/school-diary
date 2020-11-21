@@ -1,4 +1,4 @@
 export interface CreateClassUnitRequestPayload {
   name: string;
-  user_id: number;
+  teacher_id: number;
 }

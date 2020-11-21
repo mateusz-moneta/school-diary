@@ -14,10 +14,10 @@ import { UpdateClassRoomSuccessPayload } from '../payloads/update-class-room-suc
 @Injectable()
 export class ClassRoomsApiService {
   readonly endpoints = {
-    createClassRoom: '/api/class_room',
-    deleteClassRoom: '/api/class_room',
-    getClassRooms: '/api/class_room',
-    updateClassRoom: '/api/class_room'
+    createClassRoom: '/api/configuration/class_rooms',
+    deleteClassRoom: '/api/configuration/class_rooms',
+    getClassRooms: '/api/configuration/class_rooms',
+    updateClassRoom: '/api/configuration/class_rooms'
   };
 
   constructor(private httpClient: HttpClient) {}
@@ -27,8 +27,7 @@ export class ClassRoomsApiService {
   }
 
   deleteClassRoom(requestPayload: DeleteClassRoomRequestPayload): Observable<DeleteClassRoomSuccessPayload> {
-    const params = new HttpParams().set('id', requestPayload.id.toString());
-    return this.httpClient.delete<DeleteClassRoomSuccessPayload>(this.endpoints.deleteClassRoom, { params });
+    return this.httpClient.delete<DeleteClassRoomSuccessPayload>(`${this.endpoints.deleteClassRoom}/${requestPayload.id}`);
   }
 
   getClassRooms(requestPayload: GetClassRoomsRequestPayload): Observable<GetClassRoomsSuccessPayload> {
@@ -40,6 +39,6 @@ export class ClassRoomsApiService {
   }
 
   updateClassRoom(requestPayload: UpdateClassRoomRequestPayload): Observable<UpdateClassRoomSuccessPayload> {
-    return this.httpClient.put<UpdateClassRoomSuccessPayload>(this.endpoints.updateClassRoom, requestPayload);
+    return this.httpClient.put<UpdateClassRoomSuccessPayload>(`${this.endpoints.updateClassRoom}/${requestPayload.id}`, requestPayload);
   }
 }

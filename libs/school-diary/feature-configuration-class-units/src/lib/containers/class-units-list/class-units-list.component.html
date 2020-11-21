@@ -29,9 +29,9 @@
           <td *matCellDef="let element" (click)="selectSubject(element)" class="adjustable-table-cell" mat-cell>{{ element.name }}</td>
         </ng-container>
 
-        <ng-container matColumnDef="user">
+        <ng-container matColumnDef="classTeacher">
           <th *matHeaderCellDef class="adjustable-table-cell" mat-header-cell>{{ 'CONFIGURATION-CLASS-UNITS.CLASS-TEACHER' | translate }}</th>
-          <td *matCellDef="let element" (click)="selectSubject(element)" class="adjustable-table-cell" mat-cell>{{ element.user.first_name }} {{ element.user.last_name }}</td>
+          <td *matCellDef="let element" (click)="selectSubject(element)" class="adjustable-table-cell" mat-cell>{{ element.first_name }} {{ element.last_name }}</td>
         </ng-container>
 
         <ng-container matColumnDef="createdAt">

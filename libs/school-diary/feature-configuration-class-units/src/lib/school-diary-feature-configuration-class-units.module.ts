@@ -10,6 +10,7 @@ import { ActionClassUnitComponent } from './containers/action-class-unit/action-
 import { ClassUnitsGuard } from './guards/class-units.guard';
 import { ClassUnitsListComponent } from './containers/class-units-list/class-units-list.component';
 import { SchoolDiaryDataAccessConfigurationClassUnitsModule } from '@school-diary/school-diary/data-access-configuration-class-units';
+import { SchoolDiaryDataAccessUsersModule } from '@school-diary/school-diary/data-access-users';
 import { SchoolDiaryDomainModule } from '@school-diary/school-diary/domain';
 import { SchoolDiaryFeatureConfigurationClassUnitsRoutingModule } from './school-diary-feature-configuration-class-units-routing.module';
 import { SchoolDiaryUiPaginatorModule } from '@school-diary/school-diary/ui-paginator';
@@ -25,6 +26,7 @@ import { SchoolDiaryUiSingleControlModule } from '@school-diary/school-diary/ui-
     MatIconModule,
     MatTableModule,
     SchoolDiaryDataAccessConfigurationClassUnitsModule,
+    SchoolDiaryDataAccessUsersModule,
     SchoolDiaryFeatureConfigurationClassUnitsRoutingModule,
     SchoolDiaryUiPaginatorModule,
     SchoolDiaryUiSingleControlModule,

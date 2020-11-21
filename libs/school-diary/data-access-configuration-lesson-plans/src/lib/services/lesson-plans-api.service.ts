@@ -14,10 +14,10 @@ import { UpdateLessonPlanSuccessPayload } from '../payloads/update-lesson-plan-s
 @Injectable()
 export class LessonPlansApiService {
   readonly endpoints = {
-    createLessonPlan: '/api/lesson_hour',
-    deleteLessonPlan: '/api/lesson_hour',
-    getLessonPlans: '/api/lesson_hour',
-    updateLessonPlan: '/api/lesson_hour'
+    createLessonPlan: '/api/configuration/lesson_plans',
+    deleteLessonPlan: '/api/configuration/lesson_plans',
+    getLessonPlans: '/api/configuration/lesson_plans',
+    updateLessonPlan: '/api/configuration/lesson_plans'
   };
 
   constructor(private httpClient: HttpClient) {}
@@ -27,8 +27,7 @@ export class LessonPlansApiService {
   }
 
   deleteLessonPlan(requestPayload: DeleteLessonPlanRequestPayload): Observable<DeleteLessonPlanSuccessPayload> {
-    const params = new HttpParams().set('id', requestPayload.id.toString());
-    return this.httpClient.delete<DeleteLessonPlanSuccessPayload>(this.endpoints.deleteLessonPlan, { params });
+    return this.httpClient.delete<DeleteLessonPlanSuccessPayload>(`${this.endpoints.deleteLessonPlan}/${requestPayload.id}`);
   }
 
   getLessonPlans(requestPayload: GetLessonPlansRequestPayload): Observable<GetLessonPlansSuccessPayload> {
@@ -40,6 +39,6 @@ export class LessonPlansApiService {
   }
 
   updateLessonPlan(requestPayload: UpdateLessonPlanRequestPayload): Observable<UpdateLessonPlanSuccessPayload> {
-    return this.httpClient.put<UpdateLessonPlanSuccessPayload>(this.endpoints.updateLessonPlan, requestPayload);
+    return this.httpClient.put<UpdateLessonPlanSuccessPayload>(`${this.endpoints.updateLessonPlan}/${requestPayload.id}`, requestPayload);
   }
 }

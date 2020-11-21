@@ -1,11 +1,12 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Subject } from 'rxjs';
-import { filter, takeUntil } from 'rxjs/operators';
+import { filter, map, takeUntil } from 'rxjs/operators';
 
-import { Action, ClassUnit } from '@school-diary/school-diary/domain';
+import { Action, ClassUnit, SelectOption, User } from '@school-diary/school-diary/domain';
 import { ClassUnitsFacade } from '@school-diary/school-diary/data-access-configuration-class-units';
 import { LanguageService } from '@school-diary/school-diary/shared';
+import { UsersFacade } from '@school-diary/school-diary/data-access-users';
 
 @Component({
   selector: 'school-diary-action-class-unit',
@@ -13,7 +14,7 @@ import { LanguageService } from '@school-diary/school-diary/shared';
 })
 export class ActionClassUnitComponent implements OnInit, OnDestroy {
   action = Action.CREATE;
-  classTeachersOptions = [];
+  classTeachersOptions: SelectOption[] = [];
   classUnitForm: FormGroup;
   selectedClassUnit: ClassUnit;
   titleTranslationKey = 'CONFIGURATION-CLASS-UNITS.CREATOR-TITLE';
@@ -23,10 +24,12 @@ export class ActionClassUnitComponent implements OnInit, OnDestroy {
   constructor(
     private classUnitsFacade: ClassUnitsFacade,
     private formBuilder: FormBuilder,
-    private languageService: LanguageService
+    private languageService: LanguageService,
+    private usersFacade: UsersFacade
   ) {}
 
   ngOnInit(): void {
+    this.initClassTeachersOptions();
     this.initClassUnitForm();
     this.initSelectedClassUnit();
   }
@@ -43,7 +46,7 @@ export class ActionClassUnitComponent implements OnInit, OnDestroy {
   executeAction(): void {
     const baseRequestPayload = {
       name: this.classUnitForm.get('name').value,
-      user_id: this.classUnitForm.get('userId').value,
+      teacher_id: this.classUnitForm.get('teacherId').value,
     };
 
     if (this.action === Action.CREATE) {
@@ -60,8 +63,25 @@ export class ActionClassUnitComponent implements OnInit, OnDestroy {
   private initClassUnitForm(): void {
     this.classUnitForm = this.formBuilder.group({
       name: ['', [Validators.required]],
-      userId: ['', [Validators.required]],
+      teacherId: ['', [Validators.required]],
     });
+  }
+
+  private initClassTeachersOptions(): void {
+    this.usersFacade.teachers$
+      .pipe(
+        map(teachersCollection => teachersCollection.data),
+        filter(teachers => teachers.length > 0),
+        takeUntil(this.unsubscribe$)
+      )
+      .subscribe((teachers: User[]) => {
+        this.classTeachersOptions = teachers.map((teacher: User) =>
+          ({
+            description: `${teacher.first_name} ${teacher.last_name}`,
+            value: teacher.id
+          })
+        );
+      })
   }
 
   private initSelectedClassUnit(): void {

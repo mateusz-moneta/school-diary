@@ -5,10 +5,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { TranslateModule } from '@ngx-translate/core';
 
-import { SchoolDiaryDataAccessUserModule } from '@school-diary/school-diary/data-access-user';
-import { SchoolDiaryFeatureLoginRoutingModule } from './school-diary-feature-login-routing.module';
 import { LoginComponent } from './containers/login/login.component';
 import { LoginGuard } from './guards/login.guard';
+import { SchoolDiaryDataAccessUserSessionModule } from '@school-diary/school-diary/data-access-user-session';
+import { SchoolDiaryFeatureLoginRoutingModule } from './school-diary-feature-login-routing.module';
 import { SchoolDiarySharedModule } from '@school-diary/school-diary/shared';
 import { SchoolDiaryUiSingleControlModule } from '@school-diary/school-diary/ui-single-control';
 
@@ -16,14 +16,14 @@ import { SchoolDiaryUiSingleControlModule } from '@school-diary/school-diary/ui-
   declarations: [LoginComponent],
   imports: [
     CommonModule,
-    SchoolDiaryDataAccessUserModule,
-    SchoolDiaryFeatureLoginRoutingModule,
     FormsModule,
     MatButtonModule,
     MatCardModule,
+    SchoolDiaryDataAccessUserSessionModule,
+    SchoolDiaryFeatureLoginRoutingModule,
     SchoolDiarySharedModule,
-    TranslateModule.forChild(),
-    SchoolDiaryUiSingleControlModule
+    SchoolDiaryUiSingleControlModule,
+    TranslateModule.forChild()
   ],
   providers: [LoginGuard]
 })

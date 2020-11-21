@@ -16,7 +16,7 @@ import { ClassUnitsApiService } from './services/class-units-api.service';
       fromClassUnits.CLASS_UNITS_FEATURE_KEY,
       fromClassUnits.classUnitsReducer
     ),
-    EffectsModule.forFeature([ClassUnitsEffects]),
+    EffectsModule.forFeature([ClassUnitsEffects])
   ],
   providers: [ClassUnitsApiService, ClassUnitsFacade, DataPersistence]
 })
