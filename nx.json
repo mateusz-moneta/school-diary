@@ -41,6 +41,9 @@
     "school-diary-feature-configuration": {
       "tags": ["platform:web", "scope:school-diary", "type:feature"]
     },
+    "school-diary-feature-configuration-assignments": {
+      "tags": ["platform:web", "scope:school-diary", "type:feature"]
+    },
     "school-diary-feature-configuration-class-rooms": {
       "tags": ["platform:web", "scope:school-diary", "type:feature"]
     },
@@ -58,6 +61,9 @@
     },
     "school-diary-shared": {
       "tags": ["platform:web", "scope:school-diary", "type:shared"]
+    },
+    "school-diary-data-access-configuration-assignments": {
+      "tags": ["platform:web", "scope:school-diary", "type:data-access"]
     },
     "school-diary-data-access-configuration-class-rooms": {
       "tags": ["platform:web", "scope:school-diary", "type:data-access"]

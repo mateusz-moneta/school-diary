@@ -28,6 +28,9 @@
       "@school-diary/school-diary/feature-configuration": [
         "libs/school-diary/feature-configuration/src/index.ts"
       ],
+      "@school-diary/school-diary/feature-configuration-assignments": [
+        "libs/school-diary/feature-configuration-assignments/src/index.ts"
+      ],
       "@school-diary/school-diary/feature-configuration-class-rooms": [
         "libs/school-diary/feature-configuration-class-rooms/src/index.ts"
       ],
@@ -45,6 +48,9 @@
       ],
       "@school-diary/school-diary/shared": [
         "libs/school-diary/shared/src/index.ts"
+      ],
+      "@school-diary/school-diary/data-access-configuration-assignments": [
+        "libs/school-diary/data-access-configuration-assignments/src/index.ts"
       ],
       "@school-diary/school-diary/data-access-configuration-class-rooms": [
         "libs/school-diary/data-access-configuration-class-rooms/src/index.ts"

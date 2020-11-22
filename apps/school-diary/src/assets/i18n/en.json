@@ -31,11 +31,18 @@
   },
   "CONFIGURATION":{
     "TITLE":"Configuration",
+    "ASSIGNMENTS":"Assignments",
     "CLASS-ROOMS":"Class rooms",
     "CLASS-UNITS":"Class units",
     "LESSON-HOURS":"Lesson hours",
     "LESSON-PLANS":"Lesson plans",
     "SUBJECTS":"Subjects"
+  },
+  "CONFIGURATION-ASSIGNMENTS":{
+    "CREATOR-TITLE":"Create a new assignment",
+    "CLASS-UNIT":"Class Unit",
+    "STUDENT":"Student",
+    "TITLE":"Assignments"
   },
   "CONFIGURATION-CLASS-ROOMS":{
     "CREATOR-TITLE":"Create a new class room",

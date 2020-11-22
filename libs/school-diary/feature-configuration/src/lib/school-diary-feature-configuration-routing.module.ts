@@ -9,6 +9,10 @@ const routes: Routes = [
     canActivate: [ConfigurationGuard],
     children: [
       {
+        path: 'assignments',
+        loadChildren: () => import('@school-diary/school-diary/feature-configuration-assignments').then(m => m.SchoolDiaryFeatureConfigurationAssignmentsModule)
+      },
+      {
         path: 'class-rooms',
         loadChildren: () => import('@school-diary/school-diary/feature-configuration-class-rooms').then(m => m.SchoolDiaryFeatureConfigurationClassRoomsModule)
       },

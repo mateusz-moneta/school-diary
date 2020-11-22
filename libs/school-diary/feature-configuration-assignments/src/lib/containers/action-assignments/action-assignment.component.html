@@ -1,0 +1,46 @@
+<div class="school-diary-mat-card-container container">
+  <mat-card class="school-diary-mat-card">
+    <mat-card-header>
+      <button
+        [routerLink]="'/configuration/assignments/list'"
+        class="button-back"
+        mat-icon-button
+      >
+        <mat-icon color="primary">arrow_back</mat-icon>
+      </button>
+
+      <mat-card-title>
+        {{ titleTranslationKey | translate }}
+      </mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <school-diary-single-control
+        [control]="assignmentForm.controls.classUnitId"
+        [label]="'CONFIGURATION-ASSIGNMENTS.CLASS-UNIT' | translate"
+        [type]="'select'"
+      ></school-diary-single-control>
+
+      <school-diary-single-control
+        [control]="assignmentForm.controls.studentId"
+        [label]="'CONFIGURATION-ASSIGNMENTS.STUDENT' | translate"
+        [type]="'select'"
+      ></school-diary-single-control>
+    </mat-card-content>
+
+    <mat-card-footer>
+      <div class="text-center">
+        <button
+          (click)="executeAction()"
+          [disabled]="assignmentForm.invalid"
+          color="primary"
+          type="button"
+          mat-stroked-button
+        >
+          {{ action | actionTranslationKey | translate }}
+        </button>
+      </div>
+    </mat-card-footer>
+  </mat-card>
+</div>
+

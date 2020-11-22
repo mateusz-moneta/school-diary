@@ -16,8 +16,8 @@ import { LessonHoursFacade } from './+state/lesson-hours.facade';
       fromLessonHours.LESSON_HOURS_FEATURE_KEY,
       fromLessonHours.lessonHoursReducer
     ),
-    EffectsModule.forFeature([LessonHoursEffects]),
+    EffectsModule.forFeature([LessonHoursEffects])
   ],
-  providers: [DataPersistence, LessonHoursApiService, LessonHoursFacade],
+  providers: [DataPersistence, LessonHoursApiService, LessonHoursFacade]
 })
 export class SchoolDiaryDataAccessConfigurationLessonHoursModule {}

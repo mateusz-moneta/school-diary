@@ -6,6 +6,10 @@ export const sidenavConfig: SidenavItem[] = [
     colorSaturation: '600',
     children: [
       {
+        title: 'CONFIGURATION.ASSIGNMENTS',
+        path: '/configuration/assignments'
+      },
+      {
         title: 'CONFIGURATION.CLASS-ROOMS',
         path: '/configuration/class-rooms'
       },
