@@ -3,10 +3,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Subject } from 'rxjs';
 import { filter, map, takeUntil } from 'rxjs/operators';
 
-import { Action, ClassUnit, SelectOption, User } from '@school-diary/school-diary/domain';
+import { Action, ClassUnit, InputType, SelectOption, User } from '@school-diary/school-diary/domain';
 import { ClassUnitsFacade } from '@school-diary/school-diary/data-access-configuration-class-units';
 import { LanguageService } from '@school-diary/school-diary/shared';
 import { UsersFacade } from '@school-diary/school-diary/data-access-users';
+import { getSelectOptions } from '@school-diary/school-diary/util-select-options';
 
 @Component({
   selector: 'school-diary-action-class-unit',
@@ -20,6 +21,8 @@ export class ActionClassUnitComponent implements OnInit, OnDestroy {
   titleTranslationKey = 'CONFIGURATION-CLASS-UNITS.CREATOR-TITLE';
 
   private unsubscribe$ = new Subject<void>();
+
+  readonly inputType = InputType;
 
   constructor(
     private classUnitsFacade: ClassUnitsFacade,
@@ -70,17 +73,12 @@ export class ActionClassUnitComponent implements OnInit, OnDestroy {
   private initClassTeachersOptions(): void {
     this.usersFacade.teachers$
       .pipe(
+        filter(teachers => !!teachers),
         map(teachersCollection => teachersCollection.data),
-        filter(teachers => teachers.length > 0),
         takeUntil(this.unsubscribe$)
       )
       .subscribe((teachers: User[]) => {
-        this.classTeachersOptions = teachers.map((teacher: User) =>
-          ({
-            description: `${teacher.first_name} ${teacher.last_name}`,
-            value: teacher.id
-          })
-        );
+        this.classTeachersOptions = getSelectOptions<User, keyof User>(teachers, ['first_name', 'last_name'], 'id');
       })
   }
 

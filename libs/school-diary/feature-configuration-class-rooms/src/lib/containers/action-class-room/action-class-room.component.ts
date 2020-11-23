@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Subject } from 'rxjs';
 import { filter, takeUntil } from 'rxjs/operators';
 
-import { Action, ClassRoom } from '@school-diary/school-diary/domain';
+import { Action, ClassRoom, InputType } from '@school-diary/school-diary/domain';
 import { ClassRoomsFacade } from '@school-diary/school-diary/data-access-configuration-class-rooms';
 import { LanguageService } from '@school-diary/school-diary/shared';
 
@@ -18,6 +18,8 @@ export class ActionClassRoomComponent implements OnInit, OnDestroy {
   titleTranslationKey = 'CONFIGURATION-CLASS-ROOMS.CREATOR-TITLE';
 
   private unsubscribe$ = new Subject<void>();
+
+  readonly inputType = InputType;
 
   constructor(
     private classRoomsFacade: ClassRoomsFacade,

@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { LanguageService } from '@school-diary/school-diary/shared';
+import { InputType, UserType } from '@school-diary/school-diary/domain';
 import { UserRegistrationFacade } from '@school-diary/school-diary/data-access-user-registration';
-import { UserType } from '@school-diary/school-diary/domain';
 
 @Component({
   selector: 'school-diary-register',
@@ -12,6 +12,7 @@ import { UserType } from '@school-diary/school-diary/domain';
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
 
+  readonly inputType = InputType;
   readonly userTypeOptions = [
     { translationKey: 'SHARED.SYSTEM-ADMINISTRATOR', value: UserType.SYSTEM_ADMINISTRATOR },
     { translationKey: 'SHARED.TEACHER', value: UserType.TEACHER },

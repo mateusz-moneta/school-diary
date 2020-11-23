@@ -5,6 +5,4 @@ export interface LessonHour extends BaseItem {
   minute_from: string;
   hour_to: string;
   minute_to: string;
-  location: string;
-  floor: number;
 }

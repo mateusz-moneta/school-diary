@@ -1,11 +1,14 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Subject } from 'rxjs';
+import { combineLatest, Subject } from 'rxjs';
 import { filter, takeUntil } from 'rxjs/operators';
 
-import { Action, Assignment } from '@school-diary/school-diary/domain';
+import { Action, Assignment, ClassUnit, InputType, SelectOption, User } from '@school-diary/school-diary/domain';
 import { AssignmentsFacade } from '@school-diary/school-diary/data-access-configuration-assignments';
+import { ClassUnitsFacade } from '@school-diary/school-diary/data-access-configuration-class-units';
+import { getSelectOptions } from '@school-diary/school-diary/util-select-options';
 import { LanguageService } from '@school-diary/school-diary/shared';
+import { UsersFacade } from '@school-diary/school-diary/data-access-users';
 
 @Component({
   selector: 'school-diary-action-assignment',
@@ -14,20 +17,29 @@ import { LanguageService } from '@school-diary/school-diary/shared';
 export class ActionAssignmentComponent implements OnInit, OnDestroy {
   action = Action.CREATE;
   assignmentForm: FormGroup;
+  classUnitsOptions: SelectOption[] = [];
   selectedAssignment: Assignment;
+  studentsOptions: SelectOption[] = [];
   titleTranslationKey = 'CONFIGURATION-ASSIGNMENTS.CREATOR-TITLE';
 
   private unsubscribe$ = new Subject<void>();
 
+  readonly inputType = InputType;
+
   constructor(
     private assignmentsFacade: AssignmentsFacade,
+    private classUnitsFacade: ClassUnitsFacade,
     private formBuilder: FormBuilder,
-    private languageService: LanguageService
+    private languageService: LanguageService,
+    private usersFacade: UsersFacade
   ) {}
 
   ngOnInit(): void {
-    this.initClassRoomForm();
+    this.usersFacade.getStudents();
+
+    this.initAssignmentsForm();
     this.initSelectedAssignment();
+    this.initSelectOptions();
   }
 
   ngOnDestroy(): void {
@@ -56,7 +68,7 @@ export class ActionAssignmentComponent implements OnInit, OnDestroy {
     });
   }
 
-  private initClassRoomForm(): void {
+  private initAssignmentsForm(): void {
     this.assignmentForm = this.formBuilder.group({
       classUnitId: ['', [Validators.required]],
       studentId: ['', [Validators.required]]
@@ -76,5 +88,17 @@ export class ActionAssignmentComponent implements OnInit, OnDestroy {
 
         this.assignmentForm.patchValue(selectedAssignment);
       });
+  }
+
+  private initSelectOptions(): void {
+    combineLatest([
+      this.classUnitsFacade.classUnits$,
+      this.usersFacade.students$
+    ])
+      .pipe(takeUntil(this.unsubscribe$))
+      .subscribe(([classUnits, students]) => {
+        this.classUnitsOptions = getSelectOptions<ClassUnit, keyof ClassUnit>(classUnits?.data, ['name'], 'id');
+        this.studentsOptions = getSelectOptions<User, keyof User>(students?.data, ['first_name', 'last_name'], 'id');
+      })
   }
 }

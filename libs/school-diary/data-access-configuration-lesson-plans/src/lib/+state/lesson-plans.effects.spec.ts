@@ -8,7 +8,7 @@ import { provideMockStore } from '@ngrx/store/testing';
 import { NxModule, DataPersistence } from '@nrwl/angular';
 import { hot } from '@nrwl/angular/testing';
 
-import { fromLessonHoursActions } from './lesson-plans.actions';
+import { fromLessonPlansActions } from './lesson-plans.actions';
 import { LessonPlansEffects } from './lesson-plans.effects';
 
 describe('LessonPlansEffects', () => {
@@ -31,16 +31,16 @@ describe('LessonPlansEffects', () => {
 
   describe('loadLessonPlans$', () => {
     it('should work', () => {
-      actions = hot('-a-|', { a: new fromLessonHoursActions.GetLessonPlans({ page: 1, limit: 10 }) });
+      actions = hot('-a-|', { a: new fromLessonPlansActions.GetLessonPlans({ page: 1, limit: 10 }) });
 
       const expected = hot('-a-|', {
-        a: new fromLessonHoursActions.GetLessonPlansSuccess({
+        a: new fromLessonPlansActions.GetLessonPlansSuccess({
           data: [],
           records_count: 0
         }),
       });
 
-      expect(effects.getLessonHours$).toBeObservable(expected);
+      expect(effects.getLessonPlans$).toBeObservable(expected);
     });
   });
 });

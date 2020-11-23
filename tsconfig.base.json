@@ -102,6 +102,9 @@
       ],
       "@school-diary/school-diary/shell": [
         "libs/school-diary/shell/src/index.ts"
+      ],
+      "@school-diary/school-diary/util-select-options": [
+        "libs/school-diary/util-select-options/src/index.ts"
       ]
     }
   },

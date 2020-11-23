@@ -1,3 +1,6 @@
-import { BaseCollection, User } from '@school-diary/school-diary/domain';
+import { User } from '@school-diary/school-diary/domain';
 
-export type TeachersCollection = BaseCollection<User>;
+export interface TeachersCollection {
+  data: User[];
+  records_count: number;
+}

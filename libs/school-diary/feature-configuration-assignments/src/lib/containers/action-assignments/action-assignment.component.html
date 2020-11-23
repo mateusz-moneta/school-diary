@@ -17,14 +17,16 @@
     <mat-card-content>
       <school-diary-single-control
         [control]="assignmentForm.controls.classUnitId"
-        [label]="'CONFIGURATION-ASSIGNMENTS.CLASS-UNIT' | translate"
-        [type]="'select'"
+        [label]="'SHARED.CLASS-UNIT' | translate"
+        [options]="classUnitsOptions"
+        [type]="inputType.SELECT"
       ></school-diary-single-control>
 
       <school-diary-single-control
         [control]="assignmentForm.controls.studentId"
-        [label]="'CONFIGURATION-ASSIGNMENTS.STUDENT' | translate"
-        [type]="'select'"
+        [label]="'SHARED.STUDENT' | translate"
+        [options]="studentsOptions"
+        [type]="inputType.SELECT"
       ></school-diary-single-control>
     </mat-card-content>
 

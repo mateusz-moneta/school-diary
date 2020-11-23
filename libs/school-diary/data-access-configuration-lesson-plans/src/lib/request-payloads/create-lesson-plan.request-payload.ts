@@ -4,5 +4,5 @@ export interface CreateLessonPlanRequestPayload {
   lesson_hour_id: number;
   subject_id: number;
   work_day_id: number;
-  user_id: number;
+  teacher_id: number;
 }

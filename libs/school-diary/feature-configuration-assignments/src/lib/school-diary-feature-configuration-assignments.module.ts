@@ -10,6 +10,8 @@ import { ActionAssignmentComponent } from './containers/action-assignments/actio
 import { AssignmentsGuard } from './guards/assignments.guard';
 import { AssignmentsListComponent } from './containers/assignments-list/assignments-list.component';
 import { SchoolDiaryDataAccessConfigurationAssignmentsModule } from '@school-diary/school-diary/data-access-configuration-assignments';
+import { SchoolDiaryDataAccessConfigurationClassUnitsModule } from '@school-diary/school-diary/data-access-configuration-class-units';
+import { SchoolDiaryDataAccessUsersModule } from '@school-diary/school-diary/data-access-users';
 import { SchoolDiaryDomainModule } from '@school-diary/school-diary/domain';
 import { SchoolDiaryFeatureConfigurationAssignmentsRoutingModule } from './school-diary-feature-configuration-assignments-routing.module';
 import { SchoolDiaryUiPaginatorModule } from '@school-diary/school-diary/ui-paginator';
@@ -24,6 +26,8 @@ import { SchoolDiaryUiSingleControlModule } from '@school-diary/school-diary/ui-
     MatIconModule,
     MatTableModule,
     SchoolDiaryDataAccessConfigurationAssignmentsModule,
+    SchoolDiaryDataAccessConfigurationClassUnitsModule,
+    SchoolDiaryDataAccessUsersModule,
     SchoolDiaryDomainModule,
     SchoolDiaryFeatureConfigurationAssignmentsRoutingModule,
     SchoolDiaryUiPaginatorModule,

@@ -115,6 +115,9 @@
     },
     "school-diary-shell": {
       "tags": ["platform:web", "scope:school-diary", "type:shell"]
+    },
+    "school-diary-util-select-options": {
+      "tags": []
     }
   }
 }

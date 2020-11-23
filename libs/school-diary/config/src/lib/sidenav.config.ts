@@ -4,6 +4,7 @@ export const sidenavConfig: SidenavItem[] = [
   {
     title: 'CONFIGURATION.TITLE',
     colorSaturation: '600',
+    expanded: true,
     children: [
       {
         title: 'CONFIGURATION.ASSIGNMENTS',

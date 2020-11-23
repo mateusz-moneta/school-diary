@@ -1075,6 +1075,39 @@
           "style": "scss"
         }
       }
+    },
+    "school-diary-util-select-options": {
+      "projectType": "library",
+      "root": "libs/school-diary/util-select-options",
+      "sourceRoot": "libs/school-diary/util-select-options/src",
+      "prefix": "school-diary",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/school-diary/util-select-options/tsconfig.lib.json",
+              "libs/school-diary/util-select-options/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/school-diary/util-select-options/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/school-diary/util-select-options/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
     }
   },
   "cli": {

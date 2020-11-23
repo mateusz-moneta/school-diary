@@ -19,7 +19,7 @@ export namespace fromLessonPlansActions {
     CreateLessonPlan = '[Lesson Plans] Create Lesson Plan',
     CreateLessonPlanFail = '[Lesson Plans] Create Lesson Plan Fail',
     CreateLessonPlanSuccess = '[Lesson Plans] Create Lesson Plan Success',
-    DeleteLessonPlan = '[Lesson Plans] Delete Lesson Hour',
+    DeleteLessonPlan = '[Lesson Plans] Delete Lesson Plan',
     DeleteLessonPlanFail = '[Lesson Plans] Delete Lesson Plan Fail',
     DeleteLessonPlanSuccess = '[Lesson Plans] Delete Lesson Plan Success',
     GetLessonPlans = '[Lesson Plans] Get Lesson Plans',

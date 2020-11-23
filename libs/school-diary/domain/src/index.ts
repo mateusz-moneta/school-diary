@@ -2,7 +2,9 @@ export * from './lib/school-diary-domain.module';
 
 export * from './lib/enums/action.enum';
 export * from './lib/enums/http-status-code.enum';
+export * from './lib/enums/input-type.enum';
 export * from './lib/enums/language.enum';
+export * from './lib/enums/work-day-name.enum';
 export * from './lib/enums/user-type.enum';
 
 export * from './lib/interfaces/assignment.interface';

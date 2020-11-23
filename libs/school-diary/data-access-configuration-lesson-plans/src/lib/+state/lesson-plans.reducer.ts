@@ -101,7 +101,7 @@ export function lessonPlansReducer(
       state = {
         ...state,
         lessonPlans: {
-          data: state.lessonPlans.data.filter(lessonHour => lessonHour.id !== parseInt(action.payload.id, 10)),
+          data: state.lessonPlans.data.filter(lessonPlan => lessonPlan.id !== parseInt(action.payload.id, 10)),
           recordsCount: state.lessonPlans.recordsCount - 1
         },
         deletedLessonPlanId: parseInt(action.payload.id, 10),

@@ -40,8 +40,6 @@
   },
   "CONFIGURATION-ASSIGNMENTS":{
     "CREATOR-TITLE":"Create a new assignment",
-    "CLASS-UNIT":"Class Unit",
-    "STUDENT":"Student",
     "TITLE":"Assignments"
   },
   "CONFIGURATION-CLASS-ROOMS":{
@@ -70,6 +68,15 @@
     "TIME-TO":"Time to",
     "TITLE":"Lesson hours"
   },
+  "CONFIGURATION-LESSON-PLANS":{
+    "CLASS-ROOM":"Class room",
+    "CREATOR-TITLE":"Create a new lesson plan",
+    "LESSON-HOUR":"Lesson hour",
+    "EDITOR-TITLE":"Edit a lesson plan",
+    "SUBJECT":"Subject",
+    "WORK-DAY":"Work day",
+    "TITLE":"Lesson plans"
+  },
   "CONFIGURATION-SUBJECTS":{
     "CREATOR-TITLE":"Create a new subject",
     "EDITOR-TITLE":"Edit a subject",
@@ -77,6 +84,7 @@
   },
   "SHARED":{
     "ACTIONS":"Actions",
+    "CLASS-UNIT":"Class Unit",
     "CONNECTION-ERROR":"Backend API connection issue, please contact...",
     "CREATE":"Create",
     "CREATED-AT":"Created at",
@@ -99,7 +107,12 @@
     "UNEXPECTED_ERROR_OCCURRED":"Unexpected error occured",
     "UPDATED-AT":"Updated at",
     "USER_HAS_NOT_EXIST":"User has not exist",
-    "USER_ALREADY_EXIST":"User already exist"
+    "USER_ALREADY_EXIST":"User already exist",
+    "MONDAY":"Monday",
+    "WEDNESDAY":"Wednesday",
+    "TUESDAY":"Tuesday",
+    "THURSDAY":"Thursday",
+    "FRIDAY":"Friday"
   },
   "SETTINGS":{
     "LANGUAGE":"Language",

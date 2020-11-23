@@ -17,7 +17,7 @@ describe('LessonPlans Reducer', () => {
   beforeEach(() => {});
 
   describe('valid LessonPlan actions', () => {
-    it('getLessonPlansSuccess should return set the list of known LessonHours', () => {
+    it('getLessonPlansSuccess should return set the list of known LessonPlans', () => {
       const lessonPlans = [
         createLessonPlanEntity(1),
         createLessonPlanEntity(2)

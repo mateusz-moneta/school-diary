@@ -1,5 +1,5 @@
 export interface SelectOption {
-  description?: string;
+  description?: unknown;
   translationKey?: string;
-  value: number | string;
+  value: unknown;
 }

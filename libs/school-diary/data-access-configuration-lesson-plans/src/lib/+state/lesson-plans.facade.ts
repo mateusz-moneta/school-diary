@@ -17,27 +17,27 @@ export class LessonPlansFacade {
 
   constructor(private store: Store<fromLessonPlans.LessonPlansPartialState>) {}
 
-  createLessonPlan(createLessonHourRequestPayload: CreateLessonPlanRequestPayload): void {
-    this.store.dispatch(new fromLessonPlansActions.CreateLessonPlan(createLessonHourRequestPayload));
+  createLessonPlan(createLessonPlanRequestPayload: CreateLessonPlanRequestPayload): void {
+    this.store.dispatch(new fromLessonPlansActions.CreateLessonPlan(createLessonPlanRequestPayload));
   }
 
   deleteLessonPlan(deleteLessonPlanRequestPayload: DeleteLessonPlanRequestPayload): void {
     this.store.dispatch(new fromLessonPlansActions.DeleteLessonPlan(deleteLessonPlanRequestPayload));
   }
 
-  getLessonHours(getLessonPlansRequestPayload: GetLessonPlansRequestPayload = { page: 1, limit: 10 }): void {
+  getLessonPlans(getLessonPlansRequestPayload: GetLessonPlansRequestPayload = { page: 1, limit: 10 }): void {
     this.store.dispatch(new fromLessonPlansActions.GetLessonPlans(getLessonPlansRequestPayload));
   }
 
-  selectLessonHour(selectLessonPlanPayload: SelectLessonPlanPayload): void {
+  selectLessonPlan(selectLessonPlanPayload: SelectLessonPlanPayload): void {
     this.store.dispatch(new fromLessonPlansActions.SelectLessonPlan(selectLessonPlanPayload));
   }
 
-  unselectLessonHour(): void {
+  unselectLessonPlan(): void {
     this.store.dispatch(new fromLessonPlansActions.UnselectLessonPlan());
   }
 
-  updateLessonHour(updateLessonPlanRequestPayload: UpdateLessonPlanRequestPayload): void {
+  updateLessonPlan(updateLessonPlanRequestPayload: UpdateLessonPlanRequestPayload): void {
     this.store.dispatch(new fromLessonPlansActions.UpdateLessonPlan(updateLessonPlanRequestPayload));
   }
 }

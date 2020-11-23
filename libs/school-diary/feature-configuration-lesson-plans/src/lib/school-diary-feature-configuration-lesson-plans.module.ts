@@ -1,7 +1,45 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTableModule } from '@angular/material/table';
+import { TranslateModule } from '@ngx-translate/core';
+
+import { ActionLessonPlanComponent } from './containers/action-lesson-plan/action-lesson-plan.component';
+import { LessonPlansGuard } from './guards/lesson-plans.guard';
+import { LessonPlansListComponent } from './containers/lesson-plans-list/lesson-plans-list.component';
+import { SchoolDiaryDataAccessConfigurationClassRoomsModule } from '@school-diary/school-diary/data-access-configuration-class-rooms';
+import { SchoolDiaryDataAccessConfigurationClassUnitsModule } from '@school-diary/school-diary/data-access-configuration-class-units';
+import { SchoolDiaryDataAccessConfigurationLessonHoursModule } from '@school-diary/school-diary/data-access-configuration-lesson-hours';
+import { SchoolDiaryDataAccessConfigurationLessonPlansModule } from '@school-diary/school-diary/data-access-configuration-lesson-plans';
+import { SchoolDiaryDataAccessConfigurationSubjectsModule } from '@school-diary/school-diary/data-access-configuration-subjects';
+import { SchoolDiaryDataAccessUsersModule } from '@school-diary/school-diary/data-access-users';
+import { SchoolDiaryDomainModule } from '@school-diary/school-diary/domain';
+import { SchoolDiaryFeatureConfigurationLessonPlansRoutingModule } from './school-diary-feature-configuration-lesson-plans-routing.module';
+import { SchoolDiaryUiPaginatorModule } from '@school-diary/school-diary/ui-paginator';
+import { SchoolDiaryUiSingleControlModule } from '@school-diary/school-diary/ui-single-control';
 
 @NgModule({
-  imports: [CommonModule],
+  declarations: [ActionLessonPlanComponent, LessonPlansListComponent],
+  imports: [
+    CommonModule,
+    MatButtonModule,
+    MatCardModule,
+    MatIconModule,
+    MatTableModule,
+    SchoolDiaryDataAccessConfigurationClassRoomsModule,
+    SchoolDiaryDataAccessConfigurationClassUnitsModule,
+    SchoolDiaryDataAccessConfigurationLessonHoursModule,
+    SchoolDiaryDataAccessConfigurationLessonPlansModule,
+    SchoolDiaryDataAccessConfigurationSubjectsModule,
+    SchoolDiaryDataAccessUsersModule,
+    SchoolDiaryDomainModule,
+    SchoolDiaryFeatureConfigurationLessonPlansRoutingModule,
+    SchoolDiaryUiPaginatorModule,
+    SchoolDiaryUiSingleControlModule,
+    TranslateModule.forChild()
+  ],
+  providers: [LessonPlansGuard]
 })
 export class SchoolDiaryFeatureConfigurationLessonPlansModule {}

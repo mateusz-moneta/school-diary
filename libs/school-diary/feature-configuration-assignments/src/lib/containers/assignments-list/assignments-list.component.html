@@ -25,12 +25,12 @@
     <mat-card-content>
       <table *ngIf="(assignments$ | async)?.data.length" [dataSource]="(assignments$ | async).data" class="adjustable-table" mat-table>
         <ng-container matColumnDef="classUnit">
-          <th *matHeaderCellDef class="adjustable-table-cell" mat-header-cell>{{ 'CONFIGURATION-ASSIGNMENTS.CLASS-UNIT' | translate }}</th>
-          <td *matCellDef="let element" (click)="selectAssignment(element)" class="adjustable-table-cell" mat-cell>{{ element.class_unit }}</td>
+          <th *matHeaderCellDef class="adjustable-table-cell" mat-header-cell>{{ 'SHARED.CLASS-UNIT' | translate }}</th>
+          <td *matCellDef="let element" (click)="selectAssignment(element)" class="adjustable-table-cell" mat-cell>{{ element.name }}</td>
         </ng-container>
 
         <ng-container matColumnDef="student">
-          <th *matHeaderCellDef class="adjustable-table-cell" mat-header-cell>{{ 'CONFIGURATION-ASSIGNMENTS.USER' | translate }}</th>
+          <th *matHeaderCellDef class="adjustable-table-cell" mat-header-cell>{{ 'SHARED.STUDENT' | translate }}</th>
           <td *matCellDef="let element" (click)="selectAssignment(element)" class="adjustable-table-cell" mat-cell>{{ element.first_name }} {{ element.last_name }}</td>
         </ng-container>
 
