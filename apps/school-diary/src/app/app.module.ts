@@ -1,18 +1,16 @@
 import { NgModule } from '@angular/core';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { ToastrModule } from 'ngx-toastr';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { environment } from '../environments/environment';
-import { httpLoaderFactory } from '@school-diary/school-diary/util-http-loader-factory';
-import { SchoolDiaryCoreModule } from '@school-diary/school-diary/core';
-import { SchoolDiarySharedModule } from '@school-diary/school-diary/shared';
+import { SchoolDiaryShellModule } from '@school-diary/school-diary/shell';
 
 @NgModule({
   declarations: [AppComponent],
@@ -31,17 +29,10 @@ import { SchoolDiarySharedModule } from '@school-diary/school-diary/shared';
         },
       }
     ),
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: httpLoaderFactory,
-        deps: [HttpClient]
-      }
-    }),
+    ToastrModule,
     EffectsModule.forRoot([]),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
-    SchoolDiaryCoreModule,
-    SchoolDiarySharedModule
+    SchoolDiaryShellModule
   ],
   bootstrap: [AppComponent]
 })

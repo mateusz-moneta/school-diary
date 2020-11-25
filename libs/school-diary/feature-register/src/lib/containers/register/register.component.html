@@ -21,7 +21,7 @@
 
       <school-diary-single-control
         [control]="registerForm.get('userType')"
-        [type]="'select'"
+        [type]="inputType.SELECT"
         [label]="'REGISTER.USER-TYPE' | translate"
         [options]="userTypeOptions"
       ></school-diary-single-control>
@@ -34,14 +34,14 @@
 
       <school-diary-single-control
         [control]="registerForm.get('password')"
-        [type]="'password'"
+        [type]="inputType.PASSWORD"
         [label]="'SHARED.PASSWORD' | translate"
         [placeholder]="'SHARED.ENTER-PASSWORD' | translate"
       ></school-diary-single-control>
 
       <school-diary-single-control
         [control]="registerForm.get('repeatPassword')"
-        [type]="'password'"
+        [type]="inputType.PASSWORD"
         [label]="'REGISTER.REPEAT-PASSWORD' | translate"
         [placeholder]="'REGISTER.ENTER-REPEAT-PASSWORD' | translate"
       ></school-diary-single-control>

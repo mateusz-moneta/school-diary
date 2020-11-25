@@ -1,10 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
 import { Subject } from 'rxjs';
 import { filter, takeUntil } from 'rxjs/operators';
 
-import { Action, ClassRoom } from '@school-diary/school-diary/domain';
+import { Action, ClassRoom, InputType } from '@school-diary/school-diary/domain';
 import { ClassRoomsFacade } from '@school-diary/school-diary/data-access-configuration-class-rooms';
 import { LanguageService } from '@school-diary/school-diary/shared';
 
@@ -20,11 +19,12 @@ export class ActionClassRoomComponent implements OnInit, OnDestroy {
 
   private unsubscribe$ = new Subject<void>();
 
+  readonly inputType = InputType;
+
   constructor(
+    private classRoomsFacade: ClassRoomsFacade,
     private formBuilder: FormBuilder,
-    private languageService: LanguageService,
-    private route: ActivatedRoute,
-    private classRoomsFacade: ClassRoomsFacade
+    private languageService: LanguageService
   ) {}
 
   ngOnInit(): void {

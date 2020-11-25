@@ -1,6 +1,3 @@
-import { LessonHour } from '@school-diary/school-diary/domain';
+import { BaseCollection, LessonHour } from '@school-diary/school-diary/domain';
 
-export interface LessonHoursCollection {
-  data: LessonHour[];
-  recordsCount: number;
-}
+export type LessonHoursCollection = BaseCollection<LessonHour>;

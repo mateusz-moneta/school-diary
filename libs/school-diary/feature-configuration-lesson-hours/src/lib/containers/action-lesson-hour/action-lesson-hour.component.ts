@@ -1,10 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
 import { Subject } from 'rxjs';
 import { filter, takeUntil } from 'rxjs/operators';
 
-import { Action, LessonHour } from '@school-diary/school-diary/domain';
+import { Action, InputType, LessonHour } from '@school-diary/school-diary/domain';
 import { LanguageService } from '@school-diary/school-diary/shared';
 import { LessonHoursFacade } from '@school-diary/school-diary/data-access-configuration-lesson-hours';
 import { Time } from '../../models/time';
@@ -21,10 +20,11 @@ export class ActionLessonHourComponent implements OnInit, OnDestroy {
 
   private unsubscribe$ = new Subject<void>();
 
+  readonly inputType = InputType;
+
   constructor(
     private formBuilder: FormBuilder,
     private languageService: LanguageService,
-    private route: ActivatedRoute,
     private lessonHoursFacade: LessonHoursFacade
   ) {}
 

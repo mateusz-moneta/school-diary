@@ -41,10 +41,19 @@
     "school-diary-feature-configuration": {
       "tags": ["platform:web", "scope:school-diary", "type:feature"]
     },
+    "school-diary-feature-configuration-assignments": {
+      "tags": ["platform:web", "scope:school-diary", "type:feature"]
+    },
     "school-diary-feature-configuration-class-rooms": {
       "tags": ["platform:web", "scope:school-diary", "type:feature"]
     },
+    "school-diary-feature-configuration-class-units": {
+      "tags": ["platform:web", "scope:school-diary", "type:feature"]
+    },
     "school-diary-feature-configuration-lesson-hours": {
+      "tags": ["platform:web", "scope:school-diary", "type:feature"]
+    },
+    "school-diary-feature-configuration-lesson-plans": {
       "tags": ["platform:web", "scope:school-diary", "type:feature"]
     },
     "school-diary-feature-configuration-subjects": {
@@ -53,10 +62,19 @@
     "school-diary-shared": {
       "tags": ["platform:web", "scope:school-diary", "type:shared"]
     },
+    "school-diary-data-access-configuration-assignments": {
+      "tags": ["platform:web", "scope:school-diary", "type:data-access"]
+    },
     "school-diary-data-access-configuration-class-rooms": {
       "tags": ["platform:web", "scope:school-diary", "type:data-access"]
     },
+    "school-diary-data-access-configuration-class-units": {
+      "tags": ["platform:web", "scope:school-diary", "type:data-access"]
+    },
     "school-diary-data-access-configuration-lesson-hours": {
+      "tags": ["platform:web", "scope:school-diary", "type:data-access"]
+    },
+    "school-diary-data-access-configuration-lesson-plans": {
       "tags": ["platform:web", "scope:school-diary", "type:data-access"]
     },
     "school-diary-data-access-configuration-subjects": {
@@ -65,7 +83,13 @@
     "school-diary-data-access-settings": {
       "tags": ["platform:web", "scope:school-diary", "type:data-access"]
     },
-    "school-diary-data-access-user": {
+    "school-diary-data-access-users": {
+      "tags": ["platform:web", "scope:school-diary", "type:data-access"]
+    },
+    "school-diary-data-access-user-registration": {
+      "tags": ["platform:web", "scope:school-diary", "type:data-access"]
+    },
+    "school-diary-data-access-user-session": {
       "tags": ["platform:web", "scope:school-diary", "type:data-access"]
     },
     "school-diary-ui-sidenav": {
@@ -86,11 +110,14 @@
     "school-diary-util-http-loader-factory": {
       "tags": ["platform:web", "scope:school-diary", "type:util"]
     },
-    "school-diary-core": {
-      "tags": ["platform:web", "scope:school-diary", "type:core"]
-    },
     "school-diary-config": {
       "tags": ["platform:web", "scope:school-diary", "type:config"]
+    },
+    "school-diary-shell": {
+      "tags": ["platform:web", "scope:school-diary", "type:shell"]
+    },
+    "school-diary-util-select-options": {
+      "tags": []
     }
   }
 }

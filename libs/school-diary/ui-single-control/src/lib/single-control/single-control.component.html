@@ -8,7 +8,8 @@
           *ngFor="let option of options"
           [value]="option.value"
         >
-          {{ option.translationKey | translate }}
+          <p *ngIf="option.translationKey; else description">{{ option.translationKey | translate }}</p>
+          <ng-template #description>{{ option.description }}</ng-template>
         </mat-option>
       </mat-select>
     </ng-container>

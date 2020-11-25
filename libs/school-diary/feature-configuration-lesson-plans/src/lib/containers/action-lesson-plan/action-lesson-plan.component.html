@@ -1,0 +1,76 @@
+<div class="school-diary-mat-card-container container">
+  <mat-card class="school-diary-mat-card">
+    <mat-card-header>
+      <button
+        [routerLink]="'/configuration/lesson-plans/list'"
+        class="button-back"
+        mat-icon-button
+      >
+        <mat-icon color="primary">arrow_back</mat-icon>
+      </button>
+
+      <mat-card-title>
+        {{ titleTranslationKey | translate }}
+      </mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <school-diary-single-control
+        [control]="lessonPlanForm.controls.teacherId"
+        [label]="'SHARED.TEACHER' | translate"
+        [options]="teachersOptions"
+        [type]="inputType.SELECT"
+      ></school-diary-single-control>
+
+      <school-diary-single-control
+        [control]="lessonPlanForm.controls.classUnitId"
+        [label]="'SHARED.CLASS-UNIT' | translate"
+        [options]="classUnitsOptions"
+        [type]="inputType.SELECT"
+      ></school-diary-single-control>
+
+      <school-diary-single-control
+        [control]="lessonPlanForm.controls.subjectId"
+        [label]="'CONFIGURATION-LESSON-PLANS.SUBJECT' | translate"
+        [options]="subjectsOptions"
+        [type]="inputType.SELECT"
+      ></school-diary-single-control>
+
+      <school-diary-single-control
+        [control]="lessonPlanForm.controls.classRoomId"
+        [label]="'CONFIGURATION-LESSON-PLANS.CLASS-ROOM' | translate"
+        [options]="classRoomsOptions"
+        [type]="inputType.SELECT"
+      ></school-diary-single-control>
+
+      <school-diary-single-control
+        [control]="lessonPlanForm.controls.lessonHourId"
+        [label]="'CONFIGURATION-LESSON-PLANS.LESSON-HOUR' | translate"
+        [options]="lessonHoursOptions"
+        [type]="inputType.SELECT"
+      ></school-diary-single-control>
+
+      <school-diary-single-control
+        [control]="lessonPlanForm.controls.workDayId"
+        [label]="'CONFIGURATION-LESSON-PLANS.WORK-DAY' | translate"
+        [options]="workDaysOptions"
+        [type]="inputType.SELECT"
+      ></school-diary-single-control>
+    </mat-card-content>
+
+    <mat-card-footer>
+      <div class="text-center">
+        <button
+          (click)="executeAction()"
+          [disabled]="lessonPlanForm.invalid"
+          color="primary"
+          type="button"
+          mat-stroked-button
+        >
+          {{ action | actionTranslationKey | translate }}
+        </button>
+      </div>
+    </mat-card-footer>
+  </mat-card>
+</div>
+

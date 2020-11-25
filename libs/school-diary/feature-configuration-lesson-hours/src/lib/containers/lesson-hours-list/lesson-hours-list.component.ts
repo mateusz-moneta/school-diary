@@ -11,7 +11,7 @@ import { tableConfig } from '@school-diary/school-diary/config';
   templateUrl: './lesson-hours-list.component.html'
 })
 export class LessonHoursListComponent {
-  displayedColumns: string[] = ['timeFrom', 'timeTo'];
+  displayedColumns: string[] = ['timeFrom', 'timeTo', 'actions'];
   lessonHours$ = this.lessonHoursFacade.lessonHours$;
 
   readonly paginationConfig = tableConfig.pagination;

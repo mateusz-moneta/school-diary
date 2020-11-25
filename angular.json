@@ -524,29 +524,29 @@
         }
       }
     },
-    "school-diary-data-access-user": {
+    "school-diary-data-access-users": {
       "projectType": "library",
-      "root": "libs/school-diary/data-access-user",
-      "sourceRoot": "libs/school-diary/data-access-user/src",
+      "root": "libs/school-diary/data-access-users",
+      "sourceRoot": "libs/school-diary/data-access-users/src",
       "prefix": "school-diary",
       "architect": {
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "libs/school-diary/data-access-user/tsconfig.lib.json",
-              "libs/school-diary/data-access-user/tsconfig.spec.json"
+              "libs/school-diary/data-access-users/tsconfig.lib.json",
+              "libs/school-diary/data-access-users/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**",
-              "!libs/school-diary/data-access-user/**/*"
+              "!libs/school-diary/data-access-users/**/*"
             ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "libs/school-diary/data-access-user/jest.config.js",
+            "jestConfig": "libs/school-diary/data-access-users/jest.config.js",
             "passWithNoTests": true
           }
         }
@@ -752,36 +752,6 @@
         }
       }
     },
-    "school-diary-core": {
-      "projectType": "library",
-      "root": "libs/school-diary/core",
-      "sourceRoot": "libs/school-diary/core/src",
-      "prefix": "school-diary",
-      "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/school-diary/core/tsconfig.lib.json",
-              "libs/school-diary/core/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/school-diary/core/**/*"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/school-diary/core/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      },
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
-        }
-      }
-    },
     "school-diary-config": {
       "projectType": "library",
       "root": "libs/school-diary/config",
@@ -802,6 +772,333 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/school-diary/config/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "school-diary-feature-configuration-lesson-plans": {
+      "projectType": "library",
+      "root": "libs/school-diary/feature-configuration-lesson-plans",
+      "sourceRoot": "libs/school-diary/feature-configuration-lesson-plans/src",
+      "prefix": "school-diary",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/school-diary/feature-configuration-lesson-plans/tsconfig.lib.json",
+              "libs/school-diary/feature-configuration-lesson-plans/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/school-diary/feature-configuration-lesson-plans/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/school-diary/feature-configuration-lesson-plans/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "school-diary-data-access-configuration-lesson-plans": {
+      "projectType": "library",
+      "root": "libs/school-diary/data-access-configuration-lesson-plans",
+      "sourceRoot": "libs/school-diary/data-access-configuration-lesson-plans/src",
+      "prefix": "school-diary",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/school-diary/data-access-configuration-lesson-plans/tsconfig.lib.json",
+              "libs/school-diary/data-access-configuration-lesson-plans/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/school-diary/data-access-configuration-lesson-plans/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/school-diary/data-access-configuration-lesson-plans/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "school-diary-feature-configuration-class-units": {
+      "projectType": "library",
+      "root": "libs/school-diary/feature-configuration-class-units",
+      "sourceRoot": "libs/school-diary/feature-configuration-class-units/src",
+      "prefix": "school-diary",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/school-diary/feature-configuration-class-units/tsconfig.lib.json",
+              "libs/school-diary/feature-configuration-class-units/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/school-diary/feature-configuration-class-units/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/school-diary/feature-configuration-class-units/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "school-diary-data-access-configuration-class-units": {
+      "projectType": "library",
+      "root": "libs/school-diary/data-access-configuration-class-units",
+      "sourceRoot": "libs/school-diary/data-access-configuration-class-units/src",
+      "prefix": "school-diary",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/school-diary/data-access-configuration-class-units/tsconfig.lib.json",
+              "libs/school-diary/data-access-configuration-class-units/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/school-diary/data-access-configuration-class-units/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/school-diary/data-access-configuration-class-units/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "school-diary-data-access-user-session": {
+      "projectType": "library",
+      "root": "libs/school-diary/data-access-user-session",
+      "sourceRoot": "libs/school-diary/data-access-user-session/src",
+      "prefix": "school-diary",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/school-diary/data-access-user-session/tsconfig.lib.json",
+              "libs/school-diary/data-access-user-session/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/school-diary/data-access-user-session/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/school-diary/data-access-user-session/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "school-diary-data-access-user-registration": {
+      "projectType": "library",
+      "root": "libs/school-diary/data-access-user-registration",
+      "sourceRoot": "libs/school-diary/data-access-user-registration/src",
+      "prefix": "school-diary",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/school-diary/data-access-user-registration/tsconfig.lib.json",
+              "libs/school-diary/data-access-user-registration/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/school-diary/data-access-user-registration/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/school-diary/data-access-user-registration/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "school-diary-shell": {
+      "projectType": "library",
+      "root": "libs/school-diary/shell",
+      "sourceRoot": "libs/school-diary/shell/src",
+      "prefix": "school-diary",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/school-diary/shell/tsconfig.lib.json",
+              "libs/school-diary/shell/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/school-diary/shell/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/school-diary/shell/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "school-diary-feature-configuration-assignments": {
+      "projectType": "library",
+      "root": "libs/school-diary/feature-configuration-assignments",
+      "sourceRoot": "libs/school-diary/feature-configuration-assignments/src",
+      "prefix": "school-diary",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/school-diary/feature-configuration-assignments/tsconfig.lib.json",
+              "libs/school-diary/feature-configuration-assignments/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/school-diary/feature-configuration-assignments/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/school-diary/feature-configuration-assignments/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "school-diary-data-access-configuration-assignments": {
+      "projectType": "library",
+      "root": "libs/school-diary/data-access-configuration-assignments",
+      "sourceRoot": "libs/school-diary/data-access-configuration-assignments/src",
+      "prefix": "school-diary",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/school-diary/data-access-configuration-assignments/tsconfig.lib.json",
+              "libs/school-diary/data-access-configuration-assignments/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/school-diary/data-access-configuration-assignments/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/school-diary/data-access-configuration-assignments/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "school-diary-util-select-options": {
+      "projectType": "library",
+      "root": "libs/school-diary/util-select-options",
+      "sourceRoot": "libs/school-diary/util-select-options/src",
+      "prefix": "school-diary",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/school-diary/util-select-options/tsconfig.lib.json",
+              "libs/school-diary/util-select-options/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/school-diary/util-select-options/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/school-diary/util-select-options/jest.config.js",
             "passWithNoTests": true
           }
         }

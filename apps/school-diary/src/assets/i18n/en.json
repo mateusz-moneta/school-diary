@@ -31,9 +31,16 @@
   },
   "CONFIGURATION":{
     "TITLE":"Configuration",
+    "ASSIGNMENTS":"Assignments",
     "CLASS-ROOMS":"Class rooms",
+    "CLASS-UNITS":"Class units",
     "LESSON-HOURS":"Lesson hours",
+    "LESSON-PLANS":"Lesson plans",
     "SUBJECTS":"Subjects"
+  },
+  "CONFIGURATION-ASSIGNMENTS":{
+    "CREATOR-TITLE":"Create a new assignment",
+    "TITLE":"Assignments"
   },
   "CONFIGURATION-CLASS-ROOMS":{
     "CREATOR-TITLE":"Create a new class room",
@@ -46,6 +53,12 @@
     "LOCATION":"Location",
     "TITLE":"Class rooms"
   },
+  "CONFIGURATION-CLASS-UNITS":{
+    "CREATOR-TITLE":"Create a new class unit",
+    "CLASS-TEACHER":"Class teacher",
+    "EDITOR-TITLE":"Edit a class unit",
+    "TITLE":"Class units"
+  },
   "CONFIGURATION-LESSON-HOURS":{
     "CREATOR-TITLE":"Create a new lesson hour",
     "EDITOR-TITLE":"Edit a lesson hour",
@@ -55,6 +68,15 @@
     "TIME-TO":"Time to",
     "TITLE":"Lesson hours"
   },
+  "CONFIGURATION-LESSON-PLANS":{
+    "CLASS-ROOM":"Class room",
+    "CREATOR-TITLE":"Create a new lesson plan",
+    "LESSON-HOUR":"Lesson hour",
+    "EDITOR-TITLE":"Edit a lesson plan",
+    "SUBJECT":"Subject",
+    "WORK-DAY":"Work day",
+    "TITLE":"Lesson plans"
+  },
   "CONFIGURATION-SUBJECTS":{
     "CREATOR-TITLE":"Create a new subject",
     "EDITOR-TITLE":"Edit a subject",
@@ -62,11 +84,11 @@
   },
   "SHARED":{
     "ACTIONS":"Actions",
+    "CLASS-UNIT":"Class Unit",
     "CONNECTION-ERROR":"Backend API connection issue, please contact...",
     "CREATE":"Create",
     "CREATED-AT":"Created at",
     "EDIT":"Edit",
-    "EDUCATOR":"Educator",
     "EMAIL":"E-mail",
     "ENTER-EMAIL":"Enter e-mail",
     "ENTER-NAME":"Enter name",
@@ -85,7 +107,12 @@
     "UNEXPECTED_ERROR_OCCURRED":"Unexpected error occured",
     "UPDATED-AT":"Updated at",
     "USER_HAS_NOT_EXIST":"User has not exist",
-    "USER_ALREADY_EXIST":"User already exist"
+    "USER_ALREADY_EXIST":"User already exist",
+    "MONDAY":"Monday",
+    "WEDNESDAY":"Wednesday",
+    "TUESDAY":"Tuesday",
+    "THURSDAY":"Thursday",
+    "FRIDAY":"Friday"
   },
   "SETTINGS":{
     "LANGUAGE":"Language",

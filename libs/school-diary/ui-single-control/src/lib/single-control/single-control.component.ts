@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { AbstractControl } from '@angular/forms';
 
-import { SelectOption } from '@school-diary/school-diary/domain';
+import { InputType, SelectOption } from '@school-diary/school-diary/domain';
 
 @Component({
   selector: 'school-diary-single-control',
@@ -29,5 +29,5 @@ export class SingleControlComponent {
   placeholder: string;
 
   @Input()
-  type = 'text';
+  type = InputType.TEXT;
 }

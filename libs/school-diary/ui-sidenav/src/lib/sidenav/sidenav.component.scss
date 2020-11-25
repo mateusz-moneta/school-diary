@@ -72,6 +72,7 @@
   }
 
   .nav__item-content {
+    display: flex;
     padding: 20px;
   }
 
@@ -143,4 +144,8 @@
     font-weight: 700;
     color: #333333;
   }
+}
+
+.nav__sub-category.collapsed {
+  display: none;
 }

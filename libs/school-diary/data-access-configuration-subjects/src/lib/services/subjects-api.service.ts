@@ -14,10 +14,10 @@ import { UpdateSubjectSuccessPayload } from '../payloads/update-subject-success.
 @Injectable()
 export class SubjectsApiService {
   readonly endpoints = {
-    createSubject: '/api/subject',
-    deleteSubject: '/api/subject',
-    getSubjects: '/api/subject',
-    updateSubject: '/api/subject'
+    createSubject: '/api/configuration/subjects',
+    deleteSubject: '/api/configuration/subjects',
+    getSubjects: '/api/configuration/subjects',
+    updateSubject: '/api/configuration/subjects'
   };
 
   constructor(private httpClient: HttpClient) {}
@@ -27,8 +27,7 @@ export class SubjectsApiService {
   }
 
   deleteSubject(requestPayload: DeleteSubjectRequestPayload): Observable<DeleteSubjectSuccessPayload> {
-    const params = new HttpParams().set('id', requestPayload.id.toString());
-    return this.httpClient.delete<DeleteSubjectSuccessPayload>(this.endpoints.deleteSubject, { params });
+    return this.httpClient.delete<DeleteSubjectSuccessPayload>(`${this.endpoints.deleteSubject}/${requestPayload.id}`);
   }
 
   getSubjects(requestPayload: GetSubjectsRequestPayload): Observable<GetSubjectsSuccessPayload> {
@@ -40,6 +39,6 @@ export class SubjectsApiService {
   }
 
   updateSubject(requestPayload: UpdateSubjectRequestPayload): Observable<UpdateSubjectSuccessPayload> {
-    return this.httpClient.put<UpdateSubjectSuccessPayload>(this.endpoints.updateSubject, requestPayload);
+    return this.httpClient.put<UpdateSubjectSuccessPayload>(`${this.endpoints.updateSubject}/${requestPayload.id}`, requestPayload);
   }
 }

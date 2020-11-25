@@ -2,14 +2,14 @@ import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { Observable } from 'rxjs';
 
-import { UserFacade } from '@school-diary/school-diary/data-access-user';
+import { UserSessionFacade } from '@school-diary/school-diary/data-access-user-session';
 
 @Injectable()
 export class LoginGuard implements CanActivate {
 
-  constructor(private userFacade: UserFacade) {}
+  constructor(private userSessionFacade: UserSessionFacade) {}
 
   canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
-    return this.userFacade.isLogoutUser$;
+    return this.userSessionFacade.isLogoutUser$;
   }
 }

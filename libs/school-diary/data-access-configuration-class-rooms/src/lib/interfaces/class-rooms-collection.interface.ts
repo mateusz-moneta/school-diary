@@ -1,6 +1,3 @@
-import { ClassRoom } from '@school-diary/school-diary/domain';
+import { BaseCollection, ClassRoom } from '@school-diary/school-diary/domain';
 
-export interface ClassRoomsCollection {
-  data: ClassRoom[],
-  recordsCount: number
-}
+export type ClassRoomsCollection = BaseCollection<ClassRoom>;

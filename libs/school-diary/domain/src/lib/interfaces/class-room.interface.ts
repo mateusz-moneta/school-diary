@@ -1,8 +1,7 @@
-export interface ClassRoom {
-  id: number;
+import { BaseItem } from './base-item.interface';
+
+export interface ClassRoom extends BaseItem {
   designation: string;
   location: string;
   floor: number;
-  created_at: string;
-  updated_at: string;
 }

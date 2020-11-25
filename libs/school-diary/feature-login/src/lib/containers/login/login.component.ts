@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
+import { InputType } from '@school-diary/school-diary/domain';
 import { LanguageService } from '@school-diary/school-diary/shared';
-import { UserFacade } from '@school-diary/school-diary/data-access-user';
+import { UserSessionFacade } from '@school-diary/school-diary/data-access-user-session';
 
 @Component({
   selector: 'school-diary-login',
@@ -12,7 +13,9 @@ import { UserFacade } from '@school-diary/school-diary/data-access-user';
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private language: LanguageService, private userFacade: UserFacade) { }
+  readonly inputType = InputType;
+
+  constructor(private formBuilder: FormBuilder, private language: LanguageService, private userSessionFacade: UserSessionFacade) { }
 
   ngOnInit(): void {
     this.initLoginForm();
@@ -25,7 +28,7 @@ export class LoginComponent implements OnInit {
         password: this.loginForm.get('password').value
       };
 
-      this.userFacade.loginUser(loginRequestPayload);
+      this.userSessionFacade.loginUser(loginRequestPayload);
     }
   }
 
