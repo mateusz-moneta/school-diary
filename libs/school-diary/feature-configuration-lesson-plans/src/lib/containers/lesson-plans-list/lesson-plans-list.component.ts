@@ -11,7 +11,7 @@ import { tableConfig } from '@school-diary/school-diary/config';
   templateUrl: './lesson-plans-list.component.html'
 })
 export class LessonPlansListComponent {
-  displayedColumns = ['created_at', 'updated_at', 'actions'];
+  displayedColumns = ['teacher', 'classUnit', 'subject', 'classRoom', 'lessonHour', 'workDay', 'createdAt', 'updatedAt', 'actions'];
   lessonPlans$ = this.lessonPlansFacade.lessonPlans$;
 
   readonly paginationConfig = tableConfig.pagination;

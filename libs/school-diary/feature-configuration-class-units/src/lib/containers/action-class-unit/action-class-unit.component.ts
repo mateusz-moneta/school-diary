@@ -91,9 +91,9 @@ export class ActionClassUnitComponent implements OnInit, OnDestroy {
       .subscribe((selectedClassUnit: ClassUnit) => {
         this.action = Action.EDIT;
         this.selectedClassUnit = selectedClassUnit;
+        this.classUnitForm.controls.name.setValue(this.selectedClassUnit.name);
+        this.classUnitForm.controls.teacherId.setValue(this.selectedClassUnit.user_id);
         this.titleTranslationKey = 'CONFIGURATION-CLASS-UNITS.EDITOR-TITLE';
-
-        this.classUnitForm.patchValue(selectedClassUnit);
       });
   }
 }

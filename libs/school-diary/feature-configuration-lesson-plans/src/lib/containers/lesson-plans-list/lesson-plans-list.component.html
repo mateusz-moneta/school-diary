@@ -24,6 +24,36 @@
 
     <mat-card-content>
       <table *ngIf="(lessonPlans$ | async)?.data.length" [dataSource]="(lessonPlans$ | async).data" class="adjustable-table" mat-table>
+        <ng-container matColumnDef="teacher">
+          <th *matHeaderCellDef class="adjustable-table-cell" mat-header-cell>{{ 'SHARED.TEACHER' | translate }}</th>
+          <td *matCellDef="let element" (click)="selectLessonPlan(element)" class="adjustable-table-cell" mat-cell>{{ element.first_name }} {{ element.last_name }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="classUnit">
+          <th *matHeaderCellDef class="adjustable-table-cell" mat-header-cell>{{ 'SHARED.CLASS-UNIT' | translate }}</th>
+          <td *matCellDef="let element" (click)="selectLessonPlan(element)" class="adjustable-table-cell" mat-cell>{{ element.name }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="subject">
+          <th *matHeaderCellDef class="adjustable-table-cell" mat-header-cell>{{ 'CONFIGURATION-LESSON-PLANS.SUBJECT' | translate }}</th>
+          <td *matCellDef="let element" (click)="selectLessonPlan(element)" class="adjustable-table-cell" mat-cell>{{ element.subject_name }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="classRoom">
+          <th *matHeaderCellDef class="adjustable-table-cell" mat-header-cell>{{ 'CONFIGURATION-LESSON-PLANS.CLASS-ROOM' | translate }}</th>
+          <td *matCellDef="let element" (click)="selectLessonPlan(element)" class="adjustable-table-cell" mat-cell>{{ element.designation }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="lessonHour">
+          <th *matHeaderCellDef class="adjustable-table-cell" mat-header-cell>{{ 'CONFIGURATION-LESSON-PLANS.LESSON-HOUR' | translate }}</th>
+          <td *matCellDef="let element" (click)="selectLessonPlan(element)" class="adjustable-table-cell" mat-cell>{{ element.hour_from }}:{{ element.minute_from }} - {{ element.hour_to }}:{{ element.minute_to }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="workDay">
+          <th *matHeaderCellDef class="adjustable-table-cell" mat-header-cell>{{ 'CONFIGURATION-LESSON-PLANS.WORK-DAY' | translate }}</th>
+          <td *matCellDef="let element" (click)="selectLessonPlan(element)" class="adjustable-table-cell" mat-cell>{{ element.work_day_name }}</td>
+        </ng-container>
+
         <ng-container matColumnDef="createdAt">
           <th *matHeaderCellDef class="adjustable-table-cell" mat-header-cell>{{ 'SHARED.CREATED-AT' | translate }}</th>
           <td *matCellDef="let element" class="adjustable-table-cell" mat-cell>{{ element.created_at | date: 'mediumDate' }}</td>

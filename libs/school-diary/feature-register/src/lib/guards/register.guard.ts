@@ -6,7 +6,7 @@ import { map, tap } from 'rxjs/operators';
 import { UserSessionFacade } from '@school-diary/school-diary/data-access-user-session';
 
 @Injectable()
-export class LoginGuard implements CanActivate {
+export class RegisterGuard implements CanActivate {
 
   constructor(private router: Router, private userSessionFacade: UserSessionFacade) {}
 

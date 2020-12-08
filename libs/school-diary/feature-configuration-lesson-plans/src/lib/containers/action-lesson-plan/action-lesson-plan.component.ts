@@ -137,9 +137,9 @@ export class ActionLessonPlanComponent implements OnInit, OnDestroy {
   }
 
   private initWorkDayOptions(): void {
-    this.workDaysOptions = Object.keys(WorkDayName).map(name => ({
+    this.workDaysOptions = Object.keys(WorkDayName).map((name: WorkDayName, index: number) => ({
       translationKey: `SHARED.${name}`,
-      value: name
+      value: index + 1
     }))
   }
 }
