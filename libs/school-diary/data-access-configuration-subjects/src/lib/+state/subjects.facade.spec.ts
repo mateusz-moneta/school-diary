@@ -10,7 +10,6 @@ import { SubjectsFacade } from './subjects.facade';
 import {
   SUBJECTS_FEATURE_KEY,
   SubjectsState,
-  initialState,
   subjectsReducer,
 } from './subjects.reducer';
 

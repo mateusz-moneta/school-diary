@@ -6,14 +6,10 @@ import { NxModule } from '@nrwl/angular';
 
 import { SettingsEffects } from './settings.effects';
 import { SettingsFacade } from './settings.facade';
-import {
-  SETTINGS_FEATURE_KEY,
-  State,
-  reducer,
-} from './settings.reducer';
+import { SETTINGS_FEATURE_KEY, settingsReducer, SettingsState } from './settings.reducer';
 
 interface TestSchema {
-  settings: State;
+  settings: SettingsState;
 }
 
 describe('SettingsFacade', () => {
@@ -26,7 +22,7 @@ describe('SettingsFacade', () => {
     beforeEach(() => {
       @NgModule({
         imports: [
-          StoreModule.forFeature(SETTINGS_FEATURE_KEY, reducer),
+          StoreModule.forFeature(SETTINGS_FEATURE_KEY, settingsReducer),
           EffectsModule.forFeature([SettingsEffects]),
         ],
         providers: [SettingsFacade],

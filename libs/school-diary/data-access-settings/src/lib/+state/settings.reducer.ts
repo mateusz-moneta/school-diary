@@ -1,37 +1,52 @@
-import { Action, createReducer, on } from '@ngrx/store';
-import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
+import { fromSettingsActions } from './settings.actions';
 
 import { Language } from '@school-diary/school-diary/domain';
-import * as SettingsActions from './settings.actions';
-import { SettingsEntity } from './settings.models';
 
 export const SETTINGS_FEATURE_KEY = 'settings';
 
-export interface State extends EntityState<SettingsEntity> {
+export interface SettingsState {
   language: Language;
+  sidenavOpened: boolean;
 }
 
 export interface SettingsPartialState {
-  readonly [SETTINGS_FEATURE_KEY]: State;
+  readonly [SETTINGS_FEATURE_KEY]: SettingsState;
 }
 
-export const settingsAdapter: EntityAdapter<SettingsEntity> = createEntityAdapter<
-  SettingsEntity
->();
+export const initialState: SettingsState = {
+  language: Language.EN,
+  sidenavOpened: false
+};
 
-export const initialState: State = settingsAdapter.getInitialState({
-  // set initial required properties
-  language: Language.EN
-});
+export function settingsReducer(
+  state: SettingsState = initialState,
+  action: fromSettingsActions.CollectiveType
+): SettingsState {
+  switch (action.type) {
+    case fromSettingsActions.Types.ChangeLanguage: {
+      state = {
+        ...state,
+        language: action.payload
+      };
+      break;
+    }
 
-const settingsReducer = createReducer(
-  initialState,
-  on(SettingsActions.changeLanguage, (state, { language }) => ({
-    ...state,
-    language
-  }))
-);
+    case fromSettingsActions.Types.CloseSidenav: {
+      state = {
+        ...state,
+        sidenavOpened: false
+      };
+      break;
+    }
 
-export function reducer(state: State | undefined, action: Action) {
-  return settingsReducer(state, action);
+    case fromSettingsActions.Types.OpenSidenav: {
+      state = {
+        ...state,
+        sidenavOpened: true
+      };
+      break;
+    }
+  }
+
+  return state;
 }
