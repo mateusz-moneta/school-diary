@@ -27,6 +27,19 @@ export class UserSessionEffects {
       new fromUserSessionActions.LoginUserFail(payload)
   });
 
+  @Effect()
+  logoutUser$ = this.dp.pessimisticUpdate(fromUserSessionActions.Types.LogoutUser, {
+    run: () =>
+      this.userSessionApiService.logout()
+        .pipe(
+          map(() => new fromUserSessionActions.LogoutUserSuccess()),
+          tap(() => {
+            this.router.navigate(['/login'])
+          })
+        ),
+    onError: () => new fromUserSessionActions.LogoutUserFail()
+  });
+
   constructor(
     private actions$: Actions,
     private dp: DataPersistence<UserSessionPartialState>,

@@ -57,7 +57,7 @@ export function userSessionReducer(
       break;
     }
 
-    case fromUserSessionActions.Types.LogoutUser: {
+    case fromUserSessionActions.Types.LogoutUserSuccess: {
       state = {
         ...state,
         loginUser: null,

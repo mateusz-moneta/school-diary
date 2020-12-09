@@ -1108,6 +1108,72 @@
           "style": "scss"
         }
       }
+    },
+    "school-diary-ui-carousel": {
+      "projectType": "library",
+      "root": "libs/school-diary/ui-carousel",
+      "sourceRoot": "libs/school-diary/ui-carousel/src",
+      "prefix": "school-diary",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/school-diary/ui-carousel/tsconfig.lib.json",
+              "libs/school-diary/ui-carousel/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/school-diary/ui-carousel/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/school-diary/ui-carousel/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "school-diary-feature-settings": {
+      "projectType": "library",
+      "root": "libs/school-diary/feature-settings",
+      "sourceRoot": "libs/school-diary/feature-settings/src",
+      "prefix": "school-diary",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/school-diary/feature-settings/tsconfig.lib.json",
+              "libs/school-diary/feature-settings/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/school-diary/feature-settings/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/school-diary/feature-settings/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
     }
   },
   "cli": {

@@ -1,7 +1,11 @@
 <mat-toolbar color="primary">
-  <button (click)="onOpen()" type="button" mat-icon-button>
+  <button (click)="toggleSidenav()" type="button" mat-icon-button>
     <mat-icon>menu</mat-icon>
   </button>
 
   <span>{{ title }}</span>
+
+  <button (click)="onLogout()" class="button-logout" type="button" mat-icon-button>
+    <mat-icon>power_settings_new</mat-icon>
+  </button>
 </mat-toolbar>

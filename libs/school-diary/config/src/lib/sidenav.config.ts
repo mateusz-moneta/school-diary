@@ -31,5 +31,10 @@ export const sidenavConfig: SidenavItem[] = [
         path: '/configuration/subjects'
       }
     ]
+  },
+  {
+    title: 'SETTINGS.TITLE',
+    colorSaturation: '600',
+    path: '/settings'
   }
 ];

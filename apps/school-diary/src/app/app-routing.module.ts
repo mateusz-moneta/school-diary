@@ -22,6 +22,10 @@ const routes: Routes = [
         loadChildren: () => import('@school-diary/school-diary/feature-configuration').then(m => m.SchoolDiaryFeatureConfigurationModule)
       },
       {
+        path: 'settings',
+        loadChildren: () => import('@school-diary/school-diary/feature-configuration').then(m => m.SchoolDiaryFeatureConfigurationModule)
+      },
+      {
         path: '**',
         redirectTo: '/login'
       }

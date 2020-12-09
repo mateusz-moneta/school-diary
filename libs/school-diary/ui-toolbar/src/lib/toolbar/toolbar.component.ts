@@ -6,10 +6,17 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrls: ['./toolbar.component.scss']
 })
 export class ToolbarComponent {
+  @Input() opened: boolean;
   @Input() title: string;
+  @Output() close = new EventEmitter<void>();
+  @Output() logout = new EventEmitter<void>();
   @Output() open = new EventEmitter<void>();
 
-  onOpen(): void {
-    this.open.emit()
+  toggleSidenav(): void {
+    this.opened ? this.close.emit() : this.open.emit();
+  }
+
+  onLogout(): void {
+    this.logout.emit();
   }
 }

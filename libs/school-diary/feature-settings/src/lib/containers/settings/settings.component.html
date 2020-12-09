@@ -1,0 +1,37 @@
+<div class="school-diary-mat-card-container container">
+  <mat-card class="school-diary-mat-card">
+    <mat-card-header>
+      <button
+        [routerLink]="'/dashboard'"
+        class="button-back"
+        mat-icon-button
+      >
+        <mat-icon color="primary">arrow_back</mat-icon>
+      </button>
+
+      <mat-card-title>
+        {{ 'SETTINGS.TITLE' | translate }}
+      </mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <div class="title">
+        {{ 'SETTINGS.LANGUAGE' | translate }}
+      </div>
+      <div>
+        <app-carousel (valueChange)="languageChange($event)">
+          <ng-container *ngFor="let language of languages">
+            <ng-container *schoolDiaryCarouselItem>
+              <div class="item">{{ language.titleTranslationKey | translate }}</div>
+            </ng-container>
+          </ng-container>
+        </app-carousel>
+      </div>
+    </mat-card-content>
+
+    <mat-card-footer>
+
+    </mat-card-footer>
+  </mat-card>
+</div>
+

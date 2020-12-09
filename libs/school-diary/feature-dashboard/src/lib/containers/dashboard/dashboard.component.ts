@@ -1,19 +1,19 @@
-import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnDestroy } from '@angular/core';
 
 import { panelCardsConfig } from '../../configs/panel-cards.config';
 import { SettingsFacade } from '@school-diary/school-diary/data-access-settings';
-import { Language } from '@school-diary/school-diary/domain';
 import { LanguageService } from '@school-diary/school-diary/shared';
 import { MediaMatcher } from '@angular/cdk/layout';
+import { UserSessionFacade } from '@school-diary/school-diary/data-access-user-session';
 
 @Component({
   selector: 'school-diary-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent implements OnInit, OnDestroy {
-  isOpen = false;
+export class DashboardComponent implements OnDestroy {
   mobileQuery: MediaQueryList;
+  sidenavOpened$ = this.settingsFacade.sidenavOpened$;
 
   private readonly mobileQueryListener: () => void;
 
@@ -22,23 +22,28 @@ export class DashboardComponent implements OnInit, OnDestroy {
   constructor(
     changeDetectorRef: ChangeDetectorRef,
     media: MediaMatcher,
+    private languageService: LanguageService,
     private settingsFacade: SettingsFacade,
-    private language: LanguageService
+    private userSessionFacade: UserSessionFacade
   ) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this.mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this.mobileQueryListener);
   }
 
-  ngOnInit(): void {
-    this.settingsFacade.changeLanguage(Language.PL);
-  }
-
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this.mobileQueryListener);
   }
 
+  onClose(): void {
+    this.settingsFacade.closeSidenav();
+  }
+
+  onLogout(): void {
+    this.userSessionFacade.logoutUser();
+  }
+
   onOpen(): void {
-    this.isOpen = !this.isOpen;
+    this.settingsFacade.openSidenav();
   }
 }

@@ -59,6 +59,9 @@
     "school-diary-feature-configuration-subjects": {
       "tags": ["platform:web", "scope:school-diary", "type:feature"]
     },
+    "school-diary-feature-settings": {
+      "tags": ["platform:web", "scope:school-diary", "type:feature"]
+    },
     "school-diary-shared": {
       "tags": ["platform:web", "scope:school-diary", "type:shared"]
     },
@@ -91,6 +94,9 @@
     },
     "school-diary-data-access-user-session": {
       "tags": ["platform:web", "scope:school-diary", "type:data-access"]
+    },
+    "school-diary-ui-carousel": {
+      "tags": ["platform:web", "scope:school-diary", "type:ui"]
     },
     "school-diary-ui-sidenav": {
       "tags": ["platform:web", "scope:school-diary", "type:ui"]

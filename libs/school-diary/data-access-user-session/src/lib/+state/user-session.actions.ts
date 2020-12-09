@@ -9,7 +9,9 @@ export namespace fromUserSessionActions {
     LoginUser = '[User Session] Login User',
     LoginUserFail = '[User Session] Login User Fail',
     LoginUserSuccess = '[User Session] Login User Success',
-    LogoutUser = '[User Session] Logout User'
+    LogoutUser = '[User Session] Logout User',
+    LogoutUserFail = '[User Session] Logout User Fail',
+    LogoutUserSuccess = '[User Session] Logout User Success'
   }
 
   export class LoginUser implements Action {
@@ -34,9 +36,19 @@ export namespace fromUserSessionActions {
     readonly type = Types.LogoutUser;
   }
 
+  export class LogoutUserFail implements Action {
+    readonly type = Types.LogoutUserFail;
+  }
+
+  export class LogoutUserSuccess implements Action {
+    readonly type = Types.LogoutUserSuccess;
+  }
+
   export type CollectiveType =
     | LoginUser
     | LoginUserFail
     | LoginUserSuccess
     | LogoutUser
+    | LogoutUserFail
+    | LogoutUserSuccess
 }

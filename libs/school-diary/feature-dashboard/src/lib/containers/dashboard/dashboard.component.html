@@ -1,10 +1,17 @@
 <div [class.is-mobile]="mobileQuery.matches">
-  <school-diary-toolbar (open)="onOpen()" [title]="'DASHBOARD.TITLE' | translate"></school-diary-toolbar>
+  <school-diary-toolbar
+    (close)="onClose()"
+    (logout)="onLogout()"
+    (open)="onOpen()"
+    [opened]="sidenavOpened$ | async"
+    [title]="'DASHBOARD.TITLE' | translate"
+  >
+  </school-diary-toolbar>
 
   <mat-sidenav-container>
     <mat-sidenav
       [mode]="mobileQuery.matches ? 'over' : 'side'"
-      [opened]="isOpen"
+      [opened]="sidenavOpened$ | async"
       [fixedTopGap]="64"
       fixedInViewport
     >

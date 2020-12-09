@@ -46,6 +46,9 @@
       "@school-diary/school-diary/feature-configuration-subjects": [
         "libs/school-diary/feature-configuration-subjects/src/index.ts"
       ],
+      "@school-diary/school-diary/feature-settings": [
+        "libs/school-diary/feature-settings/src/index.ts"
+      ],
       "@school-diary/school-diary/shared": [
         "libs/school-diary/shared/src/index.ts"
       ],
@@ -78,6 +81,9 @@
       ],
       "@school-diary/school-diary/data-access-user-session": [
         "libs/school-diary/data-access-user-session/src/index.ts"
+      ],
+      "@school-diary/school-diary/ui-carousel": [
+        "libs/school-diary/ui-carousel/src/index.ts"
       ],
       "@school-diary/school-diary/ui-paginator": [
         "libs/school-diary/ui-paginator/src/index.ts"
