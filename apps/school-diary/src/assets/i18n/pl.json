@@ -31,8 +31,17 @@
   },
   "CONFIGURATION":{
     "TITLE":"Konfiguracja",
+    "ASSIGNMENTS":"Przynależności",
     "CLASS-ROOMS":"Sale edukacyjne",
+    "CLASS-UNITS":"Jednostki edukacyjne",
+    "LESSON-HOURS":"Godziny lekcyjne",
+    "LESSON-PLANS":"Plany lekcji",
     "SUBJECTS":"Przedmioty"
+  },
+  "CONFIGURATION-ASSIGNMENTS":{
+    "CREATOR-TITLE":"Utwórz nową przynależność",
+    "EDITOR-TITLE":"Edytuj przynależność",
+    "TITLE":"Przynależności"
   },
   "CONFIGURATION-CLASS-ROOMS":{
     "CREATOR-TITLE":"Utwórz nowy pokój edukacyjny",
@@ -43,7 +52,13 @@
     "ENTER-LOCATION":"Wprowadź lokalizację",
     "FLOOR":"Piętro",
     "LOCATION":"Lokalizacja",
-    "TITLE":"Pokoje edukacyjne"
+    "TITLE":"Sale edukacyjne"
+  },
+  "CONFIGURATION-CLASS-UNITS":{
+    "CREATOR-TITLE":"Utwórz nową jednostkę lekcyjną",
+    "CLASS-TEACHER":"Wychowawca",
+    "EDITOR-TITLE":"Edytuj jednostkę lekcyjną",
+    "TITLE":"Jednostki lekcyjne"
   },
   "CONFIGURATION-LESSON-HOURS":{
     "CREATOR-TITLE":"Utwórz nową godzinę lekcyjną",
@@ -54,32 +69,60 @@
     "TIME-TO":"Do godziny",
     "TITLE":"Godziny lekcyjne"
   },
+  "CONFIGURATION-LESSON-PLANS":{
+    "CLASS-ROOM":"Pokój edukacyjny",
+    "CREATOR-TITLE":"Utwórz nowy plan lekcji",
+    "LESSON-HOUR":"Godzina lekcyjna",
+    "EDITOR-TITLE":"Edytuj plan lekcji",
+    "SUBJECT":"Przedmiot",
+    "WORK-DAY":"Dzień roboczy",
+    "TITLE":"Plany lekcji"
+  },
   "CONFIGURATION-SUBJECTS":{
-    "EDITOR-TITLE":"Edytuj przedmiot",
     "CREATOR-TITLE":"Utwórz nowy przedmiot",
+    "EDITOR-TITLE":"Edytuj przedmiot",
     "TITLE":"Przedmioty"
   },
   "SHARED":{
     "ACTIONS":"Akcje",
+    "CANCEL":"Anuluj",
+    "CLASS-UNIT":"Klasa",
     "CONNECTION-ERROR":"Problem z połączeniem z API, proszę o kontakt...",
     "CREATE":"Utwórz",
     "CREATED-AT":"Data utworzenia",
     "EDIT":"Edytuj",
     "EMAIL":"E-mail",
+    "ENGLISH":"Angielski",
     "ENTER-EMAIL":"Wprowadź e-mail",
+    "ENTER-NAME":"Wprowadź nazwę",
     "ENTER-PASSWORD":"Wprowadź hasło",
+    "ENTER-SHORT-NAME":"Wprowadź skróconą nazwę",
+    "ITEMS-PER-PAGE":"Elementów na stronie",
     "LEGAL-GUARDIAN":"Opiekun",
+    "NAME":"Nazwa",
+    "OF":"z",
+    "PAGE":"Strona",
     "PASSWORD":"Hasło",
+    "POLISH":"Polski",
+    "SAVE":"Zapisz",
+    "SHORT-NAME":"Skrócona nazwa",
     "SYSTEM-ADMINISTRATOR":"Administrator systemowy",
     "STUDENT":"Student",
     "TEACHER":"Nauczyciel",
     "UNEXPECTED_ERROR_OCCURRED":"Nieznany problem",
+    "UPDATED-AT":"Data aktualizacji",
     "USER_HAS_NOT_EXIST":"Użytkownik nie został stworzony",
-    "USER_ALREADY_EXIST":"Użytkownik już istnieje"
+    "USER_ALREADY_EXIST":"Użytkownik już istnieje",
+    "MONDAY":"Poniedziałek",
+    "WEDNESDAY":"Wtorek",
+    "TUESDAY":"Środa",
+    "THURSDAY":"Czwartek",
+    "FRIDAY":"Piątek"
   },
   "SETTINGS":{
-    "LANGUAGE": "Język",
-    "SAVE": "Zapisz"
+    "LANGUAGE":"Język",
+    "SAVE":"Zapisz",
+    "TITLE":"Ustawienia"
   },
   "VALIDATION":{
     "ENTER-VALID-EMAIL":"Proszę wprowadzić poprawny adres e-mail",

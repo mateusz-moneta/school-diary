@@ -3,20 +3,21 @@ import { TranslateService } from '@ngx-translate/core';
 import { Observable } from 'rxjs';
 
 import { Language, LanguageItem } from '@school-diary/school-diary/domain';
+import { SettingsFacade } from '@school-diary/school-diary/data-access-settings';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LanguageService {
-  currentLanguage = 'en';
+  currentLanguage: Language;
 
   readonly languageList: LanguageItem[] = [
     { code: Language.EN, titleTranslationKey: 'SHARED.ENGLISH' },
     { code: Language.PL, titleTranslationKey: 'SHARED.POLISH' }
   ];
 
-  constructor(private translateService: TranslateService) {
-    this.setLanguage(this.currentLanguage);
+  constructor(private settingsFacade: SettingsFacade, private translateService: TranslateService) {
+    this.handleCurrentLanguage();
   }
 
   setLanguage(code: string): void {
@@ -26,5 +27,12 @@ export class LanguageService {
 
   translate(key: string): Observable<string> {
     return this.translateService.get(key);
+  }
+
+  private handleCurrentLanguage(): void {
+    this.settingsFacade.language$.subscribe(language => {
+      this.currentLanguage = language;
+      this.setLanguage(this.currentLanguage);
+    })
   }
 }
