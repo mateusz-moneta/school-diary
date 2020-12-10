@@ -7,6 +7,7 @@ import { MatTableModule } from '@angular/material/table';
 import { TranslateModule } from '@ngx-translate/core';
 
 import { ActionClassUnitComponent } from './containers/action-class-unit/action-class-unit.component';
+import { ClassUnitExistGuard } from './guards/class-unit-exist.guard';
 import { ClassUnitsGuard } from './guards/class-units.guard';
 import { ClassUnitsListComponent } from './containers/class-units-list/class-units-list.component';
 import { SchoolDiaryDataAccessConfigurationClassUnitsModule } from '@school-diary/school-diary/data-access-configuration-class-units';
@@ -32,6 +33,6 @@ import { SchoolDiaryUiSingleControlModule } from '@school-diary/school-diary/ui-
     SchoolDiaryUiSingleControlModule,
     TranslateModule.forChild()
   ],
-  providers: [ClassUnitsGuard]
+  providers: [ClassUnitExistGuard, ClassUnitsGuard]
 })
 export class SchoolDiaryFeatureConfigurationClassUnitsModule {}

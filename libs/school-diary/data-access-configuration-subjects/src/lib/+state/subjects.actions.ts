@@ -6,10 +6,12 @@ import { CreateSubjectSuccessPayload } from '../payloads/create-subject-success.
 import { DeleteSubjectFailPayload } from '../payloads/delete-subject-fail.payload';
 import { DeleteSubjectRequestPayload } from '../request-payloads/delete-subject.request-payload';
 import { DeleteSubjectSuccessPayload } from '../payloads/delete-subject-success.payload';
+import { GetSubjectFailPayload } from '../payloads/get-subject-fail.payload';
+import { GetSubjectRequestPayload } from '../request-payloads/get-subject.request-payload';
+import { GetSubjectSuccessPayload } from '../payloads/get-subject-success.payload';
 import { GetSubjectsFailPayload } from '../payloads/get-subjects-fail.payload';
 import { GetSubjectsRequestPayload } from '../request-payloads/get-subjects.request-payload';
 import { GetSubjectsSuccessPayload } from '../payloads/get-subjects-success.payload';
-import { SelectSubjectPayload } from '../payloads/select-subject.payload';
 import { UpdateSubjectRequestPayload } from '../request-payloads/update-subject.request-payload';
 import { UpdateSubjectFailPayload } from '../payloads/update-subject-fail.payload';
 import { UpdateSubjectSuccessPayload } from '../payloads/update-subject-success.payload';
@@ -22,11 +24,12 @@ export namespace fromSubjectsActions {
     DeleteSubject = '[Subjects] Delete Subject',
     DeleteSubjectFail = '[Subjects] Delete Subject Fail',
     DeleteSubjectSuccess = '[Subjects] Delete Subject Success',
+    GetSubject = '[Subjects] Get Subject',
+    GetSubjectFail = '[Subjects] Get Subject Fail',
+    GetSubjectSuccess = '[Subjects] Get Subject Success',
     GetSubjects = '[Subjects] Get Subjects',
     GetSubjectsFail = '[Subjects] Get Subjects Fail',
     GetSubjectsSuccess = '[Subjects] Get Subjects Success',
-    SelectSubject = '[Subjects] Select Subject',
-    UnselectSubject = '[Subjects] Unselect Subject',
     UpdateSubject = '[Subjects] Update Subject',
     UpdateSubjectFail = '[Subjects] Update Subject Fail',
     UpdateSubjectSuccess = '[Subjects] Update Subject Success'
@@ -68,6 +71,24 @@ export namespace fromSubjectsActions {
     constructor(public payload: DeleteSubjectSuccessPayload) {}
   }
 
+  export class GetSubject implements Action {
+    readonly type = Types.GetSubject;
+
+    constructor(public payload: GetSubjectRequestPayload) {}
+  }
+
+  export class GetSubjectFail implements Action {
+    readonly type = Types.GetSubjectFail;
+
+    constructor(public payload: GetSubjectFailPayload) {}
+  }
+
+  export class GetSubjectSuccess implements Action {
+    readonly type = Types.GetSubjectSuccess;
+
+    constructor(public payload: GetSubjectSuccessPayload) {}
+  }
+
   export class GetSubjects implements Action {
     readonly type = Types.GetSubjects;
 
@@ -84,16 +105,6 @@ export namespace fromSubjectsActions {
     readonly type = Types.GetSubjectsSuccess;
 
     constructor(public payload: GetSubjectsSuccessPayload) {}
-  }
-
-  export class SelectSubject implements Action {
-    readonly type = Types.SelectSubject;
-
-    constructor(public payload: SelectSubjectPayload) {}
-  }
-
-  export class UnselectSubject implements Action {
-    readonly type = Types.UnselectSubject;
   }
 
   export class UpdateSubject implements Action {
@@ -121,11 +132,12 @@ export namespace fromSubjectsActions {
     | DeleteSubject
     | DeleteSubjectFail
     | DeleteSubjectSuccess
+    | GetSubject
+    | GetSubjectFail
+    | GetSubjectSuccess
     | GetSubjects
     | GetSubjectsFail
     | GetSubjectsSuccess
-    | SelectSubject
-    | UnselectSubject
     | UpdateSubject
     | UpdateSubjectFail
     | UpdateSubjectSuccess

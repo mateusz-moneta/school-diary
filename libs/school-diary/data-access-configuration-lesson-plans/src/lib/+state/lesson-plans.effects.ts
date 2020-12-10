@@ -9,6 +9,8 @@ import { CreateLessonPlanSuccessPayload } from '../payloads/create-lesson-plan-s
 import { DeleteLessonPlanFailPayload } from '../payloads/delete-lesson-plan-fail.payload';
 import { DeleteLessonPlanSuccessPayload } from '../payloads/delete-lesson-plan-success.payload';
 import { fromLessonPlansActions } from './lesson-plans.actions';
+import { GetLessonPlanFailPayload } from '../payloads/get-lesson-plan-fail.payload';
+import { GetLessonPlanSuccessPayload } from '../payloads/get-lesson-plan-success.payload';
 import { GetLessonPlansFailPayload } from '../payloads/get-lesson-plans-fail.payload';
 import { GetLessonPlansSuccessPayload } from '../payloads/get-lesson-plans-success.payload';
 import { LessonPlansApiService } from '../services/lesson-plans-api.service';
@@ -42,6 +44,17 @@ export class LessonPlansEffects {
         ),
     onError: (action: fromLessonPlansActions.DeleteLessonPlan, payload: DeleteLessonPlanFailPayload) =>
       new fromLessonPlansActions.DeleteLessonPlanFail(payload)
+  });
+
+  @Effect()
+  getLessonPlan$ = this.dp.fetch(fromLessonPlansActions.Types.GetLessonPlan, {
+    run: (action: fromLessonPlansActions.GetLessonPlan) =>
+      this.lessonPlansApiService.getLessonPlan(action.payload)
+        .pipe(
+          map((payload: GetLessonPlanSuccessPayload) => new fromLessonPlansActions.GetLessonPlanSuccess(payload))
+        ),
+    onError: (action: fromLessonPlansActions.GetLessonPlan, payload: GetLessonPlanFailPayload) =>
+      new fromLessonPlansActions.GetLessonPlanFail(payload)
   });
 
   @Effect()

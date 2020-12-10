@@ -11,6 +11,8 @@ import { CreateAssignmentSuccessPayload } from '../payloads/create-assignment-su
 import { DeleteAssignmentFailPayload } from '../payloads/delete-assignment-fail.payload';
 import { DeleteAssignmentSuccessPayload } from '../payloads/delete-assignment-success.payload';
 import { fromAssignmentsActions } from './assignments.actions';
+import { GetAssignmentFailPayload } from '../payloads/get-assignment-fail.payload';
+import { GetAssignmentSuccessPayload } from '../payloads/get-assignment-success.payload';
 import { GetAssignmentsFailPayload } from '../payloads/get-assignments-fail.payload';
 import { GetAssignmentsSuccessPayload } from '../payloads/get-assignments-success.payload';
 import { UpdateAssignmentFailPayload } from '../payloads/update-assignment-fail.payload';
@@ -42,6 +44,17 @@ export class AssignmentsEffects {
         ),
     onError: (action: fromAssignmentsActions.DeleteAssignment, payload: DeleteAssignmentFailPayload) =>
       new fromAssignmentsActions.DeleteAssignmentFail(payload)
+  });
+
+  @Effect()
+  getAssignment$ = this.dp.fetch(fromAssignmentsActions.Types.GetAssignment, {
+    run: (action: fromAssignmentsActions.GetAssignment) =>
+      this.assignmentsApiService.getAssignment(action.payload)
+        .pipe(
+          map((payload: GetAssignmentSuccessPayload) => new fromAssignmentsActions.GetAssignmentSuccess(payload))
+        ),
+    onError: (action: fromAssignmentsActions.GetAssignment, payload: GetAssignmentFailPayload) =>
+      new fromAssignmentsActions.GetAssignmentFail(payload)
   });
 
   @Effect()

@@ -27,7 +27,6 @@ export class LessonHoursListComponent {
   }
 
   selectLessonHour(selectedLessonHour: LessonHour) {
-    this.lessonHoursFacade.selectLessonHour(selectedLessonHour);
-    this.router.navigate(['/configuration/lesson-hours/edit']);
+    this.router.navigate(['/configuration/lesson-hours/edit', selectedLessonHour.id]);
   }
 }

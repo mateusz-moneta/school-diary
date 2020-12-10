@@ -6,6 +6,8 @@ import { CreateLessonHourRequestPayload } from '../request-payloads/create-lesso
 import { CreateLessonHourSuccessPayload } from '../payloads/create-lesson-hour-success.payload';
 import { DeleteLessonHourRequestPayload } from '../request-payloads/delete-lesson-hour.request-payload';
 import { DeleteLessonHourSuccessPayload } from '../payloads/delete-lesson-hour-success.payload';
+import { GetLessonHourRequestPayload } from '../request-payloads/get-lesson-hour.request-payload';
+import { GetLessonHourSuccessPayload } from '../payloads/get-lesson-hour-success.payload';
 import { GetLessonHoursRequestPayload } from '../request-payloads/get-lesson-hours.request-payload';
 import { GetLessonHoursSuccessPayload } from '../payloads/get-lesson-hours-success.payload';
 import { UpdateLessonHourRequestPayload } from '../request-payloads/update-lesson-hour.request-payload';
@@ -16,6 +18,7 @@ export class LessonHoursApiService {
   readonly endpoints = {
     createLessonHour: '/api/configuration/lesson_hours',
     deleteLessonHour: '/api/configuration/lesson_hours',
+    getLessonHour: '/api/configuration/lesson_hours',
     getLessonHours: '/api/configuration/lesson_hours',
     updateLessonHour: '/api/configuration/lesson_hours'
   };
@@ -28,6 +31,10 @@ export class LessonHoursApiService {
 
   deleteLessonHour(requestPayload: DeleteLessonHourRequestPayload): Observable<DeleteLessonHourSuccessPayload> {
     return this.httpClient.delete<DeleteLessonHourSuccessPayload>(`${this.endpoints.deleteLessonHour}/${requestPayload.id}`);
+  }
+
+  getLessonHour(requestPayload: GetLessonHourRequestPayload): Observable<GetLessonHourSuccessPayload> {
+    return this.httpClient.get<GetLessonHourSuccessPayload>(`${this.endpoints.getLessonHour}/${requestPayload.id}`);
   }
 
   getLessonHours(requestPayload: GetLessonHoursRequestPayload): Observable<GetLessonHoursSuccessPayload> {

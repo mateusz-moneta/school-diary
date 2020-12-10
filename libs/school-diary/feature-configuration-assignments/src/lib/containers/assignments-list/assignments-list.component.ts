@@ -27,7 +27,6 @@ export class AssignmentsListComponent {
   }
 
   selectAssignment(selectedAssignment: Assignment) {
-    this.assignmentsFacade.selectAssignment(selectedAssignment);
-    this.router.navigate(['/configuration/assignments/edit']);
+    this.router.navigate(['/configuration/assignments/edit', selectedAssignment.id]);
   }
 }

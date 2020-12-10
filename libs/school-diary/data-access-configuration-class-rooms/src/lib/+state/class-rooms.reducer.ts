@@ -17,6 +17,8 @@ export interface ClassRoomsState {
   deleteClassRoomError: HttpErrorResponse;
   deleteClassRoomInProgress: boolean;
   selectedClassRoom: ClassRoom;
+  selectedClassRoomLoadError: HttpErrorResponse;
+  selectedClassRoomLoadInProgress: boolean;
   updatedClassRoom: ClassRoom;
   updateClassRoomError: HttpErrorResponse;
   updateClassRoomInProgress: boolean;
@@ -37,6 +39,8 @@ export const initialState: ClassRoomsState = {
   deleteClassRoomError: null,
   deleteClassRoomInProgress: false,
   selectedClassRoom: null,
+  selectedClassRoomLoadError: null,
+  selectedClassRoomLoadInProgress: false,
   updatedClassRoom: null,
   updateClassRoomError: null,
   updateClassRoomInProgress: false
@@ -110,6 +114,32 @@ export function classRoomsReducer(
       break;
     }
 
+    case fromClassRoomsActions.Types.GetClassRoom: {
+      state = {
+        ...state,
+        selectedClassRoomLoadInProgress: true
+      };
+      break;
+    }
+
+    case fromClassRoomsActions.Types.GetClassRoomFail: {
+      state = {
+        ...state,
+        selectedClassRoomLoadError: action.payload.error,
+        classRoomsLoadInProgress: false
+      };
+      break;
+    }
+
+    case fromClassRoomsActions.Types.GetClassRoomSuccess: {
+      state = {
+        ...state,
+        selectedClassRoom: action.payload,
+        selectedClassRoomLoadInProgress: false
+      };
+      break;
+    }
+
     case fromClassRoomsActions.Types.GetClassRooms: {
       state = {
         ...state,
@@ -133,23 +163,8 @@ export function classRoomsReducer(
         classRooms: {
           data: action.payload.data,
           recordsCount: action.payload.records_count
-        }
-      };
-      break;
-    }
-
-    case fromClassRoomsActions.Types.SelectClassRoom: {
-      state = {
-        ...state,
-        selectedClassRoom: action.payload
-      };
-      break;
-    }
-
-    case fromClassRoomsActions.Types.UnselectClassRoom: {
-      state = {
-        ...state,
-        selectedClassRoom: null
+        },
+        classRoomsLoadInProgress: false
       };
       break;
     }

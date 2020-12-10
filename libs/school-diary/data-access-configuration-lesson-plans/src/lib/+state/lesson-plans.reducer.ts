@@ -1,7 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 
 import { fromLessonPlansActions } from './lesson-plans.actions';
-import { LessonPlan } from '@school-diary/school-diary/domain';
+import { LessonPlan, SelectedLessonPlan } from '@school-diary/school-diary/domain';
 import { LessonPlansCollection } from '../interfaces/lesson-plans-collection.interface';
 
 export const LESSON_PLANS_FEATURE_KEY = 'lessonPlans';
@@ -16,7 +16,9 @@ export interface LessonPlansState {
   deletedLessonPlanId: number;
   deleteLessonPlanError: HttpErrorResponse;
   deleteLessonPlanInProgress: boolean;
-  selectedLessonPlan: LessonPlan;
+  selectedLessonPlan: SelectedLessonPlan;
+  selectedLessonPlanError: HttpErrorResponse;
+  selectedLessonPlanLoadInProgress: boolean;
   updatedLessonPlan: LessonPlan;
   updateLessonPlanError: HttpErrorResponse;
   updateLessonPlanInProgress: boolean;
@@ -37,6 +39,8 @@ export const initialState: LessonPlansState = {
   deleteLessonPlanError: null,
   deleteLessonPlanInProgress: false,
   selectedLessonPlan: null,
+  selectedLessonPlanError: null,
+  selectedLessonPlanLoadInProgress: false,
   updatedLessonPlan: null,
   updateLessonPlanError: null,
   updateLessonPlanInProgress: false
@@ -110,6 +114,32 @@ export function lessonPlansReducer(
       break;
     }
 
+    case fromLessonPlansActions.Types.GetLessonPlan: {
+      state = {
+        ...state,
+        selectedLessonPlanLoadInProgress: true
+      };
+      break;
+    }
+
+    case fromLessonPlansActions.Types.GetLessonPlanFail: {
+      state = {
+        ...state,
+        selectedLessonPlanError: action.payload.error,
+        selectedLessonPlanLoadInProgress: false
+      };
+      break;
+    }
+
+    case fromLessonPlansActions.Types.GetLessonPlanSuccess: {
+      state = {
+        ...state,
+        selectedLessonPlan: action.payload,
+        selectedLessonPlanLoadInProgress: false
+      };
+      break;
+    }
+
     case fromLessonPlansActions.Types.GetLessonPlans: {
       state = {
         ...state,
@@ -133,23 +163,8 @@ export function lessonPlansReducer(
         lessonPlans: {
           data: action.payload.data,
           recordsCount: action.payload.records_count
-        }
-      };
-      break;
-    }
-
-    case fromLessonPlansActions.Types.SelectLessonPlan: {
-      state = {
-        ...state,
-        selectedLessonPlan: action.payload
-      };
-      break;
-    }
-
-    case fromLessonPlansActions.Types.UnselectLessonPlan: {
-      state = {
-        ...state,
-        selectedLessonPlan: null
+        },
+        lessonPlansLoadInProgress: false
       };
       break;
     }

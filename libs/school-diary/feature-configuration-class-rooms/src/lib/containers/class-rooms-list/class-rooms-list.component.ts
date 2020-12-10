@@ -27,7 +27,6 @@ export class ClassRoomsListComponent {
   }
 
   selectSubject(selectedClassRoom: ClassRoom) {
-    this.classRoomsFacade.selectClassRoom(selectedClassRoom);
-    this.router.navigate(['/configuration/class-rooms/edit']);
+    this.router.navigate(['/configuration/class-rooms/edit', selectedClassRoom.id]);
   }
 }

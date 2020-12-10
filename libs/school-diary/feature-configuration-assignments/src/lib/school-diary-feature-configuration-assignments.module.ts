@@ -7,6 +7,7 @@ import { MatTableModule } from '@angular/material/table';
 import { TranslateModule } from '@ngx-translate/core';
 
 import { ActionAssignmentComponent } from './containers/action-assignments/action-assignment.component';
+import { AssignmentExistGuard } from './guards/assignment-exist.guard';
 import { AssignmentsGuard } from './guards/assignments.guard';
 import { AssignmentsListComponent } from './containers/assignments-list/assignments-list.component';
 import { SchoolDiaryDataAccessConfigurationAssignmentsModule } from '@school-diary/school-diary/data-access-configuration-assignments';
@@ -34,6 +35,6 @@ import { SchoolDiaryUiSingleControlModule } from '@school-diary/school-diary/ui-
     SchoolDiaryUiSingleControlModule,
     TranslateModule.forChild()
   ],
-  providers: [AssignmentsGuard]
+  providers: [AssignmentExistGuard, AssignmentsGuard]
 })
 export class SchoolDiaryFeatureConfigurationAssignmentsModule {}

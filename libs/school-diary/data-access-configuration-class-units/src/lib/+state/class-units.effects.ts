@@ -15,12 +15,14 @@ import { GetClassUnitsSuccessPayload } from '../payloads/get-class-units-success
 import { GetClassUnitsFailPayload } from '../payloads/get-class-units-fail.payload';
 import { UpdateClassUnitSuccessPayload } from '../payloads/update-class-unit-success.payload';
 import { UpdateClassUnitFailPayload } from '../payloads/update-class-unit-fail.payload';
+import { GetClassUnitSuccessPayload } from '../payloads/get-class-unit-success.payload';
+import { GetClassUnitFailPayload } from '../payloads/get-class-unit-fail.payload';
 
 @Injectable()
 export class ClassUnitsEffects {
 
   @Effect()
-  createClassRoom$ = this.dp.pessimisticUpdate(fromClassUnitsActions.Types.CreateClassUnit, {
+  createClassUnit$ = this.dp.pessimisticUpdate(fromClassUnitsActions.Types.CreateClassUnit, {
     run: (action: fromClassUnitsActions.CreateClassUnit) =>
       this.classRoomsApiService.createClassUnit(action.payload)
         .pipe(
@@ -34,7 +36,7 @@ export class ClassUnitsEffects {
   });
 
   @Effect()
-  deleteClassRoom$ = this.dp.pessimisticUpdate(fromClassUnitsActions.Types.DeleteClassUnit, {
+  deleteClassUnit$ = this.dp.pessimisticUpdate(fromClassUnitsActions.Types.DeleteClassUnit, {
     run: (action: fromClassUnitsActions.DeleteClassUnit) =>
       this.classRoomsApiService.deleteClassUnit(action.payload)
         .pipe(
@@ -45,7 +47,18 @@ export class ClassUnitsEffects {
   });
 
   @Effect()
-  getClassRooms$ = this.dp.fetch(fromClassUnitsActions.Types.GetClassUnits, {
+  getClassUnit$ = this.dp.fetch(fromClassUnitsActions.Types.GetClassUnit, {
+    run: (action: fromClassUnitsActions.GetClassUnit) =>
+      this.classRoomsApiService.getClassUnit(action.payload)
+        .pipe(
+          map((payload: GetClassUnitSuccessPayload) => new fromClassUnitsActions.GetClassUnitSuccess(payload))
+        ),
+    onError: (action: fromClassUnitsActions.GetClassUnit, payload: GetClassUnitFailPayload) =>
+      new fromClassUnitsActions.GetClassUnitFail(payload)
+  });
+
+  @Effect()
+  getClassUnits$ = this.dp.fetch(fromClassUnitsActions.Types.GetClassUnits, {
     run: (action: fromClassUnitsActions.GetClassUnits) =>
       this.classRoomsApiService.getClassUnits(action.payload)
         .pipe(
@@ -56,7 +69,7 @@ export class ClassUnitsEffects {
   });
 
   @Effect()
-  updateClassRoom$ = this.dp.pessimisticUpdate(fromClassUnitsActions.Types.UpdateClassUnit, {
+  updateClassUnit$ = this.dp.pessimisticUpdate(fromClassUnitsActions.Types.UpdateClassUnit, {
     run: (action: fromClassUnitsActions.UpdateClassUnit) =>
       this.classRoomsApiService.updateClassUnit(action.payload)
         .pipe(

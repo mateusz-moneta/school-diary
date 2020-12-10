@@ -7,6 +7,7 @@ import { MatTableModule } from '@angular/material/table';
 import { TranslateModule } from '@ngx-translate/core';
 
 import { ActionLessonHourComponent } from './containers/action-lesson-hour/action-lesson-hour.component';
+import { LessonHourExistGuard } from './guards/lesson-hour-exist.guard';
 import { LessonHoursGuard } from './guards/lesson-hours.guard';
 import { LessonHoursListComponent } from './containers/lesson-hours-list/lesson-hours-list.component';
 import { SchoolDiaryDataAccessConfigurationLessonHoursModule } from '@school-diary/school-diary/data-access-configuration-lesson-hours';
@@ -30,6 +31,6 @@ import { SchoolDiaryUiPaginatorModule } from '@school-diary/school-diary/ui-pagi
     SchoolDiaryUiPaginatorModule,
     TranslateModule.forChild()
   ],
-  providers: [LessonHoursGuard]
+  providers: [LessonHourExistGuard, LessonHoursGuard]
 })
 export class SchoolDiaryFeatureConfigurationLessonHoursModule {}

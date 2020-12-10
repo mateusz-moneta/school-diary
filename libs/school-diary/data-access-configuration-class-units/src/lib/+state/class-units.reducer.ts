@@ -17,6 +17,8 @@ export interface ClassUnitsState {
   deleteClassUnitError: HttpErrorResponse;
   deleteClassUnitInProgress: boolean;
   selectedClassUnit: ClassUnit;
+  selectedClassUnitLoadError: HttpErrorResponse;
+  selectedClassUnitLoadInProgress: boolean;
   updatedClassUnit: ClassUnit;
   updateClassUnitError: HttpErrorResponse;
   updateClassUnitInProgress: boolean;
@@ -37,6 +39,8 @@ export const initialState: ClassUnitsState = {
   deleteClassUnitError: null,
   deleteClassUnitInProgress: false,
   selectedClassUnit: null,
+  selectedClassUnitLoadError: null,
+  selectedClassUnitLoadInProgress: false,
   updatedClassUnit: null,
   updateClassUnitError: null,
   updateClassUnitInProgress: false
@@ -110,6 +114,32 @@ export function classUnitsReducer(
       break;
     }
 
+    case fromClassUnitsActions.Types.GetClassUnit: {
+      state = {
+        ...state,
+        selectedClassUnitLoadInProgress: true
+      };
+      break;
+    }
+
+    case fromClassUnitsActions.Types.GetClassUnitFail: {
+      state = {
+        ...state,
+        selectedClassUnitLoadError: action.payload.error,
+        selectedClassUnitLoadInProgress: false
+      };
+      break;
+    }
+
+    case fromClassUnitsActions.Types.GetClassUnitSuccess: {
+      state = {
+        ...state,
+        selectedClassUnit: action.payload,
+        selectedClassUnitLoadInProgress: false
+      };
+      break;
+    }
+
     case fromClassUnitsActions.Types.GetClassUnits: {
       state = {
         ...state,
@@ -133,23 +163,8 @@ export function classUnitsReducer(
         classUnits: {
           data: action.payload.data,
           recordsCount: action.payload.records_count
-        }
-      };
-      break;
-    }
-
-    case fromClassUnitsActions.Types.SelectClassUnit: {
-      state = {
-        ...state,
-        selectedClassUnit: action.payload
-      };
-      break;
-    }
-
-    case fromClassUnitsActions.Types.UnselectClassUnit: {
-      state = {
-        ...state,
-        selectedClassUnit: null
+        },
+        classUnitsLoadInProgress: false
       };
       break;
     }

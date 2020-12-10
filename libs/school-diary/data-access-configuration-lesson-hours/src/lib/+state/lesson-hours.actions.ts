@@ -6,10 +6,12 @@ import { CreateLessonHourSuccessPayload } from '../payloads/create-lesson-hour-s
 import { DeleteLessonHourFailPayload } from '../payloads/delete-lesson-hour-fail.payload';
 import { DeleteLessonHourRequestPayload } from '../request-payloads/delete-lesson-hour.request-payload';
 import { DeleteLessonHourSuccessPayload } from '../payloads/delete-lesson-hour-success.payload';
+import { GetLessonHourFailPayload } from '../payloads/get-lesson-hour-fail.payload';
+import { GetLessonHourRequestPayload } from '../request-payloads/get-lesson-hour.request-payload';
+import { GetLessonHourSuccessPayload } from '../payloads/get-lesson-hour-success.payload';
 import { GetLessonHoursFailPayload } from '../payloads/get-lesson-hours-fail.payload';
 import { GetLessonHoursRequestPayload } from '../request-payloads/get-lesson-hours.request-payload';
 import { GetLessonHoursSuccessPayload } from '../payloads/get-lesson-hours-success.payload';
-import { SelectLessonHourPayload } from '../payloads/select-lesson-hour.payload';
 import { UpdateLessonHourRequestPayload } from '../request-payloads/update-lesson-hour.request-payload';
 import { UpdateLessonHourFailPayload } from '../payloads/update-lesson-hour-fail.payload';
 import { UpdateLessonHourSuccessPayload } from '../payloads/update-lesson-hour-success.payload';
@@ -22,6 +24,9 @@ export namespace fromLessonHoursActions {
     DeleteLessonHour = '[Lesson Hours] Delete Lesson Hour',
     DeleteLessonHourFail = '[Lesson Hours] Delete Lesson Hour Fail',
     DeleteLessonHourSuccess = '[Lesson Hours] Delete Lesson Hour Success',
+    GetLessonHour = '[Lesson Hours] Get Lesson Hour',
+    GetLessonHourFail = '[Lesson Hours] Get Lesson Hour Fail',
+    GetLessonHourSuccess = '[Lesson Hours] Get Lesson Hour Success',
     GetLessonHours = '[Lesson Hours] Get Lesson Hours',
     GetLessonHoursFail = '[Lesson Hours] Get Lesson Hours Fail',
     GetLessonHoursSuccess = '[Lesson Hours] Get Lesson Hours Success',
@@ -68,6 +73,24 @@ export namespace fromLessonHoursActions {
     constructor(public payload: DeleteLessonHourSuccessPayload) {}
   }
 
+  export class GetLessonHour implements Action {
+    readonly type = Types.GetLessonHour;
+
+    constructor(public payload: GetLessonHourRequestPayload) {}
+  }
+
+  export class GetLessonHourFail implements Action {
+    readonly type = Types.GetLessonHourFail;
+
+    constructor(public payload: GetLessonHourFailPayload) {}
+  }
+
+  export class GetLessonHourSuccess implements Action {
+    readonly type = Types.GetLessonHourSuccess;
+
+    constructor(public payload: GetLessonHourSuccessPayload) {}
+  }
+
   export class GetLessonHours implements Action {
     readonly type = Types.GetLessonHours;
 
@@ -84,16 +107,6 @@ export namespace fromLessonHoursActions {
     readonly type = Types.GetLessonHoursSuccess;
 
     constructor(public payload: GetLessonHoursSuccessPayload) {}
-  }
-
-  export class SelectLessonHour implements Action {
-    readonly type = Types.SelectLessonHour;
-
-    constructor(public payload: SelectLessonHourPayload) {}
-  }
-
-  export class UnselectLessonHour implements Action {
-    readonly type = Types.UnselectLessonHour;
   }
 
   export class UpdateLessonHour implements Action {
@@ -121,11 +134,12 @@ export namespace fromLessonHoursActions {
     | DeleteLessonHour
     | DeleteLessonHourFail
     | DeleteLessonHourSuccess
+    | GetLessonHour
+    | GetLessonHourFail
+    | GetLessonHourSuccess
     | GetLessonHours
     | GetLessonHoursFail
     | GetLessonHoursSuccess
-    | SelectLessonHour
-    | UnselectLessonHour
     | UpdateLessonHour
     | UpdateLessonHourFail
     | UpdateLessonHourSuccess

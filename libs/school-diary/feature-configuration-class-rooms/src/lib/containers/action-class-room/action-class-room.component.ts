@@ -35,10 +35,6 @@ export class ActionClassRoomComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
-
-    if (this.selectedClassRoom) {
-      this.classRoomsFacade.unselectClassRoom();
-    }
   }
 
   executeAction(): void {

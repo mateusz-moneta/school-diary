@@ -36,10 +36,6 @@ export class ActionLessonHourComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
-
-    if (this.selectedLessonHour) {
-      this.lessonHoursFacade.unselectLessonHour();
-    }
   }
 
   executeAction(): void {

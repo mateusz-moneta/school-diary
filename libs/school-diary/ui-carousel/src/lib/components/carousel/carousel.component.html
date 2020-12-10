@@ -1,9 +1,10 @@
 <div class="parent">
   <div *ngIf="showControls" style="margin-right: 10px;">
-    <div class='arrow' (click)="prev()">
+    <div (click)="prev()" class="arrow">
       <mat-icon>arrow_back_ios</mat-icon>
     </div>
   </div>
+
   <section class="carousel-wrapper" [ngStyle]="carouselWrapperStyle">
     <ul class="carousel-inner" #carousel>
       <li *ngFor="let item of items;" schoolDiaryCarouselElement>
@@ -11,8 +12,9 @@
       </li>
     </ul>
   </section>
+
   <div *ngIf="showControls" style="margin-left: 10px;">
-    <div class='arrow' (click)="next()">
+    <div (click)="next()" class="arrow">
       <mat-icon>arrow_forward_ios</mat-icon>
     </div>
   </div>

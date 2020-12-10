@@ -6,8 +6,8 @@ import { lessonPlansQuery } from './lesson-plans.selectors';
 import { CreateLessonPlanRequestPayload } from '../request-payloads/create-lesson-plan.request-payload';
 import { DeleteLessonPlanRequestPayload } from '../request-payloads/delete-lesson-plan.request-payload';
 import { fromLessonPlansActions } from './lesson-plans.actions';
+import { GetLessonPlanRequestPayload } from '../request-payloads/get-lesson-plan.request-payload';
 import { GetLessonPlansRequestPayload } from '../request-payloads/get-lesson-plans.request-payload';
-import { SelectLessonPlanPayload } from '../payloads/select-lesson-plan.payload';
 import { UpdateLessonPlanRequestPayload } from '../request-payloads/update-lesson-plan.request-payload';
 
 @Injectable()
@@ -25,16 +25,12 @@ export class LessonPlansFacade {
     this.store.dispatch(new fromLessonPlansActions.DeleteLessonPlan(deleteLessonPlanRequestPayload));
   }
 
+  getLessonPlan(getLessonPlanRequestPayload: GetLessonPlanRequestPayload): void {
+    this.store.dispatch(new fromLessonPlansActions.GetLessonPlan(getLessonPlanRequestPayload));
+  }
+
   getLessonPlans(getLessonPlansRequestPayload: GetLessonPlansRequestPayload = { page: 1, limit: 10 }): void {
     this.store.dispatch(new fromLessonPlansActions.GetLessonPlans(getLessonPlansRequestPayload));
-  }
-
-  selectLessonPlan(selectLessonPlanPayload: SelectLessonPlanPayload): void {
-    this.store.dispatch(new fromLessonPlansActions.SelectLessonPlan(selectLessonPlanPayload));
-  }
-
-  unselectLessonPlan(): void {
-    this.store.dispatch(new fromLessonPlansActions.UnselectLessonPlan());
   }
 
   updateLessonPlan(updateLessonPlanRequestPayload: UpdateLessonPlanRequestPayload): void {

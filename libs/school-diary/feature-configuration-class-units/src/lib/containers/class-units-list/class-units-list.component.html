@@ -26,12 +26,12 @@
       <table *ngIf="(classUnits$ | async)?.data.length" [dataSource]="(classUnits$ | async).data" class="adjustable-table" mat-table>
         <ng-container matColumnDef="name">
           <th *matHeaderCellDef class="adjustable-table-cell" mat-header-cell>{{ 'SHARED.NAME' | translate }}</th>
-          <td *matCellDef="let element" (click)="selectSubject(element)" class="adjustable-table-cell" mat-cell>{{ element.name }}</td>
+          <td *matCellDef="let element" (click)="selectClassUnit(element)" class="adjustable-table-cell" mat-cell>{{ element.name }}</td>
         </ng-container>
 
         <ng-container matColumnDef="classTeacher">
           <th *matHeaderCellDef class="adjustable-table-cell" mat-header-cell>{{ 'CONFIGURATION-CLASS-UNITS.CLASS-TEACHER' | translate }}</th>
-          <td *matCellDef="let element" (click)="selectSubject(element)" class="adjustable-table-cell" mat-cell>{{ element.first_name }} {{ element.last_name }}</td>
+          <td *matCellDef="let element" (click)="selectClassUnit(element)" class="adjustable-table-cell" mat-cell>{{ element.first_name }} {{ element.last_name }}</td>
         </ng-container>
 
         <ng-container matColumnDef="createdAt">
@@ -47,7 +47,7 @@
         <ng-container matColumnDef="actions">
           <th *matHeaderCellDef class="adjustable-table-cell text-center" mat-header-cell>{{ 'SHARED.ACTIONS' | translate }}</th>
           <td *matCellDef="let element" class="adjustable-table-cell text-center" mat-cell>
-            <button (click)="deleteSubject(element.id)" mat-icon-button>
+            <button (click)="deleteClassUnit(element.id)" mat-icon-button>
               <mat-icon color="primary">delete_outline</mat-icon>
             </button>
           </td>

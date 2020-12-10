@@ -1,6 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 
-import { Assignment } from '@school-diary/school-diary/domain';
+import { Assignment, SelectedAssignment } from '@school-diary/school-diary/domain';
 import { AssignmentsCollection } from '../interfaces/assignments-collection.interface';
 import { fromAssignmentsActions } from './assignments.actions';
 
@@ -16,7 +16,9 @@ export interface AssignmentsState {
   deletedAssignmentId: number;
   deleteAssignmentError: HttpErrorResponse;
   deleteAssignmentInProgress: boolean;
-  selectedAssignment: Assignment;
+  selectedAssignment: SelectedAssignment;
+  selectedAssignmentError: HttpErrorResponse;
+  selectedAssignmentLoadInProgress: boolean;
   updatedAssignment: Assignment;
   updateAssignmentError: HttpErrorResponse;
   updateAssignmentInProgress: boolean;
@@ -37,6 +39,8 @@ export const initialState: AssignmentsState = {
   deleteAssignmentError: null,
   deleteAssignmentInProgress: false,
   selectedAssignment: null,
+  selectedAssignmentError: null,
+  selectedAssignmentLoadInProgress: false,
   updatedAssignment: null,
   updateAssignmentError: null,
   updateAssignmentInProgress: false
@@ -110,6 +114,32 @@ export function assignmentsReducer(
       break;
     }
 
+    case fromAssignmentsActions.Types.GetAssignment: {
+      state = {
+        ...state,
+        selectedAssignmentLoadInProgress: true
+      };
+      break;
+    }
+
+    case fromAssignmentsActions.Types.GetAssignmentsFail: {
+      state = {
+        ...state,
+        selectedAssignmentError: action.payload.error,
+        selectedAssignmentLoadInProgress: false
+      };
+      break;
+    }
+
+    case fromAssignmentsActions.Types.GetAssignmentSuccess: {
+      state = {
+        ...state,
+        selectedAssignment: action.payload,
+        selectedAssignmentLoadInProgress: false
+      };
+      break;
+    }
+
     case fromAssignmentsActions.Types.GetAssignments: {
       state = {
         ...state,
@@ -133,23 +163,8 @@ export function assignmentsReducer(
         assignments: {
           data: action.payload.data,
           recordsCount: action.payload.records_count
-        }
-      };
-      break;
-    }
-
-    case fromAssignmentsActions.Types.SelectAssignment: {
-      state = {
-        ...state,
-        selectedAssignment: action.payload
-      };
-      break;
-    }
-
-    case fromAssignmentsActions.Types.UnselectAssignment: {
-      state = {
-        ...state,
-        selectedAssignment: null
+        },
+        assignmentsLoadInProgress: false
       };
       break;
     }

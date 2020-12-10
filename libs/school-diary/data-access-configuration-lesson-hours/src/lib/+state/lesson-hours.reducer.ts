@@ -17,6 +17,8 @@ export interface LessonHoursState {
   deleteLessonHourError: HttpErrorResponse;
   deleteLessonHourInProgress: boolean;
   selectedLessonHour: LessonHour;
+  selectedLessonHourError: HttpErrorResponse;
+  selectedLessonHourLoadInProgress: boolean;
   updatedLessonHour: LessonHour;
   updateLessonHourError: HttpErrorResponse;
   updateLessonHourInProgress: boolean;
@@ -37,6 +39,8 @@ export const initialState: LessonHoursState = {
   deleteLessonHourError: null,
   deleteLessonHourInProgress: false,
   selectedLessonHour: null,
+  selectedLessonHourError: null,
+  selectedLessonHourLoadInProgress: false,
   updatedLessonHour: null,
   updateLessonHourError: null,
   updateLessonHourInProgress: false
@@ -110,6 +114,32 @@ export function lessonHoursReducer(
       break;
     }
 
+    case fromLessonHoursActions.Types.GetLessonHour: {
+      state = {
+        ...state,
+        selectedLessonHourLoadInProgress: true
+      };
+      break;
+    }
+
+    case fromLessonHoursActions.Types.GetLessonHourFail: {
+      state = {
+        ...state,
+        selectedLessonHourError: action.payload.error,
+        selectedLessonHourLoadInProgress: false
+      };
+      break;
+    }
+
+    case fromLessonHoursActions.Types.GetLessonHourSuccess: {
+      state = {
+        ...state,
+        selectedLessonHour: action.payload,
+        selectedLessonHourLoadInProgress: false
+      };
+      break;
+    }
+
     case fromLessonHoursActions.Types.GetLessonHours: {
       state = {
         ...state,
@@ -133,23 +163,8 @@ export function lessonHoursReducer(
         lessonHours: {
           data: action.payload.data,
           recordsCount: action.payload.records_count
-        }
-      };
-      break;
-    }
-
-    case fromLessonHoursActions.Types.SelectLessonHour: {
-      state = {
-        ...state,
-        selectedLessonHour: action.payload
-      };
-      break;
-    }
-
-    case fromLessonHoursActions.Types.UnselectLessonHour: {
-      state = {
-        ...state,
-        selectedLessonHour: null
+        },
+        lessonHoursLoadInProgress: false
       };
       break;
     }

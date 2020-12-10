@@ -9,7 +9,7 @@ import {
   ClassUnit,
   InputType,
   LessonHour,
-  LessonPlan,
+  SelectedLessonPlan,
   SelectOption,
   Subject as SubjectItem,
   User,
@@ -34,7 +34,7 @@ export class ActionLessonPlanComponent implements OnInit, OnDestroy {
   classUnitsOptions: SelectOption[] = [];
   lessonHoursOptions: SelectOption[] = [];
   lessonPlanForm: FormGroup;
-  selectedLessonPlan: LessonPlan;
+  selectedLessonPlan: SelectedLessonPlan;
   subjectsOptions: SelectOption[] = [];
   teachersOptions: SelectOption[] = [];
   titleTranslationKey = 'CONFIGURATION-LESSON-PLANS.CREATOR-TITLE';
@@ -65,10 +65,6 @@ export class ActionLessonPlanComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
-
-    if (this.selectedLessonPlan) {
-      this.lessonPlansFacade.unselectLessonPlan();
-    }
   }
 
   executeAction(): void {
@@ -109,12 +105,16 @@ export class ActionLessonPlanComponent implements OnInit, OnDestroy {
         filter(selectedLessonPlan => !!selectedLessonPlan),
         takeUntil(this.unsubscribe$)
       )
-      .subscribe((selectedLessonPlan: LessonPlan) => {
+      .subscribe((selectedLessonPlan: SelectedLessonPlan) => {
         this.action = Action.EDIT;
         this.selectedLessonPlan = selectedLessonPlan;
         this.titleTranslationKey = 'CONFIGURATION-LESSON-PLANS.EDITOR-TITLE';
 
-        this.lessonPlanForm.patchValue(selectedLessonPlan);
+        this.lessonPlanForm.controls.classRoomId.setValue(selectedLessonPlan.class_room_id);
+        this.lessonPlanForm.controls.classUnitId.setValue(selectedLessonPlan.class_unit_id);
+        this.lessonPlanForm.controls.lessonHourId.setValue(selectedLessonPlan.lesson_hour_id);
+        this.lessonPlanForm.controls.subjectId.setValue(selectedLessonPlan.subject_id);
+        this.lessonPlanForm.controls.teacherId.setValue(selectedLessonPlan.user_id);
       });
   }
 

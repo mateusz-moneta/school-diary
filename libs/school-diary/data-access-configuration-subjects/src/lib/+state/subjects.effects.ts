@@ -9,6 +9,8 @@ import { CreateSubjectSuccessPayload } from '../payloads/create-subject-success.
 import { DeleteSubjectFailPayload } from '../payloads/delete-subject-fail.payload';
 import { DeleteSubjectSuccessPayload } from '../payloads/delete-subject-success.payload';
 import { fromSubjectsActions } from './subjects.actions';
+import { GetSubjectFailPayload } from '../payloads/get-subject-fail.payload';
+import { GetSubjectSuccessPayload } from '../payloads/get-subject-success.payload';
 import { GetSubjectsFailPayload } from '../payloads/get-subjects-fail.payload';
 import { GetSubjectsSuccessPayload } from '../payloads/get-subjects-success.payload';
 import { SubjectsApiService } from '../services/subjects-api.service';
@@ -42,6 +44,17 @@ export class SubjectsEffects {
         ),
     onError: (action: fromSubjectsActions.DeleteSubject, payload: DeleteSubjectFailPayload) =>
       new fromSubjectsActions.DeleteSubjectFail(payload)
+  });
+
+  @Effect()
+  getSubject$ = this.dp.fetch(fromSubjectsActions.Types.GetSubject, {
+    run: (action: fromSubjectsActions.GetSubject) =>
+      this.subjectsApiService.getSubject(action.payload)
+        .pipe(
+          map((payload: GetSubjectSuccessPayload) => new fromSubjectsActions.GetSubjectSuccess(payload))
+        ),
+    onError: (action: fromSubjectsActions.GetSubject, payload: GetSubjectFailPayload) =>
+      new fromSubjectsActions.GetSubjectFail(payload)
   });
 
   @Effect()

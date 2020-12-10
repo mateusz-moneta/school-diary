@@ -6,8 +6,8 @@ import { lessonHoursQuery } from './lesson-hours.selectors';
 import { CreateLessonHourRequestPayload } from '../request-payloads/create-lesson-hour.request-payload';
 import { DeleteLessonHourRequestPayload } from '../request-payloads/delete-lesson-hour.request-payload';
 import { fromLessonHoursActions } from './lesson-hours.actions';
+import { GetLessonHourRequestPayload } from '../request-payloads/get-lesson-hour.request-payload';
 import { GetLessonHoursRequestPayload } from '../request-payloads/get-lesson-hours.request-payload';
-import { SelectLessonHourPayload } from '../payloads/select-lesson-hour.payload';
 import { UpdateLessonHourRequestPayload } from '../request-payloads/update-lesson-hour.request-payload';
 
 @Injectable()
@@ -25,16 +25,12 @@ export class LessonHoursFacade {
     this.store.dispatch(new fromLessonHoursActions.DeleteLessonHour(deleteLessonHourRequestPayload));
   }
 
+  getLessonHour(getLessonHourRequestPayload: GetLessonHourRequestPayload): void {
+    this.store.dispatch(new fromLessonHoursActions.GetLessonHour(getLessonHourRequestPayload));
+  }
+
   getLessonHours(getLessonHoursRequestPayload: GetLessonHoursRequestPayload = { page: 1, limit: 10 }): void {
     this.store.dispatch(new fromLessonHoursActions.GetLessonHours(getLessonHoursRequestPayload));
-  }
-
-  selectLessonHour(selectLessonHourPayload: SelectLessonHourPayload): void {
-    this.store.dispatch(new fromLessonHoursActions.SelectLessonHour(selectLessonHourPayload));
-  }
-
-  unselectLessonHour(): void {
-    this.store.dispatch(new fromLessonHoursActions.UnselectLessonHour());
   }
 
   updateLessonHour(updateLessonHourRequestPayload: UpdateLessonHourRequestPayload): void {

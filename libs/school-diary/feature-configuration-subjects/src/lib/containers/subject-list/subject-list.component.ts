@@ -27,7 +27,6 @@ export class SubjectListComponent {
   }
 
   selectSubject(selectedSubject: Subject) {
-    this.subjectsFacade.selectSubject(selectedSubject);
-    this.router.navigate(['/configuration/subjects/edit']);
+    this.router.navigate(['/configuration/subjects/edit', selectedSubject.id]);
   }
 }

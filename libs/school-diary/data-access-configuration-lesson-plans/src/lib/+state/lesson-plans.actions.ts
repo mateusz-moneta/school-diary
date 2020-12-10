@@ -6,10 +6,12 @@ import { CreateLessonPlanSuccessPayload } from '../payloads/create-lesson-plan-s
 import { DeleteLessonPlanFailPayload } from '../payloads/delete-lesson-plan-fail.payload';
 import { DeleteLessonPlanRequestPayload } from '../request-payloads/delete-lesson-plan.request-payload';
 import { DeleteLessonPlanSuccessPayload } from '../payloads/delete-lesson-plan-success.payload';
+import { GetLessonPlanFailPayload } from '../payloads/get-lesson-plan-fail.payload';
+import { GetLessonPlanRequestPayload } from '../request-payloads/get-lesson-plan.request-payload';
+import { GetLessonPlanSuccessPayload } from '../payloads/get-lesson-plan-success.payload';
 import { GetLessonPlansFailPayload } from '../payloads/get-lesson-plans-fail.payload';
 import { GetLessonPlansRequestPayload } from '../request-payloads/get-lesson-plans.request-payload';
 import { GetLessonPlansSuccessPayload } from '../payloads/get-lesson-plans-success.payload';
-import { SelectLessonPlanPayload } from '../payloads/select-lesson-plan.payload';
 import { UpdateLessonPlanRequestPayload } from '../request-payloads/update-lesson-plan.request-payload';
 import { UpdateLessonPlanFailPayload } from '../payloads/update-lesson-plan-fail.payload';
 import { UpdateLessonPlanSuccessPayload } from '../payloads/update-lesson-plan-success.payload';
@@ -22,11 +24,12 @@ export namespace fromLessonPlansActions {
     DeleteLessonPlan = '[Lesson Plans] Delete Lesson Plan',
     DeleteLessonPlanFail = '[Lesson Plans] Delete Lesson Plan Fail',
     DeleteLessonPlanSuccess = '[Lesson Plans] Delete Lesson Plan Success',
+    GetLessonPlan = '[Lesson Plans] Get Lesson Plan',
+    GetLessonPlanFail = '[Lesson Plans] Get Lesson Plan Fail',
+    GetLessonPlanSuccess = '[Lesson Plans] Get Lesson Plan Success',
     GetLessonPlans = '[Lesson Plans] Get Lesson Plans',
     GetLessonPlansFail = '[Lesson Plans] Get Lesson Plans Fail',
     GetLessonPlansSuccess = '[Lesson Plans] Get Lesson Plans Success',
-    SelectLessonPlan = '[Lesson Plans] Select Lesson Plan',
-    UnselectLessonPlan = '[Lesson Plans] Unselect Lesson Plan',
     UpdateLessonPlan = '[Lesson Plans] Update Lesson Plan',
     UpdateLessonPlanFail = '[Lesson Plans] Update Lesson Plan Fail',
     UpdateLessonPlanSuccess = '[Lesson Plans] Update Lesson Plan Success'
@@ -68,6 +71,24 @@ export namespace fromLessonPlansActions {
     constructor(public payload: DeleteLessonPlanSuccessPayload) {}
   }
 
+  export class GetLessonPlan implements Action {
+    readonly type = Types.GetLessonPlan;
+
+    constructor(public payload: GetLessonPlanRequestPayload) {}
+  }
+
+  export class GetLessonPlanFail implements Action {
+    readonly type = Types.GetLessonPlanFail;
+
+    constructor(public payload: GetLessonPlanFailPayload) {}
+  }
+
+  export class GetLessonPlanSuccess implements Action {
+    readonly type = Types.GetLessonPlanSuccess;
+
+    constructor(public payload: GetLessonPlanSuccessPayload) {}
+  }
+
   export class GetLessonPlans implements Action {
     readonly type = Types.GetLessonPlans;
 
@@ -84,16 +105,6 @@ export namespace fromLessonPlansActions {
     readonly type = Types.GetLessonPlansSuccess;
 
     constructor(public payload: GetLessonPlansSuccessPayload) {}
-  }
-
-  export class SelectLessonPlan implements Action {
-    readonly type = Types.SelectLessonPlan;
-
-    constructor(public payload: SelectLessonPlanPayload) {}
-  }
-
-  export class UnselectLessonPlan implements Action {
-    readonly type = Types.UnselectLessonPlan;
   }
 
   export class UpdateLessonPlan implements Action {
@@ -121,11 +132,12 @@ export namespace fromLessonPlansActions {
     | DeleteLessonPlan
     | DeleteLessonPlanFail
     | DeleteLessonPlanSuccess
+    | GetLessonPlan
+    | GetLessonPlanFail
+    | GetLessonPlanSuccess
     | GetLessonPlans
     | GetLessonPlansFail
     | GetLessonPlansSuccess
-    | SelectLessonPlan
-    | UnselectLessonPlan
     | UpdateLessonPlan
     | UpdateLessonPlanFail
     | UpdateLessonPlanSuccess

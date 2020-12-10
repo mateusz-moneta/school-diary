@@ -5,8 +5,8 @@ import * as fromSubjects from './subjects.reducer';
 import { CreateSubjectRequestPayload } from '../request-payloads/create-subject.request-payload';
 import { DeleteSubjectRequestPayload } from '../request-payloads/delete-subject.request-payload';
 import { fromSubjectsActions } from './subjects.actions';
+import { GetSubjectRequestPayload } from '../request-payloads/get-subject.request-payload';
 import { GetSubjectsRequestPayload } from '../request-payloads/get-subjects.request-payload';
-import { SelectSubjectPayload } from '../payloads/select-subject.payload';
 import { subjectsQuery } from './subjects.selectors';
 import { UpdateSubjectRequestPayload } from '../request-payloads/update-subject.request-payload';
 
@@ -25,16 +25,12 @@ export class SubjectsFacade {
     this.store.dispatch(new fromSubjectsActions.DeleteSubject(deleteSubjectRequestPayload));
   }
 
+  getSubject(getSubjectRequestPayload: GetSubjectRequestPayload): void {
+    this.store.dispatch(new fromSubjectsActions.GetSubject(getSubjectRequestPayload));
+  }
+
   getSubjects(getSubjectsRequestPayload: GetSubjectsRequestPayload = { page: 1, limit: 10 }): void {
     this.store.dispatch(new fromSubjectsActions.GetSubjects(getSubjectsRequestPayload));
-  }
-
-  selectSubject(selectSubjectPayload: SelectSubjectPayload): void {
-    this.store.dispatch(new fromSubjectsActions.SelectSubject(selectSubjectPayload));
-  }
-
-  unselectSubject(): void {
-    this.store.dispatch(new fromSubjectsActions.UnselectSubject());
   }
 
   updateSubject(updateSubjectRequestPayload: UpdateSubjectRequestPayload): void {

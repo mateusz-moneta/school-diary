@@ -6,10 +6,12 @@ import { CreateAssignmentSuccessPayload } from '../payloads/create-assignment-su
 import { DeleteAssignmentFailPayload } from '../payloads/delete-assignment-fail.payload';
 import { DeleteAssignmentRequestPayload } from '../request-payloads/delete-assignment.request-payload';
 import { DeleteAssignmentSuccessPayload } from '../payloads/delete-assignment-success.payload';
+import { GetAssignmentFailPayload } from '../payloads/get-assignment-fail.payload';
+import { GetAssignmentRequestPayload } from '../request-payloads/get-assignment.request-payload';
+import { GetAssignmentSuccessPayload } from '../payloads/get-assignment-success.payload';
 import { GetAssignmentsFailPayload } from '../payloads/get-assignments-fail.payload';
 import { GetAssignmentsRequestPayload } from '../request-payloads/get-assignments.request-payload';
 import { GetAssignmentsSuccessPayload } from '../payloads/get-assignments-success.payload';
-import { SelectAssignmentPayload } from '../payloads/select-assignment.payload';
 import { UpdateAssignmentRequestPayload } from '../request-payloads/update-assignment.request-payload';
 import { UpdateAssignmentFailPayload } from '../payloads/update-assignment-fail.payload';
 import { UpdateAssignmentSuccessPayload } from '../payloads/update-assignment-success.payload';
@@ -22,11 +24,12 @@ export namespace fromAssignmentsActions {
     DeleteAssignment = '[Assignments] Delete Assignment',
     DeleteAssignmentFail = '[Assignments] Delete Assignment Fail',
     DeleteAssignmentSuccess = '[Assignments] Delete Assignment Success',
+    GetAssignment = '[Assignments] Get Assignment',
+    GetAssignmentFail = '[Assignments] Get Assignment Fail',
+    GetAssignmentSuccess = '[Assignments] Get Assignment Success',
     GetAssignments = '[Assignments] Get Assignments',
     GetAssignmentsFail = '[Assignments] Get Assignments Fail',
     GetAssignmentsSuccess = '[Assignments] Get Assignments Success',
-    SelectAssignment = '[Assignments] Select Assignment',
-    UnselectAssignment = '[Assignments] Unselect Assignment',
     UpdateAssignment = '[Assignments] Update Assignment',
     UpdateAssignmentFail = '[Assignments] Update Assignment Fail',
     UpdateAssignmentSuccess = '[Assignments] Update Assignment Success'
@@ -68,6 +71,24 @@ export namespace fromAssignmentsActions {
     constructor(public payload: DeleteAssignmentSuccessPayload) {}
   }
 
+  export class GetAssignment implements Action {
+    readonly type = Types.GetAssignment;
+
+    constructor(public payload: GetAssignmentRequestPayload) {}
+  }
+
+  export class GetAssignmentFail implements Action {
+    readonly type = Types.GetAssignmentFail;
+
+    constructor(public payload: GetAssignmentFailPayload) {}
+  }
+
+  export class GetAssignmentSuccess implements Action {
+    readonly type = Types.GetAssignmentSuccess;
+
+    constructor(public payload: GetAssignmentSuccessPayload) {}
+  }
+
   export class GetAssignments implements Action {
     readonly type = Types.GetAssignments;
 
@@ -84,16 +105,6 @@ export namespace fromAssignmentsActions {
     readonly type = Types.GetAssignmentsSuccess;
 
     constructor(public payload: GetAssignmentsSuccessPayload) {}
-  }
-
-  export class SelectAssignment implements Action {
-    readonly type = Types.SelectAssignment;
-
-    constructor(public payload: SelectAssignmentPayload) {}
-  }
-
-  export class UnselectAssignment implements Action {
-    readonly type = Types.UnselectAssignment;
   }
 
   export class UpdateAssignment implements Action {
@@ -121,11 +132,12 @@ export namespace fromAssignmentsActions {
     | DeleteAssignment
     | DeleteAssignmentFail
     | DeleteAssignmentSuccess
+    | GetAssignment
+    | GetAssignmentFail
+    | GetAssignmentSuccess
     | GetAssignments
     | GetAssignmentsFail
     | GetAssignmentsSuccess
-    | SelectAssignment
-    | UnselectAssignment
     | UpdateAssignment
     | UpdateAssignmentFail
     | UpdateAssignmentSuccess

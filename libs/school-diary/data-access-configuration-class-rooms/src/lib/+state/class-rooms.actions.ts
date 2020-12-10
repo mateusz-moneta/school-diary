@@ -6,10 +6,12 @@ import { CreateClassRoomSuccessPayload } from '../payloads/create-class-room-suc
 import { DeleteClassRoomFailPayload } from '../payloads/delete-class-room-fail.payload';
 import { DeleteClassRoomRequestPayload } from '../request-payloads/delete-class-room.request-payload';
 import { DeleteClassRoomSuccessPayload } from '../payloads/delete-class-room-success.payload';
+import { GetClassRoomFailPayload } from '../payloads/get-class-room-fail.payload';
+import { GetClassRoomRequestPayload } from '../request-payloads/get-class-room.request-payload';
+import { GetClassRoomSuccessPayload } from '../payloads/get-class-room-success.payload';
 import { GetClassRoomsFailPayload } from '../payloads/get-class-rooms-fail.payload';
 import { GetClassRoomsRequestPayload } from '../request-payloads/get-class-rooms.request-payload';
 import { GetClassRoomsSuccessPayload } from '../payloads/get-class-rooms-success.payload';
-import { SelectClassRoomPayload } from '../payloads/select-class-room.payload';
 import { UpdateClassRoomRequestPayload } from '../request-payloads/update-class-room.request-payload';
 import { UpdateClassRoomFailPayload } from '../payloads/update-class-room-fail.payload';
 import { UpdateClassRoomSuccessPayload } from '../payloads/update-class-room-success.payload';
@@ -22,11 +24,12 @@ export namespace fromClassRoomsActions {
     DeleteClassRoom = '[Class Rooms] Delete Class Room',
     DeleteClassRoomFail = '[Class Rooms] Delete Class Room Fail',
     DeleteClassRoomSuccess = '[Class Rooms] Delete Class Room Success',
+    GetClassRoom = '[Class Rooms] Get Class Room',
+    GetClassRoomFail = '[Class Rooms] Get Class Room Fail',
+    GetClassRoomSuccess = '[Class Rooms] Get Class Room Success',
     GetClassRooms = '[Class Rooms] Get Class Rooms',
     GetClassRoomsFail = '[Class Rooms] Get Class Rooms Fail',
     GetClassRoomsSuccess = '[Class Rooms] Get Class Rooms Success',
-    SelectClassRoom = '[Class Rooms] Select Class Room',
-    UnselectClassRoom = '[Class Rooms] Unselect Class Room',
     UpdateClassRoom = '[Class Rooms] Update Class Room',
     UpdateClassRoomFail = '[Class Rooms] Update Class Room Fail',
     UpdateClassRoomSuccess = '[Class Rooms] Update Class Room Success'
@@ -68,6 +71,24 @@ export namespace fromClassRoomsActions {
     constructor(public payload: DeleteClassRoomSuccessPayload) {}
   }
 
+  export class GetClassRoom implements Action {
+    readonly type = Types.GetClassRoom;
+
+    constructor(public payload: GetClassRoomRequestPayload) {}
+  }
+
+  export class GetClassRoomFail implements Action {
+    readonly type = Types.GetClassRoomFail;
+
+    constructor(public payload: GetClassRoomFailPayload) {}
+  }
+
+  export class GetClassRoomSuccess implements Action {
+    readonly type = Types.GetClassRoomSuccess;
+
+    constructor(public payload: GetClassRoomSuccessPayload) {}
+  }
+
   export class GetClassRooms implements Action {
     readonly type = Types.GetClassRooms;
 
@@ -84,16 +105,6 @@ export namespace fromClassRoomsActions {
     readonly type = Types.GetClassRoomsSuccess;
 
     constructor(public payload: GetClassRoomsSuccessPayload) {}
-  }
-
-  export class SelectClassRoom implements Action {
-    readonly type = Types.SelectClassRoom;
-
-    constructor(public payload: SelectClassRoomPayload) {}
-  }
-
-  export class UnselectClassRoom implements Action {
-    readonly type = Types.UnselectClassRoom;
   }
 
   export class UpdateClassRoom implements Action {
@@ -121,11 +132,12 @@ export namespace fromClassRoomsActions {
     | DeleteClassRoom
     | DeleteClassRoomFail
     | DeleteClassRoomSuccess
+    | GetClassRoom
+    | GetClassRoomFail
+    | GetClassRoomSuccess
     | GetClassRooms
     | GetClassRoomsFail
     | GetClassRoomsSuccess
-    | SelectClassRoom
-    | UnselectClassRoom
     | UpdateClassRoom
     | UpdateClassRoomFail
     | UpdateClassRoomSuccess

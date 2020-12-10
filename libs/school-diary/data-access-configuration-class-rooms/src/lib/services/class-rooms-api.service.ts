@@ -6,6 +6,8 @@ import { CreateClassRoomRequestPayload } from '../request-payloads/create-class-
 import { CreateClassRoomSuccessPayload } from '../payloads/create-class-room-success.payload';
 import { DeleteClassRoomRequestPayload } from '../request-payloads/delete-class-room.request-payload';
 import { DeleteClassRoomSuccessPayload } from '../payloads/delete-class-room-success.payload';
+import { GetClassRoomRequestPayload } from '../request-payloads/get-class-room.request-payload';
+import { GetClassRoomSuccessPayload } from '../payloads/get-class-room-success.payload';
 import { GetClassRoomsRequestPayload } from '../request-payloads/get-class-rooms.request-payload';
 import { GetClassRoomsSuccessPayload } from '../payloads/get-class-rooms-success.payload';
 import { UpdateClassRoomRequestPayload } from '../request-payloads/update-class-room.request-payload';
@@ -16,6 +18,7 @@ export class ClassRoomsApiService {
   readonly endpoints = {
     createClassRoom: '/api/configuration/class_rooms',
     deleteClassRoom: '/api/configuration/class_rooms',
+    getClassRoom: '/api/configuration/class_rooms',
     getClassRooms: '/api/configuration/class_rooms',
     updateClassRoom: '/api/configuration/class_rooms'
   };
@@ -28,6 +31,10 @@ export class ClassRoomsApiService {
 
   deleteClassRoom(requestPayload: DeleteClassRoomRequestPayload): Observable<DeleteClassRoomSuccessPayload> {
     return this.httpClient.delete<DeleteClassRoomSuccessPayload>(`${this.endpoints.deleteClassRoom}/${requestPayload.id}`);
+  }
+
+  getClassRoom(requestPayload: GetClassRoomRequestPayload): Observable<GetClassRoomSuccessPayload> {
+    return this.httpClient.get<GetClassRoomSuccessPayload>(`${this.endpoints.getClassRoom}/${requestPayload.id}`);
   }
 
   getClassRooms(requestPayload: GetClassRoomsRequestPayload): Observable<GetClassRoomsSuccessPayload> {

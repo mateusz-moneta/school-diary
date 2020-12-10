@@ -7,6 +7,7 @@ import { MatTableModule } from '@angular/material/table';
 import { TranslateModule } from '@ngx-translate/core';
 
 import { ActionLessonPlanComponent } from './containers/action-lesson-plan/action-lesson-plan.component';
+import { LessonPlanExistGuard } from './guards/lesson-plan-exist.guard';
 import { LessonPlansGuard } from './guards/lesson-plans.guard';
 import { LessonPlansListComponent } from './containers/lesson-plans-list/lesson-plans-list.component';
 import { SchoolDiaryDataAccessConfigurationClassRoomsModule } from '@school-diary/school-diary/data-access-configuration-class-rooms';
@@ -40,6 +41,6 @@ import { SchoolDiaryUiSingleControlModule } from '@school-diary/school-diary/ui-
     SchoolDiaryUiSingleControlModule,
     TranslateModule.forChild()
   ],
-  providers: [LessonPlansGuard]
+  providers: [LessonPlanExistGuard, LessonPlansGuard]
 })
 export class SchoolDiaryFeatureConfigurationLessonPlansModule {}

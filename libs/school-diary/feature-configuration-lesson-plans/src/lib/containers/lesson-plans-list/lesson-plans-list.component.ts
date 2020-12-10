@@ -27,7 +27,6 @@ export class LessonPlansListComponent {
   }
 
   selectLessonPlan(selectedLessonPlan: LessonPlan) {
-    this.lessonPlansFacade.selectLessonPlan(selectedLessonPlan);
-    this.router.navigate(['/configuration/lesson-plans/edit']);
+    this.router.navigate(['/configuration/lesson-plans/edit', selectedLessonPlan.id]);
   }
 }

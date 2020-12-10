@@ -6,8 +6,8 @@ import { classRoomsQuery } from './class-rooms.selectors';
 import { CreateClassRoomRequestPayload } from '../request-payloads/create-class-room.request-payload';
 import { DeleteClassRoomRequestPayload } from '../request-payloads/delete-class-room.request-payload';
 import { fromClassRoomsActions } from './class-rooms.actions';
+import { GetClassRoomRequestPayload } from '../request-payloads/get-class-room.request-payload';
 import { GetClassRoomsRequestPayload } from '../request-payloads/get-class-rooms.request-payload';
-import { SelectClassRoomPayload } from '../payloads/select-class-room.payload';
 import { UpdateClassRoomRequestPayload } from '../request-payloads/update-class-room.request-payload';
 
 @Injectable()
@@ -25,16 +25,12 @@ export class ClassRoomsFacade {
     this.store.dispatch(new fromClassRoomsActions.DeleteClassRoom(deleteClassRoomRequestPayload));
   }
 
+  getClassRoom(getClassRoomRequestPayload: GetClassRoomRequestPayload): void {
+    this.store.dispatch(new fromClassRoomsActions.GetClassRoom(getClassRoomRequestPayload));
+  }
+
   getClassRooms(getClassRoomsRequestPayload: GetClassRoomsRequestPayload = { page: 1, limit: 10 }): void {
     this.store.dispatch(new fromClassRoomsActions.GetClassRooms(getClassRoomsRequestPayload));
-  }
-
-  selectClassRoom(selectClassRoomPayload: SelectClassRoomPayload): void {
-    this.store.dispatch(new fromClassRoomsActions.SelectClassRoom(selectClassRoomPayload));
-  }
-
-  unselectClassRoom(): void {
-    this.store.dispatch(new fromClassRoomsActions.UnselectClassRoom());
   }
 
   updateClassRoom(updateClassRoomRequestPayload: UpdateClassRoomRequestPayload): void {

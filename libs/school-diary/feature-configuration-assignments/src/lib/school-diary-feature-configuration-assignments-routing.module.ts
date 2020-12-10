@@ -2,6 +2,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 
 import { ActionAssignmentComponent } from './containers/action-assignments/action-assignment.component';
+import { AssignmentExistGuard } from './guards/assignment-exist.guard';
 import { AssignmentsGuard } from './guards/assignments.guard';
 import { AssignmentsListComponent } from './containers/assignments-list/assignments-list.component';
 
@@ -15,8 +16,9 @@ const routes: Routes = [
         component: AssignmentsListComponent
       },
       {
-        path: 'edit',
-        component: ActionAssignmentComponent
+        path: 'edit/:id',
+        component: ActionAssignmentComponent,
+        canActivate: [AssignmentExistGuard]
       },
       {
         path: 'new',

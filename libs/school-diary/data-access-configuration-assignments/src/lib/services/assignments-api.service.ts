@@ -10,12 +10,15 @@ import { GetAssignmentsRequestPayload } from '../request-payloads/get-assignment
 import { GetAssignmentsSuccessPayload } from '../payloads/get-assignments-success.payload';
 import { UpdateAssignmentRequestPayload } from '../request-payloads/update-assignment.request-payload';
 import { UpdateAssignmentSuccessPayload } from '../payloads/update-assignment-success.payload';
+import { GetAssignmentRequestPayload } from '../request-payloads/get-assignment.request-payload';
+import { GetAssignmentSuccessPayload } from '../payloads/get-assignment-success.payload';
 
 @Injectable()
 export class AssignmentsApiService {
   readonly endpoints = {
     createAssignment: '/api/configuration/assignments',
     deleteAssignment: '/api/configuration/assignments',
+    getAssignment: '/api/configuration/assignments',
     getAssignments: '/api/configuration/assignments',
     updateAssignment: '/api/configuration/assignments'
   };
@@ -28,6 +31,10 @@ export class AssignmentsApiService {
 
   deleteAssignment(requestPayload: DeleteAssignmentRequestPayload): Observable<DeleteAssignmentSuccessPayload> {
     return this.httpClient.delete<DeleteAssignmentSuccessPayload>(`${this.endpoints.deleteAssignment}/${requestPayload.id}`);
+  }
+
+  getAssignment(requestPayload: GetAssignmentRequestPayload): Observable<GetAssignmentSuccessPayload> {
+    return this.httpClient.get<GetAssignmentSuccessPayload>(`${this.endpoints.getAssignment}/${requestPayload.id}`);
   }
 
   getAssignments(requestPayload: GetAssignmentsRequestPayload): Observable<GetAssignmentsSuccessPayload> {

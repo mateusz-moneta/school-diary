@@ -1,9 +1,17 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { combineLatest, Subject } from 'rxjs';
 import { filter, takeUntil } from 'rxjs/operators';
 
-import { Action, Assignment, ClassUnit, InputType, SelectOption, User } from '@school-diary/school-diary/domain';
+import {
+  Action,
+  ClassUnit,
+  InputType,
+  SelectedAssignment,
+  SelectOption,
+  User
+} from '@school-diary/school-diary/domain';
 import { AssignmentsFacade } from '@school-diary/school-diary/data-access-configuration-assignments';
 import { ClassUnitsFacade } from '@school-diary/school-diary/data-access-configuration-class-units';
 import { getSelectOptions } from '@school-diary/school-diary/util-select-options';
@@ -18,7 +26,7 @@ export class ActionAssignmentComponent implements OnInit, OnDestroy {
   action = Action.CREATE;
   assignmentForm: FormGroup;
   classUnitsOptions: SelectOption[] = [];
-  selectedAssignment: Assignment;
+  selectedAssignment: SelectedAssignment;
   studentsOptions: SelectOption[] = [];
   titleTranslationKey = 'CONFIGURATION-ASSIGNMENTS.CREATOR-TITLE';
 
@@ -27,6 +35,7 @@ export class ActionAssignmentComponent implements OnInit, OnDestroy {
   readonly inputType = InputType;
 
   constructor(
+    private activatedRoute: ActivatedRoute,
     private assignmentsFacade: AssignmentsFacade,
     private classUnitsFacade: ClassUnitsFacade,
     private formBuilder: FormBuilder,
@@ -45,10 +54,6 @@ export class ActionAssignmentComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
-
-    if (this.selectedAssignment) {
-      this.assignmentsFacade.unselectAssignment();
-    }
   }
 
   executeAction(): void {
@@ -81,12 +86,12 @@ export class ActionAssignmentComponent implements OnInit, OnDestroy {
         filter(selectedAssignment => !!selectedAssignment),
         takeUntil(this.unsubscribe$)
       )
-      .subscribe((selectedAssignment: Assignment) => {
+      .subscribe((selectedAssignment: SelectedAssignment) => {
         this.action = Action.EDIT;
         this.selectedAssignment = selectedAssignment;
         this.titleTranslationKey = 'CONFIGURATION-ASSIGNMENTS.EDITOR-TITLE';
-
-        this.assignmentForm.patchValue(selectedAssignment);
+        this.assignmentForm.controls.classUnitId.setValue(selectedAssignment.class_unit_id);
+        this.assignmentForm.controls.studentId.setValue(selectedAssignment.user_id);
       });
   }
 

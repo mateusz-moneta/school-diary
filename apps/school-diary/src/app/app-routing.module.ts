@@ -23,7 +23,7 @@ const routes: Routes = [
       },
       {
         path: 'settings',
-        loadChildren: () => import('@school-diary/school-diary/feature-configuration').then(m => m.SchoolDiaryFeatureConfigurationModule)
+        loadChildren: () => import('@school-diary/school-diary/feature-settings').then(m => m.SchoolDiaryFeatureSettingsModule)
       },
       {
         path: '**',

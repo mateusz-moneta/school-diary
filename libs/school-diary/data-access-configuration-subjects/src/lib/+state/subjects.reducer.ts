@@ -17,6 +17,8 @@ export interface SubjectsState {
   deleteSubjectError: HttpErrorResponse;
   deleteSubjectInProgress: boolean;
   selectedSubject: Subject;
+  selectedSubjectLoadError: HttpErrorResponse;
+  selectedSubjectLoadInProgress: boolean;
   updatedSubject: Subject;
   updateSubjectError: HttpErrorResponse;
   updateSubjectInProgress: boolean;
@@ -37,6 +39,8 @@ export const initialState: SubjectsState = {
   deleteSubjectError: null,
   deleteSubjectInProgress: false,
   selectedSubject: null,
+  selectedSubjectLoadError: null,
+  selectedSubjectLoadInProgress: false,
   updatedSubject: null,
   updateSubjectError: null,
   updateSubjectInProgress: false
@@ -110,6 +114,32 @@ export function subjectsReducer(
       break;
     }
 
+    case fromSubjectsActions.Types.GetSubject: {
+      state = {
+        ...state,
+        selectedSubjectLoadInProgress: true
+      };
+      break;
+    }
+
+    case fromSubjectsActions.Types.GetSubjectFail: {
+      state = {
+        ...state,
+        selectedSubjectLoadError: action.payload.error,
+        selectedSubjectLoadInProgress: false
+      };
+      break;
+    }
+
+    case fromSubjectsActions.Types.GetSubjectSuccess: {
+      state = {
+        ...state,
+        selectedSubject: action.payload,
+        selectedSubjectLoadInProgress: false
+      };
+      break;
+    }
+
     case fromSubjectsActions.Types.GetSubjects: {
       state = {
         ...state,
@@ -133,23 +163,8 @@ export function subjectsReducer(
         subjects: {
           data: action.payload.data,
           recordsCount: action.payload.records_count
-        }
-      };
-      break;
-    }
-
-    case fromSubjectsActions.Types.SelectSubject: {
-      state = {
-        ...state,
-        selectedSubject: action.payload
-      };
-      break;
-    }
-
-    case fromSubjectsActions.Types.UnselectSubject: {
-      state = {
-        ...state,
-        selectedSubject: null
+        },
+        subjectsLoadInProgress: false
       };
       break;
     }

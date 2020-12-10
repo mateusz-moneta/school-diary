@@ -6,6 +6,8 @@ import { CreateClassUnitRequestPayload } from '../request-payloads/create-class-
 import { CreateClassUnitSuccessPayload } from '../payloads/create-class-unit-success.payload';
 import { DeleteClassUnitRequestPayload } from '../request-payloads/delete-class-unit.request-payload';
 import { DeleteClassUnitSuccessPayload } from '../payloads/delete-class-unit-success.payload';
+import { GetClassUnitRequestPayload } from '../request-payloads/get-class-unit.request-payload';
+import { GetClassUnitSuccessPayload } from '../payloads/get-class-unit-success.payload';
 import { GetClassUnitsRequestPayload } from '../request-payloads/get-class-units.request-payload';
 import { GetClassUnitsSuccessPayload } from '../payloads/get-class-units-success.payload';
 import { UpdateClassUnitRequestPayload } from '../request-payloads/update-class-unit.request-payload';
@@ -16,6 +18,7 @@ export class ClassUnitsApiService {
   readonly endpoints = {
     createClassUnit: '/api/configuration/class_units',
     deleteClassUnit: '/api/configuration/class_units',
+    getClassUnit: '/api/configuration/class_units',
     getClassUnits: '/api/configuration/class_units',
     updateClassUnit: '/api/configuration/class_units'
   };
@@ -28,6 +31,10 @@ export class ClassUnitsApiService {
 
   deleteClassUnit(requestPayload: DeleteClassUnitRequestPayload): Observable<DeleteClassUnitSuccessPayload> {
     return this.httpClient.delete<DeleteClassUnitSuccessPayload>(`${this.endpoints.deleteClassUnit}/${requestPayload.id}`);
+  }
+
+  getClassUnit(requestPayload: GetClassUnitRequestPayload): Observable<GetClassUnitSuccessPayload> {
+    return this.httpClient.get<GetClassUnitSuccessPayload>(`${this.endpoints.getClassUnit}/${requestPayload.id}`);
   }
 
   getClassUnits(requestPayload: GetClassUnitsRequestPayload): Observable<GetClassUnitsSuccessPayload> {

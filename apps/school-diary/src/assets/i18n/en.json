@@ -40,6 +40,7 @@
   },
   "CONFIGURATION-ASSIGNMENTS":{
     "CREATOR-TITLE":"Create a new assignment",
+    "EDITOR-TITLE":"Edit a new assignment",
     "TITLE":"Assignments"
   },
   "CONFIGURATION-CLASS-ROOMS":{
@@ -84,12 +85,14 @@
   },
   "SHARED":{
     "ACTIONS":"Actions",
+    "CANCEL":"Cancel",
     "CLASS-UNIT":"Class Unit",
     "CONNECTION-ERROR":"Backend API connection issue, please contact...",
     "CREATE":"Create",
     "CREATED-AT":"Created at",
     "EDIT":"Edit",
     "EMAIL":"E-mail",
+    "ENGLISH":"English",
     "ENTER-EMAIL":"Enter e-mail",
     "ENTER-NAME":"Enter name",
     "ENTER-PASSWORD":"Enter password",
@@ -100,6 +103,8 @@
     "OF":"Of",
     "PAGE":"Page",
     "PASSWORD":"Password",
+    "POLISH":"Polish",
+    "SAVE":"Save",
     "SHORT-NAME":"Short name",
     "SYSTEM-ADMINISTRATOR":"System administrator",
     "STUDENT":"Student",
@@ -116,7 +121,8 @@
   },
   "SETTINGS":{
     "LANGUAGE":"Language",
-    "SAVE":"Save"
+    "SAVE":"Save",
+    "TITLE":"Settings"
   },
   "VALIDATION":{
     "ENTER-VALID-EMAIL":"Please enter a valid email",

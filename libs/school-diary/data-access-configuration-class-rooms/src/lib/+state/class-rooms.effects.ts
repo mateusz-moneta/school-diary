@@ -11,6 +11,8 @@ import { CreateClassRoomSuccessPayload } from '../payloads/create-class-room-suc
 import { DeleteClassRoomFailPayload } from '../payloads/delete-class-room-fail.payload';
 import { DeleteClassRoomSuccessPayload } from '../payloads/delete-class-room-success.payload';
 import { fromClassRoomsActions } from './class-rooms.actions';
+import { GetClassRoomFailPayload } from '../payloads/get-class-room-fail.payload';
+import { GetClassRoomSuccessPayload } from '../payloads/get-class-room-success.payload';
 import { GetClassRoomsFailPayload } from '../payloads/get-class-rooms-fail.payload';
 import { GetClassRoomsSuccessPayload } from '../payloads/get-class-rooms-success.payload';
 import { UpdateClassRoomFailPayload } from '../payloads/update-class-room-fail.payload';
@@ -42,6 +44,17 @@ export class ClassRoomsEffects {
         ),
     onError: (action: fromClassRoomsActions.DeleteClassRoom, payload: DeleteClassRoomFailPayload) =>
       new fromClassRoomsActions.DeleteClassRoomFail(payload)
+  });
+
+  @Effect()
+  getClassRoom$ = this.dp.fetch(fromClassRoomsActions.Types.GetClassRoom, {
+    run: (action: fromClassRoomsActions.GetClassRoom) =>
+      this.classRoomsApiService.getClassRoom(action.payload)
+        .pipe(
+          map((payload: GetClassRoomSuccessPayload) => new fromClassRoomsActions.GetClassRoomSuccess(payload))
+        ),
+    onError: (action: fromClassRoomsActions.GetClassRoom, payload: GetClassRoomFailPayload) =>
+      new fromClassRoomsActions.GetClassRoomFail(payload)
   });
 
   @Effect()

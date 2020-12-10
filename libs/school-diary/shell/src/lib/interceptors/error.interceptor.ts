@@ -1,5 +1,6 @@
 import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { TranslateService } from '@ngx-translate/core';
 import { Observable, throwError } from 'rxjs';
@@ -10,12 +11,20 @@ import { HttpStatusCode } from '@school-diary/school-diary/domain';
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
 
-  constructor(private toastrService: ToastrService, private translateService: TranslateService) {}
+  constructor(
+    private router: Router,
+    private toastrService: ToastrService,
+    private translateService: TranslateService
+  ) {}
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(req).pipe(
       catchError((response: HttpErrorResponse) => {
         switch (response.status) {
+          case HttpStatusCode.NOT_FOUND:
+            this.router.navigate(['/404']);
+            break;
+
           case HttpStatusCode.INTERNAL_SERVER_ERROR:
             break;
 

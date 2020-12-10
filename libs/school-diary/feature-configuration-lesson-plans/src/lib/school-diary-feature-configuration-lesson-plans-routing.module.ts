@@ -2,6 +2,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 
 import { ActionLessonPlanComponent } from './containers/action-lesson-plan/action-lesson-plan.component';
+import { LessonPlanExistGuard } from './guards/lesson-plan-exist.guard';
 import { LessonPlansGuard } from './guards/lesson-plans.guard';
 import { LessonPlansListComponent } from './containers/lesson-plans-list/lesson-plans-list.component';
 
@@ -15,8 +16,9 @@ const routes: Routes = [
         component: LessonPlansListComponent
       },
       {
-        path: 'edit',
-        component: ActionLessonPlanComponent
+        path: 'edit/:id',
+        component: ActionLessonPlanComponent,
+        canActivate: [LessonPlanExistGuard]
       },
       {
         path: 'new',

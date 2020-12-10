@@ -22,12 +22,11 @@ export class ClassUnitsListComponent {
     this.classUnitsFacade.getClassUnits({ page: event.pageIndex, limit: event.pageSize });
   }
 
-  deleteSubject(id: number): void {
+  deleteClassUnit(id: number): void {
     this.classUnitsFacade.deleteClassUnit({ id });
   }
 
-  selectSubject(selectedClassUnit: ClassUnit) {
-    this.classUnitsFacade.selectClassUnit(selectedClassUnit);
-    this.router.navigate(['/configuration/class-units/edit']);
+  selectClassUnit(selectedClassUnit: ClassUnit) {
+    this.router.navigate(['/configuration/class-units/edit', selectedClassUnit.id]);
   }
 }

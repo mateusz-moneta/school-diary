@@ -18,19 +18,36 @@
       <div class="title">
         {{ 'SETTINGS.LANGUAGE' | translate }}
       </div>
-      <div>
-        <app-carousel (valueChange)="languageChange($event)">
-          <ng-container *ngFor="let language of languages">
-            <ng-container *schoolDiaryCarouselItem>
-              <div class="item">{{ language.titleTranslationKey | translate }}</div>
-            </ng-container>
+
+      <school-diary-carousel (valueChange)="languageChange($event)">
+        <ng-container *ngFor="let language of languages">
+          <ng-container *schoolDiaryCarouselItem>
+            <div class="item">{{ language.titleTranslationKey | translate }}</div>
           </ng-container>
-        </app-carousel>
-      </div>
+        </ng-container>
+      </school-diary-carousel>
     </mat-card-content>
 
     <mat-card-footer>
+      <div class="text-center">
+        <button
+          [routerLink]="'/dashboard'"
+          color="primary"
+          type="button"
+          mat-stroked-button
+        >
+          {{ 'SHARED.CANCEL' | translate }}
+        </button>
 
+        <button
+          (click)="save()"
+          color="primary"
+          type="button"
+          mat-stroked-button
+        >
+          {{ 'SHARED.SAVE' | translate }}
+        </button>
+      </div>
     </mat-card-footer>
   </mat-card>
 </div>

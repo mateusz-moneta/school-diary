@@ -6,6 +6,8 @@ import { CreateLessonPlanRequestPayload } from '../request-payloads/create-lesso
 import { CreateLessonPlanSuccessPayload } from '../payloads/create-lesson-plan-success.payload';
 import { DeleteLessonPlanRequestPayload } from '../request-payloads/delete-lesson-plan.request-payload';
 import { DeleteLessonPlanSuccessPayload } from '../payloads/delete-lesson-plan-success.payload';
+import { GetLessonPlanRequestPayload } from '../request-payloads/get-lesson-plan.request-payload';
+import { GetLessonPlanSuccessPayload } from '../payloads/get-lesson-plan-success.payload';
 import { GetLessonPlansRequestPayload } from '../request-payloads/get-lesson-plans.request-payload';
 import { GetLessonPlansSuccessPayload } from '../payloads/get-lesson-plans-success.payload';
 import { UpdateLessonPlanRequestPayload } from '../request-payloads/update-lesson-plan.request-payload';
@@ -16,6 +18,7 @@ export class LessonPlansApiService {
   readonly endpoints = {
     createLessonPlan: '/api/configuration/lesson_plans',
     deleteLessonPlan: '/api/configuration/lesson_plans',
+    getLessonPlan: '/api/configuration/lesson_plans',
     getLessonPlans: '/api/configuration/lesson_plans',
     updateLessonPlan: '/api/configuration/lesson_plans'
   };
@@ -28,6 +31,10 @@ export class LessonPlansApiService {
 
   deleteLessonPlan(requestPayload: DeleteLessonPlanRequestPayload): Observable<DeleteLessonPlanSuccessPayload> {
     return this.httpClient.delete<DeleteLessonPlanSuccessPayload>(`${this.endpoints.deleteLessonPlan}/${requestPayload.id}`);
+  }
+
+  getLessonPlan(requestPayload: GetLessonPlanRequestPayload): Observable<GetLessonPlanSuccessPayload> {
+    return this.httpClient.get<GetLessonPlanSuccessPayload>(`${this.endpoints.getLessonPlan}/${requestPayload.id}`);
   }
 
   getLessonPlans(requestPayload: GetLessonPlansRequestPayload): Observable<GetLessonPlansSuccessPayload> {

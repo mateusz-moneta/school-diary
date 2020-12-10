@@ -2,6 +2,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 
 import { ActionClassRoomComponent } from './containers/action-class-room/action-class-room.component';
+import { ClassRoomsExistGuard } from './guards/class-rooms-exist.guard';
 import { ClassRoomsGuard } from './guards/class-rooms.guard';
 import { ClassRoomsListComponent } from './containers/class-rooms-list/class-rooms-list.component';
 
@@ -15,8 +16,9 @@ const routes: Routes = [
         component: ClassRoomsListComponent
       },
       {
-        path: 'edit',
-        component: ActionClassRoomComponent
+        path: 'edit/:id',
+        component: ActionClassRoomComponent,
+        canActivate: [ClassRoomsExistGuard]
       },
       {
         path: 'new',

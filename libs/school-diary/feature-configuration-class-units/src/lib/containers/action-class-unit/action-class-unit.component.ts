@@ -5,9 +5,9 @@ import { filter, map, takeUntil } from 'rxjs/operators';
 
 import { Action, ClassUnit, InputType, SelectOption, User } from '@school-diary/school-diary/domain';
 import { ClassUnitsFacade } from '@school-diary/school-diary/data-access-configuration-class-units';
+import { getSelectOptions } from '@school-diary/school-diary/util-select-options';
 import { LanguageService } from '@school-diary/school-diary/shared';
 import { UsersFacade } from '@school-diary/school-diary/data-access-users';
-import { getSelectOptions } from '@school-diary/school-diary/util-select-options';
 
 @Component({
   selector: 'school-diary-action-class-unit',
@@ -40,10 +40,6 @@ export class ActionClassUnitComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
-
-    if (this.selectedClassUnit) {
-      this.classUnitsFacade.unselectClassUnit();
-    }
   }
 
   executeAction(): void {

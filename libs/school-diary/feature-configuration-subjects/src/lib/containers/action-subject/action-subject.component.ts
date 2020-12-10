@@ -33,10 +33,6 @@ export class ActionSubjectComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
-
-    if (this.selectedSubject) {
-      this.subjectsFacade.unselectSubject();
-    }
   }
 
   executeAction(): void {
