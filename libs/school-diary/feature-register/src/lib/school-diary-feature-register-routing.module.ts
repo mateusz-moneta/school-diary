@@ -6,9 +6,9 @@ import { RegisterGuard } from './guards/register.guard';
 
 const routes: Routes = [
   {
-    canActivate: [RegisterGuard],
     path: '',
-    component: RegisterComponent
+    component: RegisterComponent,
+    canActivate: [RegisterGuard]
   }
 ];
 

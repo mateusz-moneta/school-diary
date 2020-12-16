@@ -6,6 +6,8 @@ import { ClassUnitsFacade } from '@school-diary/school-diary/data-access-configu
 import { ClassRoomsFacade } from '@school-diary/school-diary/data-access-configuration-class-rooms';
 import { LessonHoursFacade } from '@school-diary/school-diary/data-access-configuration-lesson-hours';
 import { SubjectsFacade } from '@school-diary/school-diary/data-access-configuration-subjects';
+import { TranslationsFacade } from '@school-diary/school-diary/data-access-translations';
+import { TranslationsScope } from '@school-diary/school-diary/domain';
 import { UsersFacade } from '@school-diary/school-diary/data-access-users';
 
 @Injectable()
@@ -17,6 +19,7 @@ export class LessonPlansGuard implements CanActivate {
     private lessonHoursFacade: LessonHoursFacade,
     private lessonPlansFacade: LessonPlansFacade,
     private subjectsFacade: SubjectsFacade,
+    private translationsFacade: TranslationsFacade,
     private usersFacade: UsersFacade
   ) {}
 
@@ -26,6 +29,7 @@ export class LessonPlansGuard implements CanActivate {
     this.lessonHoursFacade.getLessonHours();
     this.lessonPlansFacade.getLessonPlans();
     this.subjectsFacade.getSubjects();
+    this.translationsFacade.getTranslationsGroup({ translationsScope: TranslationsScope.CONFIGURATION_LESSON_PLANS });
     this.usersFacade.getTeachers();
     return true;
   }

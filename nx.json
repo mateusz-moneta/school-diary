@@ -86,6 +86,9 @@
     "school-diary-data-access-settings": {
       "tags": ["platform:web", "scope:school-diary", "type:data-access"]
     },
+    "school-diary-data-access-translations": {
+      "tags": ["platform:web", "scope:school-diary", "type:data-access"]
+    },
     "school-diary-data-access-users": {
       "tags": ["platform:web", "scope:school-diary", "type:data-access"]
     },

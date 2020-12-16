@@ -1,10 +1,11 @@
-import { SidenavItem } from '@school-diary/school-diary/domain';
+import { SidenavItem, UserType } from '@school-diary/school-diary/domain';
 
 export const sidenavConfig: SidenavItem[] = [
   {
     title: 'CONFIGURATION.TITLE',
     colorSaturation: '600',
     expanded: true,
+    allowedUserTypes: [UserType.SYSTEM_ADMINISTRATOR],
     children: [
       {
         title: 'CONFIGURATION.ASSIGNMENTS',
@@ -31,6 +32,12 @@ export const sidenavConfig: SidenavItem[] = [
         path: '/configuration/subjects'
       }
     ]
+  },
+  {
+    title: 'LESSON-PLAN.TITLE',
+    colorSaturation: '600',
+    path: '/lesson-plan',
+    allowedUserTypes: [UserType.LEGAL_GUARDIAN, UserType.STUDENT, UserType.TEACHER]
   },
   {
     title: 'SETTINGS.TITLE',

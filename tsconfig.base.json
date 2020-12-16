@@ -73,6 +73,9 @@
       "@school-diary/school-diary/data-access-settings": [
         "libs/school-diary/data-access-settings/src/index.ts"
       ],
+      "@school-diary/school-diary/data-access-translations": [
+        "libs/school-diary/data-access-translations/src/index.ts"
+      ],
       "@school-diary/school-diary/data-access-users": [
         "libs/school-diary/data-access-users/src/index.ts"
       ],

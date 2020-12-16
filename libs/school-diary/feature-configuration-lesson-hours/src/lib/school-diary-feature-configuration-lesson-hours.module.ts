@@ -10,7 +10,6 @@ import { ActionLessonHourComponent } from './containers/action-lesson-hour/actio
 import { LessonHourExistGuard } from './guards/lesson-hour-exist.guard';
 import { LessonHoursGuard } from './guards/lesson-hours.guard';
 import { LessonHoursListComponent } from './containers/lesson-hours-list/lesson-hours-list.component';
-import { SchoolDiaryDataAccessConfigurationLessonHoursModule } from '@school-diary/school-diary/data-access-configuration-lesson-hours';
 import { SchoolDiaryDomainModule } from '@school-diary/school-diary/domain';
 import { SchoolDiaryFeatureConfigurationLessonHoursRoutingModule } from './school-diary-feature-configuration-lesson-hours-routing.module';
 import { SchoolDiaryUiSingleControlModule } from '@school-diary/school-diary/ui-single-control';
@@ -24,7 +23,6 @@ import { SchoolDiaryUiPaginatorModule } from '@school-diary/school-diary/ui-pagi
     MatCardModule,
     MatIconModule,
     MatTableModule,
-    SchoolDiaryDataAccessConfigurationLessonHoursModule,
     SchoolDiaryDomainModule,
     SchoolDiaryFeatureConfigurationLessonHoursRoutingModule,
     SchoolDiaryUiSingleControlModule,

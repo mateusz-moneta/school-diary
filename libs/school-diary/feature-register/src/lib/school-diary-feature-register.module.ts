@@ -8,7 +8,6 @@ import { MatCardModule } from '@angular/material/card';
 import { RegisterComponent } from './containers/register/register.component';
 import { RegisterGuard } from './guards/register.guard';
 import { SchoolDiaryDataAccessUserRegistrationModule } from '@school-diary/school-diary/data-access-user-registration';
-import { SchoolDiaryDataAccessUserSessionModule } from '@school-diary/school-diary/data-access-user-session';
 import { SchoolDiaryFeatureRegisterRoutingModule } from './school-diary-feature-register-routing.module';
 import { SchoolDiarySharedModule } from '@school-diary/school-diary/shared';
 import { SchoolDiaryUiSingleControlModule } from '@school-diary/school-diary/ui-single-control';
@@ -20,7 +19,6 @@ import { SchoolDiaryUiSingleControlModule } from '@school-diary/school-diary/ui-
     MatButtonModule,
     MatCardModule,
     SchoolDiaryDataAccessUserRegistrationModule,
-    SchoolDiaryDataAccessUserSessionModule,
     SchoolDiaryFeatureRegisterRoutingModule,
     SchoolDiarySharedModule,
     SchoolDiaryUiSingleControlModule,

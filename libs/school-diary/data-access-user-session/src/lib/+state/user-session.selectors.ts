@@ -20,6 +20,11 @@ const getLoginUserInProgress = createSelector(
   state => state.loginUserInProgress
 );
 
+const getLoginUserType = createSelector(
+  getUserSessionState,
+  state => state.loginUser.type
+);
+
 const isLoginUser = createSelector(
   getUserSessionState,
   state => !!state.loginUser
@@ -32,6 +37,7 @@ const isLogoutUser = createSelector(
 
 export const userSessionQuery = {
   getLoginUser,
+  getLoginUserType,
   getLoginUserInProgress,
   getToken,
   isLoginUser,

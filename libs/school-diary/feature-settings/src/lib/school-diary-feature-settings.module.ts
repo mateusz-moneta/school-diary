@@ -6,10 +6,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 
-import { SchoolDiaryDataAccessSettingsModule } from '@school-diary/school-diary/data-access-settings';
 import { SchoolDiaryFeatureSettingsRoutingModule } from './school-diary-feature-settings-routing.module';
 import { SchoolDiaryUiCarouselModule } from '@school-diary/school-diary/ui-carousel';
 import { SettingsComponent } from './containers/settings/settings.component';
+import { SettingsGuard } from './guards/settings.guard';
 
 @NgModule({
   declarations: [SettingsComponent],
@@ -19,10 +19,10 @@ import { SettingsComponent } from './containers/settings/settings.component';
     MatCardModule,
     MatIconModule,
     RouterModule,
-    SchoolDiaryDataAccessSettingsModule,
     SchoolDiaryFeatureSettingsRoutingModule,
     SchoolDiaryUiCarouselModule,
     TranslateModule.forChild()
-  ]
+  ],
+  providers: [SettingsGuard]
 })
 export class SchoolDiaryFeatureSettingsModule {}

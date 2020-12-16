@@ -10,12 +10,7 @@ import { ActionLessonPlanComponent } from './containers/action-lesson-plan/actio
 import { LessonPlanExistGuard } from './guards/lesson-plan-exist.guard';
 import { LessonPlansGuard } from './guards/lesson-plans.guard';
 import { LessonPlansListComponent } from './containers/lesson-plans-list/lesson-plans-list.component';
-import { SchoolDiaryDataAccessConfigurationClassRoomsModule } from '@school-diary/school-diary/data-access-configuration-class-rooms';
-import { SchoolDiaryDataAccessConfigurationClassUnitsModule } from '@school-diary/school-diary/data-access-configuration-class-units';
-import { SchoolDiaryDataAccessConfigurationLessonHoursModule } from '@school-diary/school-diary/data-access-configuration-lesson-hours';
 import { SchoolDiaryDataAccessConfigurationLessonPlansModule } from '@school-diary/school-diary/data-access-configuration-lesson-plans';
-import { SchoolDiaryDataAccessConfigurationSubjectsModule } from '@school-diary/school-diary/data-access-configuration-subjects';
-import { SchoolDiaryDataAccessUsersModule } from '@school-diary/school-diary/data-access-users';
 import { SchoolDiaryDomainModule } from '@school-diary/school-diary/domain';
 import { SchoolDiaryFeatureConfigurationLessonPlansRoutingModule } from './school-diary-feature-configuration-lesson-plans-routing.module';
 import { SchoolDiaryUiPaginatorModule } from '@school-diary/school-diary/ui-paginator';
@@ -29,12 +24,7 @@ import { SchoolDiaryUiSingleControlModule } from '@school-diary/school-diary/ui-
     MatCardModule,
     MatIconModule,
     MatTableModule,
-    SchoolDiaryDataAccessConfigurationClassRoomsModule,
-    SchoolDiaryDataAccessConfigurationClassUnitsModule,
-    SchoolDiaryDataAccessConfigurationLessonHoursModule,
     SchoolDiaryDataAccessConfigurationLessonPlansModule,
-    SchoolDiaryDataAccessConfigurationSubjectsModule,
-    SchoolDiaryDataAccessUsersModule,
     SchoolDiaryDomainModule,
     SchoolDiaryFeatureConfigurationLessonPlansRoutingModule,
     SchoolDiaryUiPaginatorModule,

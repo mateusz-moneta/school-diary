@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 
-import { sidenavConfig } from '@school-diary/school-diary/config';
+import { SidenavItem } from '@school-diary/school-diary/domain';
 
 @Component({
   selector: 'school-diary-sidenav',
@@ -8,7 +8,5 @@ import { sidenavConfig } from '@school-diary/school-diary/config';
   styleUrls: ['./sidenav.component.scss']
 })
 export class SidenavComponent {
-  @Input() open = false;
-
-  navigation = sidenavConfig;
+  @Input() navigation: SidenavItem[] = [];
 }

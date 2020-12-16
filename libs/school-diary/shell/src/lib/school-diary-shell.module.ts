@@ -6,12 +6,17 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { ErrorInterceptor } from './interceptors/error.interceptor';
 import { httpLoaderFactory } from '@school-diary/school-diary/util-http-loader-factory';
+import { MainGuard } from './guards/main.guard';
+import { SchoolDiaryDataAccessSettingsModule } from '@school-diary/school-diary/data-access-settings';
+import { SchoolDiaryDataAccessTranslationsModule } from '@school-diary/school-diary/data-access-translations';
 import { SchoolDiaryDataAccessUserSessionModule } from '@school-diary/school-diary/data-access-user-session';
 import { SchoolDiarySharedModule } from '@school-diary/school-diary/shared';
 
 @NgModule({
   imports: [
     CommonModule,
+    SchoolDiaryDataAccessSettingsModule,
+    SchoolDiaryDataAccessTranslationsModule,
     SchoolDiaryDataAccessUserSessionModule,
     SchoolDiarySharedModule,
     TranslateModule.forRoot({
@@ -23,6 +28,7 @@ import { SchoolDiarySharedModule } from '@school-diary/school-diary/shared';
     }),
   ],
   providers: [
+    MainGuard,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,

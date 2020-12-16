@@ -11,7 +11,7 @@ import { SettingsFacade } from './+state/settings.facade';
 @NgModule({
   imports: [
     CommonModule,
-    StoreModule.forFeature(fromSettings.SETTINGS_FEATURE_KEY, localStorageSync({ keys: ['language', 'sidenavOpened'], rehydrate: true })(fromSettings.settingsReducer)),
+    StoreModule.forFeature(fromSettings.SETTINGS_FEATURE_KEY, localStorageSync({ keys: ['language', 'sidenavOpened'], rehydrate: true })(fromSettings.settingsReducer), { initialState: fromSettings.initialState }),
     EffectsModule.forFeature([SettingsEffects])
   ],
   providers: [SettingsFacade]

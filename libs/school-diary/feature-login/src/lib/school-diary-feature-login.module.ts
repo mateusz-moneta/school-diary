@@ -7,7 +7,6 @@ import { TranslateModule } from '@ngx-translate/core';
 
 import { LoginComponent } from './containers/login/login.component';
 import { LoginGuard } from './guards/login.guard';
-import { SchoolDiaryDataAccessUserSessionModule } from '@school-diary/school-diary/data-access-user-session';
 import { SchoolDiaryFeatureLoginRoutingModule } from './school-diary-feature-login-routing.module';
 import { SchoolDiarySharedModule } from '@school-diary/school-diary/shared';
 import { SchoolDiaryUiSingleControlModule } from '@school-diary/school-diary/ui-single-control';
@@ -19,7 +18,6 @@ import { SchoolDiaryUiSingleControlModule } from '@school-diary/school-diary/ui-
     FormsModule,
     MatButtonModule,
     MatCardModule,
-    SchoolDiaryDataAccessUserSessionModule,
     SchoolDiaryFeatureLoginRoutingModule,
     SchoolDiarySharedModule,
     SchoolDiaryUiSingleControlModule,

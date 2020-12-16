@@ -8,7 +8,6 @@ import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 
 import { ActionSubjectComponent } from './containers/action-subject/action-subject.component';
-import { SchoolDiaryDataAccessConfigurationSubjectsModule } from '@school-diary/school-diary/data-access-configuration-subjects';
 import { SchoolDiaryDomainModule } from '@school-diary/school-diary/domain';
 import { SchoolDiaryFeatureConfigurationSubjectsRoutingModule } from './school-diary-feature-configuration-subjects-routing.module';
 import { SchoolDiaryUiPaginatorModule } from '@school-diary/school-diary/ui-paginator';
@@ -26,7 +25,6 @@ import { SubjectListComponent } from './containers/subject-list/subject-list.com
     MatIconModule,
     MatTableModule,
     RouterModule,
-    SchoolDiaryDataAccessConfigurationSubjectsModule,
     SchoolDiaryDomainModule,
     SchoolDiaryFeatureConfigurationSubjectsRoutingModule,
     SchoolDiaryUiSingleControlModule,

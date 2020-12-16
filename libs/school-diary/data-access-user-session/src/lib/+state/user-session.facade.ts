@@ -9,6 +9,7 @@ import { userSessionQuery } from './user-session.selectors';
 @Injectable()
 export class UserSessionFacade {
   getLoginUser$ = this.store.pipe(select(userSessionQuery.getLoginUser));
+  getLoginUserType$ = this.store.pipe(select(userSessionQuery.getLoginUserType));
   getLoginUserInProgress$ = this.store.pipe(select(userSessionQuery.getLoginUserInProgress));
   getToken$ = this.store.pipe(select(userSessionQuery.getToken));
   isLoginUser$ = this.store.pipe(select(userSessionQuery.isLoginUser));

@@ -9,8 +9,6 @@ import { TranslateModule } from '@ngx-translate/core';
 
 import { DashboardGuard } from './guards/dashboard.guard';
 import { DashboardComponent } from './containers/dashboard/dashboard.component';
-import { SchoolDiaryDataAccessSettingsModule } from '@school-diary/school-diary/data-access-settings';
-import { SchoolDiaryDataAccessUserSessionModule } from '@school-diary/school-diary/data-access-user-session';
 import { SchoolDiaryFeatureDashboardRoutingModule } from './school-diary-feature-dashboard-routing.module';
 import { SchoolDiarySharedModule } from '@school-diary/school-diary/shared';
 import { SchoolDiaryUiSidenavModule } from '@school-diary/school-diary/ui-sidenav';
@@ -26,8 +24,6 @@ import { PanelCardComponent } from './components/panel-card/panel-card.component
     MatIconModule,
     MatListModule,
     MatSidenavModule,
-    SchoolDiaryDataAccessSettingsModule,
-    SchoolDiaryDataAccessUserSessionModule,
     SchoolDiaryFeatureDashboardRoutingModule,
     SchoolDiarySharedModule,
     SchoolDiaryUiSidenavModule,
